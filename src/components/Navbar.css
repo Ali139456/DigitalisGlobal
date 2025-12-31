@@ -443,6 +443,34 @@
   opacity: 1 !important;
 }
 
+@media (max-width: 768px) {
+  .mobile-services-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #f1f5f9 !important;
+  }
+  
+  .mobile-services-menu li {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .mobile-service-link {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #1e293b !important;
+  }
+  
+  .mobile-service-icon {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
 .mobile-services-menu li {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: block !important;
@@ -602,14 +630,16 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #ffffff;
+    background: #ffffff !important;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     padding: 5rem 2rem 2rem;
     gap: 0;
-    z-index: 9999;
+    z-index: 99999 !important;
     overflow-y: auto;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .navbar-menu-right.active {
@@ -622,6 +652,9 @@
     width: 100%;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .navbar-item .navbar-link {
@@ -629,6 +662,15 @@
     opacity: 1 !important;
     visibility: visible !important;
     font-weight: 500;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .navbar-menu-left.active .navbar-item,
+  .navbar-menu-right.active .navbar-item {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .navbar-item.has-dropdown {
@@ -677,12 +719,21 @@
 
   .navbar-link {
     font-size: 1.1rem;
-    display: block;
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
     color: #1e293b !important;
     opacity: 1 !important;
     visibility: visible !important;
     font-weight: 500;
+    padding: 0.75rem 0 !important;
+  }
+
+  .navbar-menu-left.active .navbar-link,
+  .navbar-menu-right.active .navbar-link {
+    color: #1e293b !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .navbar-icons {
