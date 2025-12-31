@@ -1,0 +1,76 @@
+
+---Downloaded files---
+The import files for: Hivency Demo Data were successfully downloaded!
+Initial max execution time = 120
+Files info:
+Site URL = https://shamir.digitalisglobal.com
+Data file = /home/u893290327/domains/digitalisglobal.com/public_html/shamir/wp-content/uploads/2023/12/demo-content-import-file_2023-12-07__09-28-12.xml
+Widget file = /home/u893290327/domains/digitalisglobal.com/public_html/shamir/wp-content/uploads/2023/12/demo-widgets-import-file_2023-12-07__09-28-12.json
+Customizer file = /home/u893290327/domains/digitalisglobal.com/public_html/shamir/wp-content/uploads/2023/12/demo-customizer-import-file_2023-12-07__09-28-12.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Right Sidebar : 
+
+Search - Search - Imported
+Sidebar Latest Posts - Latest Posts - Imported
+Categories - Categories - Imported
+hivency Tags List - Tags - Imported
+hivency Social Profile - Social Profiles - Imported
+
+Footer Widget Style 1 : About Us : 
+
+About Info - No Title - Imported
+
+Footer Widget Style 1 : Links : 
+
+Navigation Menu - Pages - Imported
+
+Footer Widget Style 1 : Links : 
+
+Navigation Menu - Company - Imported
+
+Footer Widget Style 1 : Latest Posts : 
+
+Latest Posts in  Footer - Recent Posts - Imported
+
+Footer Widget Style 1 : Instagram : 
+
+hivency Contact Info Widget - Contact Info - Imported
+
+Footer Widget Style 2 : About Us : 
+
+About Info - No Title - Imported
+
+Footer Widget Style 2 : Links : 
+
+Navigation Menu - Pages - Imported
+
+Footer Widget Style 2 : Links : 
+
+Navigation Menu - Company - Imported
+
+Footer Widget Style 2 : Subscribe : 
+
+Hivency Subscriber - Subscribe Newsletter - Imported
+
+
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---ocdi/after_import---
+
