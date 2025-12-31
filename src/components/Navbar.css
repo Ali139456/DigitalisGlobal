@@ -461,7 +461,12 @@
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    color: #1e293b !important;
+    color: #000000 !important;
+    font-weight: 500;
+  }
+
+  .mobile-service-link span {
+    color: #000000 !important;
   }
   
   .mobile-service-icon {
@@ -640,6 +645,7 @@
     overflow-y: auto;
     visibility: visible !important;
     opacity: 1 !important;
+    color: #000000 !important;
   }
 
   .navbar-menu-right.active {
@@ -658,10 +664,10 @@
   }
 
   .navbar-item .navbar-link {
-    color: #1e293b !important;
+    color: #000000 !important;
     opacity: 1 !important;
     visibility: visible !important;
-    font-weight: 500;
+    font-weight: 600;
     display: block !important;
     width: 100% !important;
   }
@@ -671,6 +677,12 @@
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    color: #000000 !important;
+  }
+
+  .navbar-menu-left.active .navbar-item *,
+  .navbar-menu-right.active .navbar-item * {
+    color: #000000 !important;
   }
 
   .navbar-item.has-dropdown {
@@ -721,19 +733,28 @@
     font-size: 1.1rem;
     display: block !important;
     width: 100% !important;
-    color: #1e293b !important;
+    color: #000000 !important;
     opacity: 1 !important;
     visibility: visible !important;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.75rem 0 !important;
   }
 
   .navbar-menu-left.active .navbar-link,
   .navbar-menu-right.active .navbar-link {
-    color: #1e293b !important;
+    color: #000000 !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+  }
+
+  .navbar-menu-left.active a,
+  .navbar-menu-right.active a {
+    color: #000000 !important;
+  }
+
+  .dropdown-indicator {
+    color: #000000 !important;
   }
 
   .navbar-icons {
