@@ -355,6 +355,24 @@ const Navbar = () => {
                 )}
               </li>
             ))}
+            {/* Add right menu items to left menu on mobile */}
+            {mobileMenuOpen && rightNavItems.map((item, index) => (
+              <li 
+                key={`right-${index}`} 
+                className="navbar-item mobile-right-item"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Link 
+                  to={item.href} 
+                  className="navbar-link"
+                >
+                  {item.name}
+                  {item.hasDropdown && (
+                    <span className="dropdown-indicator">▼</span>
+                  )}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
