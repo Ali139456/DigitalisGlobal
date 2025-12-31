@@ -126,13 +126,22 @@ const Navbar = () => {
                     setMegaMenuTimeout(timeout)
                   }
                 }}
-                onClick={() => {
-                  if (item.name === 'Services' && window.innerWidth <= 768) {
-                    setMobileServicesOpen(!mobileServicesOpen)
-                  } else if (item.name === 'About' && window.innerWidth <= 768) {
-                    setMobileAboutOpen(!mobileAboutOpen)
+                onClick={(e) => {
+                  // On mobile, prevent navigation for dropdown items
+                  if (window.innerWidth <= 768) {
+                    if (item.name === 'Services') {
+                      e.preventDefault()
+                      setMobileServicesOpen(!mobileServicesOpen)
+                    } else if (item.name === 'About') {
+                      e.preventDefault()
+                      setMobileAboutOpen(!mobileAboutOpen)
+                    } else {
+                      setMobileMenuOpen(false)
+                    }
                   } else {
-                    setMobileMenuOpen(false)
+                    if (item.name !== 'Services' && item.name !== 'About') {
+                      setMobileMenuOpen(false)
+                    }
                   }
                 }}
               >
@@ -140,6 +149,11 @@ const Navbar = () => {
                   <Link 
                     to="/" 
                     className="navbar-link"
+                    onClick={() => {
+                      if (window.innerWidth <= 768) {
+                        setMobileMenuOpen(false)
+                      }
+                    }}
                   >
                     {item.name}
                     {item.hasDropdown && (
@@ -150,9 +164,17 @@ const Navbar = () => {
                   <Link 
                     to={item.href}
                     className="navbar-link"
-                    onClick={() => {
-                      if (item.name !== 'Services') {
-                        setMobileMenuOpen(false)
+                    onClick={(e) => {
+                      if (window.innerWidth <= 768) {
+                        if (item.name === 'Services' || item.name === 'About') {
+                          e.preventDefault()
+                        } else {
+                          setMobileMenuOpen(false)
+                        }
+                      } else {
+                        if (item.name !== 'Services' && item.name !== 'About') {
+                          setMobileMenuOpen(false)
+                        }
                       }
                     }}
                   >
@@ -166,12 +188,25 @@ const Navbar = () => {
                     href={isHomePage ? item.href : `/${item.href}`}
                     className="navbar-link"
                     onClick={(e) => {
-                      if (!isHomePage && item.href.startsWith('#')) {
-                        e.preventDefault()
-                        navigate('/' + item.href)
-                      }
-                      if (item.name !== 'Services') {
-                        setMobileMenuOpen(false)
+                      // On mobile, prevent navigation for About/Services
+                      if (window.innerWidth <= 768) {
+                        if (item.name === 'About' || item.name === 'Services') {
+                          e.preventDefault()
+                        } else {
+                          if (!isHomePage && item.href.startsWith('#')) {
+                            e.preventDefault()
+                            navigate('/' + item.href)
+                          }
+                          setMobileMenuOpen(false)
+                        }
+                      } else {
+                        if (!isHomePage && item.href.startsWith('#')) {
+                          e.preventDefault()
+                          navigate('/' + item.href)
+                        }
+                        if (item.name !== 'Services' && item.name !== 'About') {
+                          setMobileMenuOpen(false)
+                        }
                       }
                     }}
                   >
@@ -185,8 +220,9 @@ const Navbar = () => {
                 {/* Mega Menu for About */}
                 {item.name === 'About' && (
                   <>
+                    {/* Desktop Mega Menu - hidden on mobile */}
                     <div 
-                      className={`mega-menu ${aboutMenuOpen ? 'active' : ''} ${mobileAboutOpen ? 'mobile-active' : ''}`}
+                      className={`mega-menu ${aboutMenuOpen ? 'active' : ''} desktop-only`}
                       onMouseEnter={() => {
                         if (megaMenuTimeout) {
                           clearTimeout(megaMenuTimeout)
@@ -231,7 +267,7 @@ const Navbar = () => {
                     </div>
                     {aboutMenuOpen && (
                       <div 
-                        className="mega-menu-bridge" 
+                        className="mega-menu-bridge desktop-only" 
                         onMouseEnter={() => {
                           if (megaMenuTimeout) {
                             clearTimeout(megaMenuTimeout)
@@ -248,7 +284,7 @@ const Navbar = () => {
                       />
                     )}
                     
-                    {/* Mobile About Submenu */}
+                    {/* Mobile About Submenu - only show on mobile */}
                     {mobileAboutOpen && (
                       <ul className="mobile-services-menu">
                         <li>
@@ -272,8 +308,9 @@ const Navbar = () => {
                 {/* Mega Menu for Services */}
                 {item.name === 'Services' && (
                   <>
+                    {/* Desktop Mega Menu - hidden on mobile */}
                     <div 
-                      className={`mega-menu ${servicesMenuOpen ? 'active' : ''} ${mobileServicesOpen ? 'mobile-active' : ''}`}
+                      className={`mega-menu ${servicesMenuOpen ? 'active' : ''} desktop-only`}
                       onMouseEnter={() => {
                         if (megaMenuTimeout) {
                           clearTimeout(megaMenuTimeout)
@@ -331,7 +368,7 @@ const Navbar = () => {
                       </div>
                     </div>
                     
-                    {/* Mobile Services Submenu */}
+                    {/* Mobile Services Submenu - only show on mobile */}
                     {mobileServicesOpen && (
                       <ul className="mobile-services-menu">
                         {services.map((service, idx) => (
