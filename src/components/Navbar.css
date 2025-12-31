@@ -546,6 +546,17 @@
   flex-shrink: 0;
 }
 
+/* Desktop-only elements - show on desktop, hide on mobile */
+.desktop-only {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
 /* Mobile Styles */
 @media (max-width: 1024px) {
   .mega-menu {
