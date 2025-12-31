@@ -15,6 +15,18 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    background: rgba(15, 23, 42, 0.98) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  .navbar.is-home {
+    background: rgba(15, 23, 42, 0.98) !important;
+  }
+}
+
 .navbar-line {
   position: absolute;
   bottom: 0;
@@ -493,18 +505,36 @@
 
 @media (max-width: 768px) {
   .navbar {
-    background: rgba(15, 23, 42, 0.95) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(15, 23, 42, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    padding: 1rem 0 !important;
+    z-index: 10000 !important;
+  }
+
+  .navbar.is-home {
+    background: rgba(15, 23, 42, 0.98) !important;
   }
 
   .navbar-container {
     padding: 0 1.5rem;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .navbar-left {
     gap: 1rem;
     flex: 1;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .navbar-right {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .navbar-logo {
@@ -520,15 +550,24 @@
   }
 
   .navbar-toggle {
-    display: block !important;
-    color: #ffffff;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
     visibility: visible !important;
     opacity: 1 !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
   }
 
   .hamburger {
     display: flex !important;
     visibility: visible !important;
+    opacity: 1 !important;
+    width: 24px !important;
+    height: 18px !important;
   }
 
   .hamburger span {
@@ -536,6 +575,8 @@
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    width: 100% !important;
+    height: 2px !important;
   }
 
   .navbar-left {
