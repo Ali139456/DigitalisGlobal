@@ -108,15 +108,19 @@ const Hero = () => {
                   animate={inView ? { scale: 1, rotate: 0 } : {}}
                   transition={{ delay: index * 0.2 + 0.7, type: "spring", stiffness: 200, damping: 15 }}
                 >
-                  {inView && (
-                    <CountUp
-                      start={0}
-                      end={stat.value}
-                      duration={2}
-                      delay={index * 0.2}
-                      suffix={stat.suffix}
-                    />
-                  )}
+                  <span>
+                    {inView ? (
+                      <CountUp
+                        start={0}
+                        end={stat.value}
+                        duration={2}
+                        delay={index * 0.2}
+                        suffix={stat.suffix}
+                      />
+                    ) : (
+                      `0${stat.suffix}`
+                    )}
+                  </span>
                 </motion.div>
                 <div className="stat-label">{stat.label}</div>
               </motion.div>

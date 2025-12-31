@@ -135,17 +135,21 @@ const WhyChooseUs = () => {
                   damping: 15
                 }}
               >
-                {inView && (
-                  <CountUp
-                    start={0}
-                    end={stat.value}
-                    duration={2.5}
-                    delay={index * 0.2}
-                    suffix={stat.suffix}
-                    enableScrollSpy
-                    scrollSpyOnce
-                  />
-                )}
+                <span>
+                  {inView ? (
+                    <CountUp
+                      start={0}
+                      end={stat.value}
+                      duration={2.5}
+                      delay={index * 0.2}
+                      suffix={stat.suffix}
+                      enableScrollSpy
+                      scrollSpyOnce
+                    />
+                  ) : (
+                    `0${stat.suffix}`
+                  )}
+                </span>
               </motion.div>
               <p className="text-sm md:text-base text-slate-600 font-medium">
                 {stat.label}
