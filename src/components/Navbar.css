@@ -504,16 +504,22 @@
 }
 
 @media (max-width: 768px) {
-  .navbar {
+  .navbar,
+  .navbar.is-home,
+  .navbar.scrolled {
     background: rgba(15, 23, 42, 0.98) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     padding: 1rem 0 !important;
-    z-index: 10000 !important;
-  }
-
-  .navbar.is-home {
-    background: rgba(15, 23, 42, 0.98) !important;
+    z-index: 99999 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .navbar-container {
