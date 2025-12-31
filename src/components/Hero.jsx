@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
@@ -9,6 +9,30 @@ const Hero = () => {
     triggerOnce: true,
     threshold: 0.5,
   })
+
+  const [videoLoaded, setVideoLoaded] = useState(false)
+  const [videoError, setVideoError] = useState(false)
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    // Delay video loading slightly to prioritize page content
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.load()
+      }
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleVideoLoaded = () => {
+    setVideoLoaded(true)
+  }
+
+  const handleVideoError = () => {
+    setVideoError(true)
+    setVideoLoaded(true) // Show content even if video fails
+  }
 
   const handleScrollClick = () => {
     const servicesSection = document.getElementById('services')
@@ -26,15 +50,27 @@ const Hero = () => {
   return (
     <section id="home" className="hero">
       <div className="hero-video-container">
-        <video
-          className="hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/7021935_Up_Looking_1920x1080.mp4" type="video/mp4" />
-        </video>
+        {!videoError && (
+          <video
+            ref={videoRef}
+            className={`hero-video ${videoLoaded ? 'loaded' : 'loading'}`}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            onLoadedData={handleVideoLoaded}
+            onCanPlay={handleVideoLoaded}
+            onError={handleVideoError}
+          >
+            <source src="/7021935_Up_Looking_1920x1080.mp4" type="video/mp4" />
+          </video>
+        )}
+        {!videoLoaded && !videoError && (
+          <div className="hero-video-placeholder">
+            <div className="video-loading-spinner"></div>
+          </div>
+        )}
         <div className="hero-overlay"></div>
       </div>
       
