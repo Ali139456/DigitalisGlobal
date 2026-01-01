@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [direction, setDirection] = useState(0) // -1 for left, 1 for right
 
   const testimonials = [
     {
@@ -79,24 +78,16 @@ const Testimonials = () => {
   ]
 
   const nextTestimonial = () => {
-    setDirection(1) // Moving right
     setCurrentIndex((prev) => (prev + 1) % testimonials.length)
   }
 
   const prevTestimonial = () => {
-    setDirection(-1) // Moving left
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
-
-  const goToTestimonial = (index) => {
-    setDirection(index > currentIndex ? 1 : -1)
-    setCurrentIndex(index)
   }
 
   // Auto-rotate testimonials
   useEffect(() => {
     const interval = setInterval(() => {
-      setDirection(1) // Auto-rotate always goes forward
       setCurrentIndex((prev) => (prev + 1) % testimonials.length)
     }, 5000)
     return () => clearInterval(interval)
@@ -162,28 +153,15 @@ const Testimonials = () => {
 
         {/* Testimonial Carousel - 3 Column Layout */}
         <div className="relative max-w-7xl mx-auto">
-          {/* Slider Container */}
-          <div className="relative overflow-hidden">
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center"
-              animate={{
-                x: 0,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 30
-              }}
-            >
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
             {/* Left Testimonial - Small */}
-            <AnimatePresence mode="sync" custom={direction}>
+            <AnimatePresence mode="wait">
               <motion.div
                 key={getLeftIndex()}
-                custom={direction}
-                initial={{ opacity: 0, x: direction === 1 ? -150 : 150, scale: 0.85 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction === 1 ? 150 : -150, scale: 0.85 }}
-                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
+                transition={{ duration: 0.4 }}
                 className="hidden md:block bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 md:col-span-3"
               >
                 <div className="flex items-center gap-1 mb-3">
@@ -222,14 +200,13 @@ const Testimonials = () => {
             </AnimatePresence>
 
             {/* Center Testimonial - Large */}
-            <AnimatePresence mode="sync" custom={direction}>
+            <AnimatePresence mode="wait">
               <motion.div
                 key={getCenterIndex()}
-                custom={direction}
-                initial={{ opacity: 0, x: direction === 1 ? 400 : -400, scale: 0.85 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction === 1 ? -400 : 400, scale: 0.85 }}
-                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.4 }}
                 className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-slate-200 md:col-span-6"
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
@@ -273,14 +250,13 @@ const Testimonials = () => {
             </AnimatePresence>
 
             {/* Right Testimonial - Small */}
-            <AnimatePresence mode="sync" custom={direction}>
+            <AnimatePresence mode="wait">
               <motion.div
                 key={getRightIndex()}
-                custom={direction}
-                initial={{ opacity: 0, x: direction === 1 ? 150 : -150, scale: 0.85 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction === 1 ? -150 : 150, scale: 0.85 }}
-                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.4 }}
                 className="hidden md:block bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 md:col-span-3"
               >
                 <div className="flex items-center gap-1 mb-3">
@@ -317,66 +293,44 @@ const Testimonials = () => {
                 </div>
               </motion.div>
             </AnimatePresence>
-            </motion.div>
           </div>
 
-          {/* Navigation Arrows - Enhanced Slider Controls */}
+          {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-slate-200 shadow-xl flex items-center justify-center text-slate-600 hover:text-white hover:bg-teal-600 hover:border-teal-600 transition-all hover:scale-110 active:scale-95 z-10 group"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:text-teal-600 hover:border-teal-300 transition-all z-10"
             aria-label="Previous testimonial"
           >
-            <svg className="w-6 h-6 group-hover:translate-x-[-2px] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-slate-200 shadow-xl flex items-center justify-center text-slate-600 hover:text-white hover:bg-teal-600 hover:border-teal-600 transition-all hover:scale-110 active:scale-95 z-10 group"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:text-teal-600 hover:border-teal-300 transition-all z-10"
             aria-label="Next testimonial"
           >
-            <svg className="w-6 h-6 group-hover:translate-x-[2px] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
 
-        {/* Dots Indicator - Enhanced Slider Dots */}
-        <motion.div
-          className="flex items-center justify-center gap-2 mt-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-        >
+        {/* Dots Indicator */}
+        <div className="flex items-center justify-center gap-2 mt-8">
           {testimonials.map((_, index) => (
-            <motion.button
+            <button
               key={index}
-              variants={itemVariants}
-              onClick={() => goToTestimonial(index)}
-              className={`relative rounded-full transition-all duration-300 ${
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
                 index === currentIndex
-                  ? 'bg-teal-600 w-10 h-3'
-                  : 'bg-slate-300 hover:bg-slate-400 w-3 h-3'
+                  ? 'bg-teal-600 w-8'
+                  : 'bg-slate-300 hover:bg-slate-400'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {index === currentIndex && (
-                <motion.div
-                  className="absolute inset-0 bg-teal-600 rounded-full"
-                  layoutId="activeDot"
-                  transition={{
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 30
-                  }}
-                />
-              )}
-            </motion.button>
+            />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
