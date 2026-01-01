@@ -79,7 +79,7 @@ const Navbar = () => {
         <div className="navbar-left">
           <Link to="/" className="navbar-logo">
             <img 
-              src="/Digitlais-Logo-White (1).png" 
+              src="/Digitlais-Logo-White%20(1).png" 
               alt="Digitalis Global Logo" 
               className="h-6 sm:h-8 w-auto logo-image"
               onError={(e) => {

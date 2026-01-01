@@ -106,7 +106,7 @@ const Footer = () => {
           <motion.div className="lg:col-span-2" variants={itemVariants}>
             <Link to="/" className="inline-block mb-6">
               <img 
-                src="/Digitlais-Logo-White (1).png" 
+                src="/Digitlais-Logo-White%20(1).png" 
                 alt="Digitalis Global Logo" 
                 className="h-8 sm:h-10 w-auto"
                 onError={(e) => {
