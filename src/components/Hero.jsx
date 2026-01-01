@@ -76,20 +76,11 @@ const Hero = () => {
       
       <div className="hero-content">
         <div className="hero-container">
-          <motion.div
-            className="hero-badge"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span>Innovation Meets Excellence</span>
-          </motion.div>
-          
           <motion.h1
             className="hero-title"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             Building Digital
             <span className="gradient-text"> Experiences</span>
@@ -101,7 +92,7 @@ const Hero = () => {
             className="hero-description"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             We craft cutting-edge web applications, mobile solutions, and digital platforms 
             that drive growth and elevate your brand in the digital landscape.
@@ -111,7 +102,7 @@ const Hero = () => {
             className="hero-cta"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.button
               className="btn btn-primary"
@@ -171,7 +162,7 @@ const Hero = () => {
         aria-label="Scroll to services"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
