@@ -35,8 +35,8 @@ const ServiceDetail = () => {
     'GraphQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
     'SQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
     'WordPress': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg',
-    'Shopify': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/shopify/shopify-original.svg',
-    'WooCommerce': 'https://woocommerce.com/wp-content/themes/woo/images/woocommerce-logo.svg',
+    'Shopify': 'https://cdn.simpleicons.org/shopify/96BF48',
+    'WooCommerce': 'https://cdn.simpleicons.org/woocommerce/96588A',
     'Liquid': 'https://cdn.simpleicons.org/liquid/4B9BF5',
     'HTML5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     'CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
@@ -68,10 +68,11 @@ const ServiceDetail = () => {
     'Final Cut Pro': 'https://www.apple.com/final-cut-pro/favicon.ico',
     'DaVinci Resolve': 'https://www.blackmagicdesign.com/favicon.ico',
     'Motion': 'https://www.apple.com/motion/favicon.ico',
-    'Magento': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/magento/magento-original.svg',
+    'Magento': 'https://cdn.simpleicons.org/magento/EE672F',
     'Stripe': 'https://cdn.simpleicons.org/stripe/635BFF',
     'PayPal': 'https://cdn.simpleicons.org/paypal/00457C',
     'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+    'Canva Pro': 'https://cdn.simpleicons.org/canva/00C4CC',
   }
 
   const servicesData = {
