@@ -812,6 +812,24 @@
     box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1) !important;
   }
 
+  /* Make hamburger button visible and accessible when menu is open */
+  .navbar-menu-right.active ~ .navbar-toggle,
+  .navbar-menu-left.active ~ .navbar-toggle {
+    position: fixed !important;
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    z-index: 1000002 !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-radius: 50% !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  .navbar-menu-right.active ~ .navbar-toggle .hamburger span,
+  .navbar-menu-left.active ~ .navbar-toggle .hamburger span {
+    background: #000000 !important;
+  }
+
   .navbar-menu-left.active > li,
   .navbar-menu-right.active > li {
     display: block !important;
