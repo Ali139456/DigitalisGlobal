@@ -19,8 +19,6 @@ const services = [
   { title: "SEO", icon: "🔎" },
   { title: "UI/UX Design", icon: "🧠" },
   { title: "Video Editing", icon: "🎬" },
-  { title: "Artificial Intelligence", icon: "🤖" },
-  { title: "AR/VR", icon: "🕶️" },
 ].map(service => ({
   ...service,
   slug: generateSlug(service.title)
