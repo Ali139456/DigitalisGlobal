@@ -7,6 +7,8 @@ const Pricing = () => {
   const webPackages = [
     {
       name: 'Startup Website Package',
+      icon: '🚀',
+      gradient: 'from-blue-500 to-cyan-500',
       features: [
         'Up to 3 Page Website',
         'Up to 5 Stock Images (Industry Specific)',
@@ -20,6 +22,8 @@ const Pricing = () => {
     },
     {
       name: 'Professional Website Package',
+      icon: '💼',
+      gradient: 'from-teal-500 to-emerald-500',
       features: [
         'Up to 10 Unique Pages Website',
         'CMS (Content Management System)/Admin Panel',
@@ -31,6 +35,8 @@ const Pricing = () => {
     },
     {
       name: 'Elite Website Package',
+      icon: '⭐',
+      gradient: 'from-purple-500 to-pink-500',
       features: [
         'Up to 15 Custom Pages Website',
         'Mobile Responsive',
@@ -45,6 +51,8 @@ const Pricing = () => {
   const ecommercePackages = [
     {
       name: 'Basic E-Commerce Package',
+      icon: '🛒',
+      gradient: 'from-orange-500 to-red-500',
       features: [
         '5 -8 Product Upload for stores',
         'Responsive Website (Desktop, Tab, and Mobile Compatible)',
@@ -57,6 +65,8 @@ const Pricing = () => {
     },
     {
       name: 'Premium E-Commerce Package',
+      icon: '💎',
+      gradient: 'from-indigo-500 to-purple-500',
       features: [
         'Everything in Basic Package+',
         'Upto 15 Products Store',
@@ -71,6 +81,8 @@ const Pricing = () => {
     },
     {
       name: 'Advance E-Commerce Package',
+      icon: '👑',
+      gradient: 'from-amber-500 to-yellow-500',
       features: [
         'Everything in Basic/Premium Package+',
         'Upto 100 Product Store',
@@ -87,6 +99,8 @@ const Pricing = () => {
   const graphicDesigningPackages = [
     {
       name: 'General Graphic Designing',
+      icon: '🎨',
+      gradient: 'from-pink-500 to-rose-500',
       features: [
         '2 Initial Design Concepts',
         '2 Rounds of Revisions',
@@ -95,6 +109,8 @@ const Pricing = () => {
     },
     {
       name: 'Logo Designing',
+      icon: '✨',
+      gradient: 'from-violet-500 to-purple-500',
       features: [
         'Announced After Meeting 3 Initial Design Concepts',
         '2 Rounds of Revisions',
@@ -104,6 +120,8 @@ const Pricing = () => {
     },
     {
       name: 'Illustration',
+      icon: '🖌️',
+      gradient: 'from-cyan-500 to-blue-500',
       features: [
         '1 Initial Design Concept',
         '3 Rounds of Revisions',
@@ -136,7 +154,7 @@ const Pricing = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
       <motion.section
         className="relative bg-gradient-to-br from-slate-50 via-teal-50/30 to-white py-20 overflow-hidden pt-32"
@@ -172,18 +190,28 @@ const Pricing = () => {
       </motion.section>
 
       {/* Web Packages */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
+      <section className="relative py-20 bg-gradient-to-br from-white via-blue-50/30 to-white overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-100/20 rounded-full blur-3xl" />
+        
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-block mb-4">
+              <span className="text-4xl">🌐</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Web Packages
             </h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              Professional website solutions tailored to your business needs
+            </p>
           </motion.div>
 
           <motion.div
@@ -197,22 +225,37 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
               >
-                <div className="p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6">
+                {/* Gradient Top Border */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
+                
+                {/* Icon Badge */}
+                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center text-3xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300">
+                  {pkg.icon}
+                </div>
+
+                <div className="p-8 pt-12">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
                     {pkg.name}
                   </h3>
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-4 mb-8">
                     {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <motion.li 
+                        key={idx} 
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.05 }}
+                      >
+                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-md">
+                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </span>
-                        <span className="text-slate-600 text-sm md:text-base">{feature}</span>
-                      </li>
+                        <span className="text-slate-700 text-sm md:text-base leading-relaxed">{feature}</span>
+                      </motion.li>
                     ))}
                   </ul>
                   <Link
@@ -220,15 +263,19 @@ const Pricing = () => {
                     className="block w-full"
                   >
                     <motion.button
-                      className="w-full px-6 py-3 rounded-lg font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300 relative overflow-hidden group"
+                      className={`w-full px-6 py-4 rounded-xl font-semibold bg-gradient-to-r ${pkg.gradient} text-white hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className="block group-hover:hidden">Get A Quote</span>
-                      <span className="hidden group-hover:block">Contact Us</span>
+                      <span className="relative z-10 block group-hover/btn:hidden">Get A Quote</span>
+                      <span className="relative z-10 hidden group-hover/btn:block">Contact Us</span>
+                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     </motion.button>
                   </Link>
                 </div>
+
+                {/* Decorative Corner */}
+                <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl ${pkg.gradient} opacity-5 rounded-tl-full`} />
               </motion.div>
             ))}
           </motion.div>
@@ -236,18 +283,28 @@ const Pricing = () => {
       </section>
 
       {/* E-Commerce Packages */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
+      <section className="relative py-20 bg-gradient-to-br from-slate-50 via-orange-50/20 to-white overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-orange-100/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-100/20 rounded-full blur-3xl" />
+        
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-block mb-4">
+              <span className="text-4xl">🛍️</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               E-Commerce
             </h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              Powerful online store solutions to grow your business
+            </p>
           </motion.div>
 
           <motion.div
@@ -261,22 +318,37 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
               >
-                <div className="p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6">
+                {/* Gradient Top Border */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
+                
+                {/* Icon Badge */}
+                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center text-3xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300">
+                  {pkg.icon}
+                </div>
+
+                <div className="p-8 pt-12">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
                     {pkg.name}
                   </h3>
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-4 mb-8">
                     {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <motion.li 
+                        key={idx} 
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.05 }}
+                      >
+                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-md">
+                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </span>
-                        <span className="text-slate-600 text-sm md:text-base">{feature}</span>
-                      </li>
+                        <span className="text-slate-700 text-sm md:text-base leading-relaxed">{feature}</span>
+                      </motion.li>
                     ))}
                   </ul>
                   <Link
@@ -284,15 +356,19 @@ const Pricing = () => {
                     className="block w-full"
                   >
                     <motion.button
-                      className="w-full px-6 py-3 rounded-lg font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300 relative overflow-hidden group"
+                      className={`w-full px-6 py-4 rounded-xl font-semibold bg-gradient-to-r ${pkg.gradient} text-white hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className="block group-hover:hidden">Get A Quote</span>
-                      <span className="hidden group-hover:block">Contact Us</span>
+                      <span className="relative z-10 block group-hover/btn:hidden">Get A Quote</span>
+                      <span className="relative z-10 hidden group-hover/btn:block">Contact Us</span>
+                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     </motion.button>
                   </Link>
                 </div>
+
+                {/* Decorative Corner */}
+                <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl ${pkg.gradient} opacity-5 rounded-tl-full`} />
               </motion.div>
             ))}
           </motion.div>
@@ -300,18 +376,28 @@ const Pricing = () => {
       </section>
 
       {/* Graphic Designing Packages */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
+      <section className="relative py-20 bg-gradient-to-br from-white via-pink-50/30 to-white overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-pink-100/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl" />
+        
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-block mb-4">
+              <span className="text-4xl">🎨</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Graphic Designing
             </h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              Creative design solutions to elevate your brand
+            </p>
           </motion.div>
 
           <motion.div
@@ -325,22 +411,37 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
               >
-                <div className="p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6">
+                {/* Gradient Top Border */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
+                
+                {/* Icon Badge */}
+                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center text-3xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300">
+                  {pkg.icon}
+                </div>
+
+                <div className="p-8 pt-12">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
                     {pkg.name}
                   </h3>
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-4 mb-8">
                     {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <motion.li 
+                        key={idx} 
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.05 }}
+                      >
+                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-md">
+                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </span>
-                        <span className="text-slate-600 text-sm md:text-base">{feature}</span>
-                      </li>
+                        <span className="text-slate-700 text-sm md:text-base leading-relaxed">{feature}</span>
+                      </motion.li>
                     ))}
                   </ul>
                   <Link
@@ -348,15 +449,19 @@ const Pricing = () => {
                     className="block w-full"
                   >
                     <motion.button
-                      className="w-full px-6 py-3 rounded-lg font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300 relative overflow-hidden group"
+                      className={`w-full px-6 py-4 rounded-xl font-semibold bg-gradient-to-r ${pkg.gradient} text-white hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className="block group-hover:hidden">Get A Quote</span>
-                      <span className="hidden group-hover:block">Contact Us</span>
+                      <span className="relative z-10 block group-hover/btn:hidden">Get A Quote</span>
+                      <span className="relative z-10 hidden group-hover/btn:block">Contact Us</span>
+                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     </motion.button>
                   </Link>
                 </div>
+
+                {/* Decorative Corner */}
+                <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl ${pkg.gradient} opacity-5 rounded-tl-full`} />
               </motion.div>
             ))}
           </motion.div>
