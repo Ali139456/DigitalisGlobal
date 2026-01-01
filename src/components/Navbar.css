@@ -699,20 +699,24 @@
   }
 
   /* Custom scrollbar for mobile menu */
-  .navbar-menu-left.active::-webkit-scrollbar {
+  .navbar-menu-left.active::-webkit-scrollbar,
+  .navbar-menu-right.active::-webkit-scrollbar {
     width: 6px;
   }
 
-  .navbar-menu-left.active::-webkit-scrollbar-track {
+  .navbar-menu-left.active::-webkit-scrollbar-track,
+  .navbar-menu-right.active::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  .navbar-menu-left.active::-webkit-scrollbar-thumb {
+  .navbar-menu-left.active::-webkit-scrollbar-thumb,
+  .navbar-menu-right.active::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
   }
 
-  .navbar-menu-left.active::-webkit-scrollbar-thumb:hover {
+  .navbar-menu-left.active::-webkit-scrollbar-thumb:hover,
+  .navbar-menu-right.active::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.3);
   }
 
