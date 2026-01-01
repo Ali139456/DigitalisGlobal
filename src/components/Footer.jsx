@@ -192,12 +192,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.portfolio.map((item, index) => (
                 <li key={index}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="text-slate-600 hover:text-teal-600 transition-colors text-sm"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
