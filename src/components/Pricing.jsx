@@ -206,7 +206,11 @@ const Pricing = () => {
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <span className="text-teal-600 mt-1 flex-shrink-0">•</span>
+                        <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
                         <span className="text-slate-600 text-sm md:text-base">{feature}</span>
                       </li>
                     ))}
@@ -266,7 +270,11 @@ const Pricing = () => {
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <span className="text-teal-600 mt-1 flex-shrink-0">•</span>
+                        <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
                         <span className="text-slate-600 text-sm md:text-base">{feature}</span>
                       </li>
                     ))}
@@ -326,7 +334,11 @@ const Pricing = () => {
                   <ul className="space-y-3 mb-8">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <span className="text-teal-600 mt-1 flex-shrink-0">•</span>
+                        <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
                         <span className="text-slate-600 text-sm md:text-base">{feature}</span>
                       </li>
                     ))}
