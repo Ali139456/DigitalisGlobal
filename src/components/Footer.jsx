@@ -8,7 +8,7 @@ const Footer = () => {
   const footerLinks = {
     links: [
       { name: 'Home', href: '/' },
-      { name: 'About', href: '/#about' },
+      { name: 'About', href: '/about/about-us' },
       { name: 'Portfolio', href: '/portfolio' },
       { name: 'Pricing', href: '/pricing' },
       { name: 'Contact', href: '/contact' },
@@ -22,10 +22,10 @@ const Footer = () => {
       { name: 'UI/UX Design', href: '/service/ui-ux-design' },
     ],
     portfolio: [
-      { name: 'WordPress', href: '#portfolio' },
-      { name: 'Shopify', href: '#portfolio' },
-      { name: 'Graphic Designing', href: '#portfolio' },
-      { name: 'Other', href: '#portfolio' },
+      { name: 'WordPress', href: '/portfolio/wordpress' },
+      { name: 'Shopify', href: '/portfolio/shopify' },
+      { name: 'Graphic Designing', href: '/portfolio/graphic-designing' },
+      { name: 'Squarespace / Wix', href: '/portfolio/squarespace-wix' },
     ],
   }
 
