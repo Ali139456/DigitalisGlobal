@@ -174,18 +174,17 @@ export default function FeaturedServices() {
     },
   };
 
-  // Arrange cards for 2,2,2,2 layout across 4 columns
-  // With CSS columns, cards flow vertically. We need specific heights to achieve the pattern:
-  // Col1: 2 cards (0, 4) | Col2: 2 cards (1, 5) | Col3: 2 cards (2, 6) | Col4: 2 cards (3, 7)
+  // Arrange cards for 2,3,3 layout across 3 columns
+  // Col1: 2 cards (0, 4) | Col2: 3 cards (1, 5, 7) | Col3: 3 cards (2, 6, 3)
   const orderedServices = [
     services[0], // Col 1, card 1
     services[1], // Col 2, card 1
     services[2], // Col 3, card 1
-    services[3], // Col 4, card 1
+    services[3], // Col 3, card 3
     services[4], // Col 1, card 2
     services[5], // Col 2, card 2
     services[6], // Col 3, card 2
-    services[7], // Col 4, card 2
+    services[7], // Col 2, card 3
   ];
 
   return (
@@ -200,7 +199,7 @@ export default function FeaturedServices() {
             >
               {/* Left copy - positioned at top left */}
               <motion.div
-                className="lg:col-span-4 text-center lg:text-left"
+                className="lg:col-span-5 text-center lg:text-left"
                 variants={leftContentVariants}
               >
             <motion.p
@@ -264,8 +263,8 @@ export default function FeaturedServices() {
             </motion.div>
           </motion.div>
 
-              {/* Right masonry grid - 4 columns with 2,3,2,3 pattern */}
-              <div className="lg:col-span-8">
+              {/* Right masonry grid - 3 columns with 2,3,3 pattern */}
+              <div className="lg:col-span-7">
                 <div
                   id="services"
                   className="hidden lg:flex flex-col sm:flex-row gap-4"
@@ -280,7 +279,7 @@ export default function FeaturedServices() {
                     </motion.div>
                   </div>
                   
-                  {/* Column 2: 2 cards */}
+                  {/* Column 2: 3 cards */}
                   <div className="flex-1 flex flex-col gap-4">
                     <motion.div variants={cardVariants}>
                       <ServiceCard item={services[1]} idx={1} />
@@ -288,9 +287,12 @@ export default function FeaturedServices() {
                     <motion.div variants={cardVariants}>
                       <ServiceCard item={services[5]} idx={5} />
                     </motion.div>
+                    <motion.div variants={cardVariants}>
+                      <ServiceCard item={services[7]} idx={7} />
+                    </motion.div>
                   </div>
                   
-                  {/* Column 3: 2 cards */}
+                  {/* Column 3: 3 cards */}
                   <div className="flex-1 flex flex-col gap-4">
                     <motion.div variants={cardVariants}>
                       <ServiceCard item={services[2]} idx={2} />
@@ -298,15 +300,8 @@ export default function FeaturedServices() {
                     <motion.div variants={cardVariants}>
                       <ServiceCard item={services[6]} idx={6} />
                     </motion.div>
-                  </div>
-                  
-                  {/* Column 4: 2 cards */}
-                  <div className="flex-1 flex flex-col gap-4">
                     <motion.div variants={cardVariants}>
                       <ServiceCard item={services[3]} idx={3} />
-                    </motion.div>
-                    <motion.div variants={cardVariants}>
-                      <ServiceCard item={services[7]} idx={7} />
                     </motion.div>
                   </div>
                 </div>
