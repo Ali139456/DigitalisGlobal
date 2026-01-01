@@ -106,67 +106,6 @@ const Navbar = () => {
               <li 
                 key={index} 
                 className={`navbar-item ${item.hasDropdown ? 'has-dropdown' : ''}`}
-                onMouseEnter={(e) => {
-                  // Only trigger for items with dropdowns (Services or About)
-                  // Make sure we're actually hovering over this specific item
-                  if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
-                    // Check if the mouse is actually on this item, not a child
-                    const target = e.currentTarget
-                    const relatedTarget = e.relatedTarget
-                    
-                    // Only proceed if we're entering this specific item
-                    if (target && (!relatedTarget || !target.contains(relatedTarget))) {
-                      if (megaMenuTimeout) {
-                        clearTimeout(megaMenuTimeout)
-                        setMegaMenuTimeout(null)
-                      }
-                      if (item.menuType === 'services') {
-                        // Close About menu if Services is opening
-                        setAboutMenuOpen(false)
-                        setServicesMenuOpen(true)
-                      } else if (item.menuType === 'about') {
-                        // Close Services menu if About is opening
-                        setServicesMenuOpen(false)
-                        setAboutMenuOpen(true)
-                      }
-                    }
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  // Only close if not moving to the mega menu and only for dropdown items
-                  if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
-                    if (e.relatedTarget && e.relatedTarget instanceof Element) {
-                      const isMovingToMegaMenu = e.relatedTarget.closest('.mega-menu') || 
-                                                  e.relatedTarget.closest('.mega-menu-bridge')
-                      if (!isMovingToMegaMenu) {
-                        if (item.menuType === 'services') {
-                          const timeout = setTimeout(() => {
-                            setServicesMenuOpen(false)
-                          }, 200)
-                          setMegaMenuTimeout(timeout)
-                        } else if (item.menuType === 'about') {
-                          const timeout = setTimeout(() => {
-                            setAboutMenuOpen(false)
-                          }, 200)
-                          setMegaMenuTimeout(timeout)
-                        }
-                      }
-                    } else {
-                      // If relatedTarget is null, close the menu
-                      if (item.menuType === 'services') {
-                        const timeout = setTimeout(() => {
-                          setServicesMenuOpen(false)
-                        }, 200)
-                        setMegaMenuTimeout(timeout)
-                      } else if (item.menuType === 'about') {
-                        const timeout = setTimeout(() => {
-                          setAboutMenuOpen(false)
-                        }, 200)
-                        setMegaMenuTimeout(timeout)
-                      }
-                    }
-                  }
-                }}
                 onClick={(e) => {
                   // On mobile, prevent navigation for dropdown items
                   if (window.innerWidth <= 768) {
@@ -190,6 +129,45 @@ const Navbar = () => {
                   <Link 
                     to={item.href}
                     className="navbar-link"
+                    onMouseEnter={(e) => {
+                      // Only open mega menu when hovering directly over the link
+                      if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
+                        if (megaMenuTimeout) {
+                          clearTimeout(megaMenuTimeout)
+                          setMegaMenuTimeout(null)
+                        }
+                        if (item.menuType === 'services') {
+                          setAboutMenuOpen(false)
+                          setServicesMenuOpen(true)
+                        } else if (item.menuType === 'about') {
+                          setServicesMenuOpen(false)
+                          setAboutMenuOpen(true)
+                        }
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      // Only handle if not moving to mega menu
+                      if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
+                        if (e.relatedTarget && e.relatedTarget instanceof Element) {
+                          const isMovingToMegaMenu = e.relatedTarget.closest('.mega-menu') || 
+                                                      e.relatedTarget.closest('.mega-menu-bridge') ||
+                                                      e.relatedTarget.closest('.navbar-item')
+                          if (!isMovingToMegaMenu) {
+                            if (item.menuType === 'services') {
+                              const timeout = setTimeout(() => {
+                                setServicesMenuOpen(false)
+                              }, 200)
+                              setMegaMenuTimeout(timeout)
+                            } else if (item.menuType === 'about') {
+                              const timeout = setTimeout(() => {
+                                setAboutMenuOpen(false)
+                              }, 200)
+                              setMegaMenuTimeout(timeout)
+                            }
+                          }
+                        }
+                      }
+                    }}
                     onClick={(e) => {
                       if (window.innerWidth <= 768) {
                         if (item.name === 'Services' || item.name === 'About') {
@@ -213,6 +191,45 @@ const Navbar = () => {
                   <a 
                     href={isHomePage ? item.href : `/${item.href}`}
                     className="navbar-link"
+                    onMouseEnter={(e) => {
+                      // Only open mega menu when hovering directly over the link
+                      if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
+                        if (megaMenuTimeout) {
+                          clearTimeout(megaMenuTimeout)
+                          setMegaMenuTimeout(null)
+                        }
+                        if (item.menuType === 'services') {
+                          setAboutMenuOpen(false)
+                          setServicesMenuOpen(true)
+                        } else if (item.menuType === 'about') {
+                          setServicesMenuOpen(false)
+                          setAboutMenuOpen(true)
+                        }
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      // Only handle if not moving to mega menu
+                      if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
+                        if (e.relatedTarget && e.relatedTarget instanceof Element) {
+                          const isMovingToMegaMenu = e.relatedTarget.closest('.mega-menu') || 
+                                                      e.relatedTarget.closest('.mega-menu-bridge') ||
+                                                      e.relatedTarget.closest('.navbar-item')
+                          if (!isMovingToMegaMenu) {
+                            if (item.menuType === 'services') {
+                              const timeout = setTimeout(() => {
+                                setServicesMenuOpen(false)
+                              }, 200)
+                              setMegaMenuTimeout(timeout)
+                            } else if (item.menuType === 'about') {
+                              const timeout = setTimeout(() => {
+                                setAboutMenuOpen(false)
+                              }, 200)
+                              setMegaMenuTimeout(timeout)
+                            }
+                          }
+                        }
+                      }
+                    }}
                     onClick={(e) => {
                       // On mobile, prevent navigation for About/Services
                       if (window.innerWidth <= 768) {
