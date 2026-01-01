@@ -71,7 +71,7 @@ function ServiceCard({ item, idx }) {
       className={[
         "group relative block w-full overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm",
         "transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500",
-        "min-h-[320px] lg:min-h-[320px]",
+        "min-h-[260px] lg:min-h-[260px]",
       ].join(" ")}
     >
       {/* Background image */}
