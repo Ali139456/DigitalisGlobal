@@ -231,8 +231,8 @@ const Pricing = () => {
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
                 
                 {/* Icon Badge */}
-                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center text-3xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300">
-                  {pkg.icon}
+                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-10">
+                  <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
                 <div className="p-8 pt-12">
@@ -324,8 +324,8 @@ const Pricing = () => {
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
                 
                 {/* Icon Badge */}
-                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center text-3xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300">
-                  {pkg.icon}
+                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-10">
+                  <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
                 <div className="p-8 pt-12">
@@ -417,8 +417,8 @@ const Pricing = () => {
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
                 
                 {/* Icon Badge */}
-                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center text-3xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300">
-                  {pkg.icon}
+                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-10">
+                  <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
                 <div className="p-8 pt-12">
