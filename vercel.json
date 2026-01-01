@@ -38,7 +38,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|webp|mp4|woff|woff2|ttf|eot)).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
