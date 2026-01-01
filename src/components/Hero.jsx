@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 import './Hero.css'
@@ -104,20 +105,24 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <motion.button
-              className="btn btn-primary"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start Your Project
-            </motion.button>
-            <motion.button
-              className="btn btn-secondary"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Our Work
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                className="btn btn-primary"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Start Your Project
+              </motion.button>
+            </Link>
+            <Link to="/portfolio">
+              <motion.button
+                className="btn btn-secondary"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Our Work
+              </motion.button>
+            </Link>
           </motion.div>
           
           <div ref={ref} className="hero-stats">
