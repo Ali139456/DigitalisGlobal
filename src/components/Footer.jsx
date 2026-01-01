@@ -7,7 +7,6 @@ const Footer = () => {
 
   const footerLinks = {
     links: [
-      { name: 'Home', href: '/' },
       { name: 'About', href: '/about/about-us' },
       { name: 'Portfolio', href: '/portfolio' },
       { name: 'Pricing', href: '/pricing' },

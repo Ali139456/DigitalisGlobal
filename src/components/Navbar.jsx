@@ -60,7 +60,6 @@ const Navbar = () => {
   }, [mobileMenuOpen])
 
   const leftNavItems = [
-    { name: 'Home', href: '/', hasDropdown: false },
     { name: 'About', href: '#about', hasDropdown: true, menuType: 'about' },
     { name: 'Services', href: '#services', hasDropdown: true, menuType: 'services' },
     { name: 'Portfolio', href: '/portfolio', hasDropdown: false },
@@ -167,22 +166,7 @@ const Navbar = () => {
                   }
                 }}
               >
-                {item.name === 'Home' ? (
-                  <Link 
-                    to="/" 
-                    className="navbar-link"
-                    onClick={() => {
-                      if (window.innerWidth <= 768) {
-                        setMobileMenuOpen(false)
-                      }
-                    }}
-                  >
-                    {item.name}
-                    {item.hasDropdown && (
-                      <span className="dropdown-indicator">▼</span>
-                    )}
-                  </Link>
-                ) : item.href.startsWith('/') ? (
+                {item.href.startsWith('/') ? (
                   <Link 
                     to={item.href}
                     className="navbar-link"
