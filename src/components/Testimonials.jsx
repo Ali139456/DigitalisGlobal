@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(0) // -1 for left, 1 for right
 
   const testimonials = [
     {
@@ -78,16 +79,24 @@ const Testimonials = () => {
   ]
 
   const nextTestimonial = () => {
+    setDirection(1) // Moving right
     setCurrentIndex((prev) => (prev + 1) % testimonials.length)
   }
 
   const prevTestimonial = () => {
+    setDirection(-1) // Moving left
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
+  const goToTestimonial = (index) => {
+    setDirection(index > currentIndex ? 1 : -1)
+    setCurrentIndex(index)
   }
 
   // Auto-rotate testimonials
   useEffect(() => {
     const interval = setInterval(() => {
+      setDirection(1) // Auto-rotate always goes forward
       setCurrentIndex((prev) => (prev + 1) % testimonials.length)
     }, 5000)
     return () => clearInterval(interval)
@@ -167,13 +176,14 @@ const Testimonials = () => {
               }}
             >
             {/* Left Testimonial - Small */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={getLeftIndex()}
-                initial={{ opacity: 0, x: -20, scale: 0.9 }}
+                custom={direction}
+                initial={{ opacity: 0, x: direction === 1 ? -100 : 100, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -20, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, x: direction === 1 ? -100 : 100, scale: 0.9 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="hidden md:block bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 md:col-span-3"
               >
                 <div className="flex items-center gap-1 mb-3">
@@ -212,13 +222,14 @@ const Testimonials = () => {
             </AnimatePresence>
 
             {/* Center Testimonial - Large */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={getCenterIndex()}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
+                custom={direction}
+                initial={{ opacity: 0, x: direction === 1 ? 300 : -300, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: direction === 1 ? -300 : 300, scale: 0.9 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-slate-200 md:col-span-6"
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
@@ -262,13 +273,14 @@ const Testimonials = () => {
             </AnimatePresence>
 
             {/* Right Testimonial - Small */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={getRightIndex()}
-                initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                custom={direction}
+                initial={{ opacity: 0, x: direction === 1 ? 100 : -100, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, x: direction === 1 ? 100 : -100, scale: 0.9 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="hidden md:block bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 md:col-span-3"
               >
                 <div className="flex items-center gap-1 mb-3">
@@ -341,7 +353,7 @@ const Testimonials = () => {
             <motion.button
               key={index}
               variants={itemVariants}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => goToTestimonial(index)}
               className={`relative rounded-full transition-all duration-300 ${
                 index === currentIndex
                   ? 'bg-teal-600 w-10 h-3'
