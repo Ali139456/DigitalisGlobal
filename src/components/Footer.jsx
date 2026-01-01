@@ -106,12 +106,14 @@ const Footer = () => {
           <motion.div className="lg:col-span-2" variants={itemVariants}>
             <Link to="/" className="inline-block mb-6">
               <img 
-                src="/uploads/2023/12/cropped-cropped-DG-Logo-1.webp" 
+                src="/Digitlais-Logo-White (1).png" 
                 alt="Digitalis Global Logo" 
                 className="h-8 sm:h-10 w-auto"
                 onError={(e) => {
                   e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
+                  if (e.target.nextSibling) {
+                    e.target.nextSibling.style.display = 'block';
+                  }
                 }}
               />
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900" style={{ display: 'none' }}>digitalis</h2>
