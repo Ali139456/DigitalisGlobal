@@ -12,7 +12,6 @@ const Footer = () => {
       { name: 'Portfolio', href: '/portfolio' },
       { name: 'Pricing', href: '/pricing' },
       { name: 'Contact', href: '/contact' },
-      { name: 'Blog', href: '#blog' },
     ],
     services: [
       { name: 'Website Development', href: '/service/website-development' },
