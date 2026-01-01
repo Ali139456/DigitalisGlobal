@@ -4,84 +4,112 @@ import { Link } from 'react-router-dom'
 import Footer from './Footer'
 
 const Pricing = () => {
-  const pricingPlans = [
+  const webPackages = [
     {
-      name: 'Starter',
-      price: 'Custom',
-      description: 'Perfect for small businesses and startups',
+      name: 'Startup Website Package',
       features: [
-        'Basic website development',
-        'Up to 5 pages',
-        'Responsive design',
-        'Basic SEO setup',
-        'Email support',
-        '3 months maintenance'
-      ],
-      popular: false
+        'Up to 3 Page Website',
+        'Up to 5 Stock Images (Industry Specific)',
+        'Contact Form',
+        'jQuery Slider',
+        '3 Banner Designs',
+        'Google Friendly Sitemap',
+        'Complete W3C Certified HTML',
+        '48 to 72 hours TAT'
+      ]
     },
     {
-      name: 'Professional',
-      price: 'Custom',
-      description: 'Ideal for growing businesses',
+      name: 'Professional Website Package',
       features: [
-        'Full website development',
-        'Unlimited pages',
-        'Custom design',
-        'Advanced SEO',
-        'E-commerce integration',
-        'Priority support',
-        '6 months maintenance',
-        'Content management system'
-      ],
-      popular: true
+        'Up to 10 Unique Pages Website',
+        'CMS (Content Management System)/Admin Panel',
+        'Contact us Form',
+        'Online Appointment Scheduling CTA Form',
+        'Book A Call CTA Form',
+        'Up to 10 Stock images (Industry Specific)'
+      ]
     },
     {
-      name: 'Enterprise',
-      price: 'Custom',
-      description: 'For large organizations and complex projects',
+      name: 'Elite Website Package',
       features: [
-        'Complete digital solution',
-        'Custom web application',
-        'Multi-platform development',
-        'Dedicated project manager',
-        '24/7 support',
-        '12 months maintenance',
-        'Performance optimization',
-        'Security audit',
-        'Training & documentation'
-      ],
-      popular: false
-    },
+        'Up to 15 Custom Pages Website',
+        'Mobile Responsive',
+        'CMS (Content Management System)/Admin Panel',
+        'Conceptual and Dynamic Design',
+        'Striking Hover Effects',
+        'Online Reservation/Appointment Tool (Optional)'
+      ]
+    }
   ]
 
-  const services = [
+  const ecommercePackages = [
     {
-      category: 'Website Development',
-      items: [
-        { service: 'Basic Website (5 pages)', price: 'Starting at $1,500' },
-        { service: 'Business Website (10 pages)', price: 'Starting at $3,000' },
-        { service: 'E-commerce Website', price: 'Starting at $5,000' },
-        { service: 'Custom Web Application', price: 'Custom Quote' },
+      name: 'Basic E-Commerce Package',
+      features: [
+        '5 -8 Product Upload for stores',
+        'Responsive Website (Desktop, Tab, and Mobile Compatible)',
+        '3 – Custom Pages',
+        'Request a quote/Contact us Form Page',
+        'Blog Integration',
+        'Apps and Widgets Integration',
+        'LIVE CHAT'
       ]
     },
     {
-      category: 'Design Services',
-      items: [
-        { service: 'Logo Design', price: 'Starting at $300' },
-        { service: 'Brand Identity Package', price: 'Starting at $1,500' },
-        { service: 'UI/UX Design', price: 'Starting at $2,000' },
-        { service: 'Social Media Graphics', price: 'Starting at $500' },
+      name: 'Premium E-Commerce Package',
+      features: [
+        'Everything in Basic Package+',
+        'Upto 15 Products Store',
+        '5 – Custom Pages',
+        'Photo/Video Gallery',
+        'Apps and Widgets Integration',
+        'Speed Optimisation',
+        'S.E.O Friendly URL & Sites',
+        'SMO Media Integration ( Facebook, Instagram)',
+        'Business Email Setup'
       ]
     },
     {
-      category: 'Digital Marketing',
-      items: [
-        { service: 'SEO Setup & Optimization', price: 'Starting at $800/month' },
-        { service: 'Social Media Management', price: 'Starting at $1,200/month' },
-        { service: 'Google Ads Management', price: 'Starting at $1,500/month' },
-        { service: 'Content Marketing', price: 'Starting at $1,000/month' },
+      name: 'Advance E-Commerce Package',
+      features: [
+        'Everything in Basic/Premium Package+',
+        'Upto 100 Product Store',
+        'Premium Themes (If required)',
+        '5-10 Custom Pages',
+        'SMO Media Integration ( Facebook, Instagram)',
+        'Custom Logo',
+        'Social Media Kit',
+        'MAILCHIMP/Klaviyo Integration'
+      ]
+    }
+  ]
+
+  const graphicDesigningPackages = [
+    {
+      name: 'General Graphic Designing',
+      features: [
+        '2 Initial Design Concepts',
+        '2 Rounds of Revisions',
+        'Contact Details for 1 Employee'
       ]
     },
+    {
+      name: 'Logo Designing',
+      features: [
+        'Announced After Meeting 3 Initial Design Concepts',
+        '2 Rounds of Revisions',
+        'Mockups Not Included',
+        '1 Color Profile Rendering (Full color rendered logo)'
+      ]
+    },
+    {
+      name: 'Illustration',
+      features: [
+        '1 Initial Design Concept',
+        '3 Rounds of Revisions',
+        'Up To Two (2) Digital Caricatures'
+      ]
+    }
   ]
 
   const containerVariants = {
@@ -133,180 +161,199 @@ const Pricing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-slate-600 hover:text-teal-600 mb-8 transition-colors"
-            >
-              <span>←</span>
-              <span>Back to Home</span>
-            </Link>
-
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-4 sm:mb-6 px-4">
-              Transparent <span className="text-teal-600">Pricing</span>
+              Our <span className="text-teal-600">Pricing</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
-              We offer flexible pricing options tailored to your needs. All projects are custom-quoted based on your specific requirements.
+              Choose the perfect package for your business needs. All packages are customizable to fit your requirements.
             </p>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Pricing Plans */}
+      {/* Web Packages */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 px-4">
-              Choose Your Plan
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Web Packages
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
-              Select a plan that fits your business needs, or contact us for a custom quote.
-            </p>
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           >
-            {pricingPlans.map((plan, index) => (
+            {webPackages.map((pkg, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`relative p-8 rounded-2xl border-2 transition-all ${
-                  plan.popular
-                    ? 'bg-gradient-to-br from-teal-50 to-white border-teal-400 shadow-xl scale-105'
-                    : 'bg-white border-slate-200 hover:border-teal-300 hover:shadow-lg'
-                }`}
+                className="bg-white rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-teal-600 text-white text-sm font-semibold">
-                    Most Popular
-                  </div>
-                )}
-                <div className="text-center mb-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
-                    {plan.name}
+                <div className="p-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6">
+                    {pkg.name}
                   </h3>
-                  <div className="text-3xl sm:text-4xl font-bold text-teal-600 mb-2">
-                    {plan.price}
-                  </div>
-                  <p className="text-sm sm:text-base text-slate-600">{plan.description}</p>
+                  <ul className="space-y-3 mb-8">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className="text-teal-600 mt-1 flex-shrink-0">•</span>
+                        <span className="text-slate-600 text-sm md:text-base">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className="block w-full"
+                  >
+                    <motion.button
+                      className="w-full px-6 py-3 rounded-lg font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300 relative overflow-hidden group"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span className="block group-hover:hidden">Get A Quote</span>
+                      <span className="hidden group-hover:block">Contact Us</span>
+                    </motion.button>
+                  </Link>
                 </div>
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="text-teal-600 mt-1">✓</span>
-                      <span className="text-slate-600">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <motion.button
-                  className={`w-full px-6 py-3 rounded-full font-semibold transition-all ${
-                    plan.popular
-                      ? 'bg-teal-600 text-white hover:bg-teal-700'
-                      : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Get Started
-                </motion.button>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Service Pricing */}
+      {/* E-Commerce Packages */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Service Pricing
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              E-Commerce
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Detailed pricing for individual services. All prices are starting points and may vary based on project scope.
-            </p>
           </motion.div>
 
           <motion.div
-            className="space-y-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           >
-            {services.map((category, index) => (
+            {ecommercePackages.map((pkg, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm"
+                className="bg-white rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">
-                  {category.category}
-                </h3>
-                <div className="space-y-4">
-                  {category.items.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center justify-between p-4 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors"
+                <div className="p-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6">
+                    {pkg.name}
+                  </h3>
+                  <ul className="space-y-3 mb-8">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className="text-teal-600 mt-1 flex-shrink-0">•</span>
+                        <span className="text-slate-600 text-sm md:text-base">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className="block w-full"
+                  >
+                    <motion.button
+                      className="w-full px-6 py-3 rounded-lg font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300 relative overflow-hidden group"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <span className="text-slate-700 font-medium">
-                        {item.service}
-                      </span>
-                      <span className="text-teal-600 font-semibold">
-                        {item.price}
-                      </span>
-                    </div>
-                  ))}
+                      <span className="block group-hover:hidden">Get A Quote</span>
+                      <span className="hidden group-hover:block">Contact Us</span>
+                    </motion.button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
 
-          {/* CTA */}
+      {/* Graphic Designing Packages */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
-            className="mt-16 text-center p-12 rounded-2xl bg-gradient-to-br from-teal-600 to-teal-700 text-white"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl font-bold mb-4">
-              Need a Custom Quote?
-            </h3>
-            <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
-              Every project is unique. Contact us for a personalized quote tailored to your specific needs and budget.
-            </p>
-            <motion.a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-teal-600 shadow-lg transition-all hover:bg-slate-50 hover:shadow-xl hover:-translate-y-0.5"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Request a Quote
-            </motion.a>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Graphic Designing
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
+            {graphicDesigningPackages.map((pkg, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="bg-white rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
+                <div className="p-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6">
+                    {pkg.name}
+                  </h3>
+                  <ul className="space-y-3 mb-8">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className="text-teal-600 mt-1 flex-shrink-0">•</span>
+                        <span className="text-slate-600 text-sm md:text-base">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className="block w-full"
+                  >
+                    <motion.button
+                      className="w-full px-6 py-3 rounded-lg font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-all duration-300 relative overflow-hidden group"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span className="block group-hover:hidden">Get A Quote</span>
+                      <span className="hidden group-hover:block">Contact Us</span>
+                    </motion.button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
+
       <Footer />
     </div>
   )
 }
 
 export default Pricing
-
