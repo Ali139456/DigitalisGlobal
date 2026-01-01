@@ -171,8 +171,20 @@ export default function FeaturedServices() {
   ];
 
   return (
-    <section className="relative w-full bg-white overflow-hidden">
-      <div className="mx-auto w-full px-6 py-20 sm:px-8 lg:px-16 xl:px-20">
+    <section className="relative w-full bg-gradient-to-br from-white via-slate-50/30 to-white overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
+      
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-teal-100/15 to-blue-100/15 rounded-full blur-3xl" />
+      
+      <div className="relative mx-auto w-full px-6 py-20 sm:px-8 lg:px-16 xl:px-20">
             <motion.div
               className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"
               initial="hidden"
@@ -303,8 +315,9 @@ export default function FeaturedServices() {
         </motion.div>
       </div>
 
-      {/* subtle right glow */}
+      {/* Decorative glows */}
       <div className="pointer-events-none absolute right-0 top-0 h-full w-48 bg-gradient-to-l from-teal-100/40 to-transparent" />
+      <div className="pointer-events-none absolute left-0 bottom-0 h-full w-32 bg-gradient-to-r from-blue-100/30 to-transparent" />
     </section>
   );
 }
