@@ -85,7 +85,9 @@ const Navbar = () => {
             />
             <span className="logo-text" style={{ display: 'none' }}>digitalis</span>
           </Link>
-          
+        </div>
+
+        <div className="navbar-right">
           <ul className={`navbar-menu-right ${mobileMenuOpen ? 'active' : ''}`}>
             {rightNavItems.map((item, index) => (
               <li 
