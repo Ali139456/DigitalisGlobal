@@ -40,6 +40,10 @@
     {
       "source": "/7021935_Up_Looking_1920x1080.mp4",
       "destination": "/7021935_Up_Looking_1920x1080.mp4"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
