@@ -38,11 +38,7 @@
   ],
   "rewrites": [
     {
-      "source": "/7021935_Up_Looking_1920x1080.mp4",
-      "destination": "/7021935_Up_Looking_1920x1080.mp4"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/((?!assets/|.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|webp|mp4|woff|woff2|ttf|eot)).*)",
       "destination": "/index.html"
     }
   ]
