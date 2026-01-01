@@ -96,7 +96,8 @@ const Navbar = () => {
                 key={index} 
                 className={`navbar-item ${item.hasDropdown ? 'has-dropdown' : ''}`}
                 onMouseEnter={() => {
-                  if (item.hasDropdown) {
+                  // Only trigger for items with dropdowns (Services or About)
+                  if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
                     if (megaMenuTimeout) {
                       clearTimeout(megaMenuTimeout)
                       setMegaMenuTimeout(null)
@@ -113,18 +114,37 @@ const Navbar = () => {
                   }
                 }}
                 onMouseLeave={(e) => {
-                  // Only close if not moving to the mega menu
-                  if (item.hasDropdown && e.relatedTarget && e.relatedTarget instanceof Element && !e.relatedTarget.closest('.mega-menu')) {
-                    if (item.menuType === 'services') {
-                      const timeout = setTimeout(() => {
-                        setServicesMenuOpen(false)
-                      }, 200)
-                      setMegaMenuTimeout(timeout)
-                    } else if (item.menuType === 'about') {
-                      const timeout = setTimeout(() => {
-                        setAboutMenuOpen(false)
-                      }, 200)
-                      setMegaMenuTimeout(timeout)
+                  // Only close if not moving to the mega menu and only for dropdown items
+                  if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
+                    if (e.relatedTarget && e.relatedTarget instanceof Element) {
+                      const isMovingToMegaMenu = e.relatedTarget.closest('.mega-menu') || 
+                                                  e.relatedTarget.closest('.mega-menu-bridge')
+                      if (!isMovingToMegaMenu) {
+                        if (item.menuType === 'services') {
+                          const timeout = setTimeout(() => {
+                            setServicesMenuOpen(false)
+                          }, 200)
+                          setMegaMenuTimeout(timeout)
+                        } else if (item.menuType === 'about') {
+                          const timeout = setTimeout(() => {
+                            setAboutMenuOpen(false)
+                          }, 200)
+                          setMegaMenuTimeout(timeout)
+                        }
+                      }
+                    } else {
+                      // If relatedTarget is null, close the menu
+                      if (item.menuType === 'services') {
+                        const timeout = setTimeout(() => {
+                          setServicesMenuOpen(false)
+                        }, 200)
+                        setMegaMenuTimeout(timeout)
+                      } else if (item.menuType === 'about') {
+                        const timeout = setTimeout(() => {
+                          setAboutMenuOpen(false)
+                        }, 200)
+                        setMegaMenuTimeout(timeout)
+                      }
                     }
                   }
                 }}
@@ -382,7 +402,7 @@ const Navbar = () => {
                           clearTimeout(megaMenuTimeout)
                           setMegaMenuTimeout(null)
                         }
-                        // Close About menu when Services opens
+                        // Keep Services menu open and close About
                         setAboutMenuOpen(false)
                         setServicesMenuOpen(true)
                       }}
@@ -392,6 +412,7 @@ const Navbar = () => {
                         }, 200)
                         setMegaMenuTimeout(timeout)
                       }}
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <div className="mega-menu-container">
                         <div className="mega-menu-header">
@@ -433,6 +454,26 @@ const Navbar = () => {
                           </div>
                       </div>
                     </div>
+                    
+                    {/* Bridge element to prevent menu from closing when moving mouse */}
+                    {servicesMenuOpen && (
+                      <div 
+                        className="mega-menu-bridge desktop-only" 
+                        onMouseEnter={() => {
+                          if (megaMenuTimeout) {
+                            clearTimeout(megaMenuTimeout)
+                            setMegaMenuTimeout(null)
+                          }
+                          setServicesMenuOpen(true)
+                        }} 
+                        onMouseLeave={() => {
+                          const timeout = setTimeout(() => {
+                            setServicesMenuOpen(false)
+                          }, 200)
+                          setMegaMenuTimeout(timeout)
+                        }}
+                      />
+                    )}
                     
                     {/* Mobile Services Submenu - only show on mobile */}
                     {mobileServicesOpen && (
