@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Footer from './Footer'
@@ -37,6 +37,7 @@ const ServiceDetail = () => {
     'WordPress': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg',
     'Shopify': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/shopify/shopify-original.svg',
     'WooCommerce': 'https://woocommerce.com/wp-content/themes/woo/images/woocommerce-logo.svg',
+    'Liquid': 'https://cdn.simpleicons.org/liquid/4B9BF5',
     'HTML5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     'CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
     'Ruby on Rails': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-plain.svg',
@@ -68,8 +69,9 @@ const ServiceDetail = () => {
     'DaVinci Resolve': 'https://www.blackmagicdesign.com/favicon.ico',
     'Motion': 'https://www.apple.com/motion/favicon.ico',
     'Magento': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/magento/magento-original.svg',
-    'Stripe': 'https://stripe.com/favicon.ico',
-    'PayPal': 'https://www.paypal.com/favicon.ico',
+    'Stripe': 'https://cdn.simpleicons.org/stripe/635BFF',
+    'PayPal': 'https://cdn.simpleicons.org/paypal/00457C',
+    'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
   }
 
   const servicesData = {
@@ -741,46 +743,46 @@ const ServiceDetail = () => {
           <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-5 rounded-3xl blur-3xl`} />
           
           <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {service.technologies.map((tech, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-teal-400 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
-              >
-                {techIcons[tech] ? (
-                  <>
-                    <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-50 to-white p-3 group-hover:scale-110 transition-transform duration-300">
+            {service.technologies.map((tech, index) => {
+              const TechIcon = ({ techName }) => {
+                const [iconError, setIconError] = useState(false)
+                const iconUrl = techIcons[techName]
+                
+                return (
+                  <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-50 to-white p-3 group-hover:scale-110 transition-transform duration-300">
+                    {iconUrl && !iconError ? (
                       <img
-                        src={techIcons[tech]}
-                        alt={tech}
+                        src={iconUrl}
+                        alt={techName}
                         className="w-full h-full object-contain"
-                        onError={(e) => {
-                          e.target.style.display = 'none'
-                          if (e.target.nextSibling) {
-                            e.target.nextSibling.style.display = 'block'
-                          }
-                        }}
+                        onError={() => setIconError(true)}
+                        loading="lazy"
                       />
-                    </div>
-                    <span className="text-sm font-medium text-slate-700 text-center group-hover:text-teal-600 transition-colors">
-                      {tech}
-                    </span>
-                  </>
-                ) : (
-                  <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl font-bold text-slate-600">{tech.charAt(0)}</span>
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center rounded-lg bg-gradient-to-br from-teal-100 to-teal-200">
+                        <span className="text-2xl font-bold text-teal-700">{techName.charAt(0)}</span>
+                      </div>
+                    )}
                   </div>
-                )}
-                {!techIcons[tech] && (
+                )
+              }
+              
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-teal-400 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
+                >
+                  <TechIcon techName={tech} />
                   <span className="text-sm font-medium text-slate-700 text-center group-hover:text-teal-600 transition-colors">
                     {tech}
                   </span>
-                )}
-              </motion.div>
-            ))}
+                </motion.div>
+              )
+            })}
           </div>
         </motion.section>
 

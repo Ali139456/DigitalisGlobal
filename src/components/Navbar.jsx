@@ -114,7 +114,7 @@ const Navbar = () => {
                 }}
                 onMouseLeave={(e) => {
                   // Only close if not moving to the mega menu
-                  if (item.hasDropdown && !e.relatedTarget?.closest('.mega-menu')) {
+                  if (item.hasDropdown && e.relatedTarget && e.relatedTarget instanceof Element && !e.relatedTarget.closest('.mega-menu')) {
                     if (item.menuType === 'services') {
                       const timeout = setTimeout(() => {
                         setServicesMenuOpen(false)
