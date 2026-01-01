@@ -7,7 +7,7 @@ const ServiceDetail = () => {
   const { serviceId } = useParams()
   const navigate = useNavigate()
 
-  // Technology icons mapping
+  // Comprehensive Technology icons mapping
   const techIcons = {
     'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
     'React JS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
@@ -35,10 +35,41 @@ const ServiceDetail = () => {
     'GraphQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
     'SQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
     'WordPress': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg',
-    'Shopify': 'https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456ba9558012c2c7e8c0b3b0b0b0b0b0.svg',
+    'Shopify': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/shopify/shopify-original.svg',
     'WooCommerce': 'https://woocommerce.com/wp-content/themes/woo/images/woocommerce-logo.svg',
     'HTML5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     'CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+    'Ruby on Rails': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-plain.svg',
+    'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+    'Adobe Photoshop': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg',
+    'Adobe Illustrator': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg',
+    'Adobe InDesign': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/indesign/indesign-plain.svg',
+    'Figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
+    'Sketch': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg',
+    'Canva': 'https://www.canva.com/favicon.ico',
+    'Google Ads': 'https://www.google.com/ads/images/logo.svg',
+    'Facebook Ads': 'https://www.facebook.com/images/fb_icon_325x325.png',
+    'Mailchimp': 'https://mailchimp.com/release/plums/cxp/images/apple-touch-icon-192.png',
+    'HubSpot': 'https://www.hubspot.com/hubfs/HubSpot_Logos/HubSpot-Inversed-Favicon.png',
+    'Google Analytics': 'https://www.google.com/analytics/images/home/analytics-icon.svg',
+    'Hootsuite': 'https://hootsuite.com/favicon.ico',
+    'Google Search Console': 'https://www.google.com/webmasters/tools/images/search_console_icon.svg',
+    'SEMrush': 'https://www.semrush.com/favicon.ico',
+    'Ahrefs': 'https://ahrefs.com/favicon.ico',
+    'Moz': 'https://moz.com/favicon.ico',
+    'Screaming Frog': 'https://www.screamingfrog.co.uk/favicon.ico',
+    'Adobe XD': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg',
+    'InVision': 'https://www.invisionapp.com/favicon.ico',
+    'Principle': 'https://principleformac.com/favicon.ico',
+    'Framer': 'https://www.framer.com/favicon.ico',
+    'Adobe Premiere Pro': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg',
+    'After Effects': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-plain.svg',
+    'Final Cut Pro': 'https://www.apple.com/final-cut-pro/favicon.ico',
+    'DaVinci Resolve': 'https://www.blackmagicdesign.com/favicon.ico',
+    'Motion': 'https://www.apple.com/motion/favicon.ico',
+    'Magento': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/magento/magento-original.svg',
+    'Stripe': 'https://stripe.com/favicon.ico',
+    'PayPal': 'https://www.paypal.com/favicon.ico',
   }
 
   const servicesData = {
@@ -48,6 +79,7 @@ const ServiceDetail = () => {
       heroDescription: 'At Digitalis Global, we build high-performance, user-friendly websites that combine sleek design with cutting-edge technology. From responsive brochure sites to complex e-commerce platforms, our web development solutions are tailored to your unique goals. We stay ahead of tech trends and follow best coding practices to ensure your site delivers exceptional speed, functionality, and user experience.',
       image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80',
       icon: '🧩',
+      gradient: 'from-blue-500 to-cyan-500',
       sections: [
         {
           title: 'Web Development',
@@ -85,7 +117,7 @@ const ServiceDetail = () => {
       technologies: [
         'JavaScript', 'React JS', 'Next JS', 'Angular JS', 'Vue JS', 'Nuxt JS', 'Remix JS', 'Three JS',
         'TypeScript', 'Tailwind', 'Laravel', 'AWS', 'Azure', 'PHP', 'Node JS', 'Express JS',
-        'Flask', 'Django', 'ASP.NET', 'Firebase', 'MongoDB', 'PostgreSQL', 'Prisma', 'GraphQL', 'SQL'
+        'Flask', 'Django', 'ASP.NET', 'Firebase', 'MongoDB', 'PostgreSQL', 'Prisma', 'GraphQL', 'SQL', 'Ruby on Rails', 'Python'
       ]
     },
     'website-development': {
@@ -94,6 +126,7 @@ const ServiceDetail = () => {
       heroDescription: 'We create websites that not only look stunning but also perform exceptionally. Every site we build is optimized for speed, SEO, and user engagement. From simple landing pages to complex multi-page websites, we deliver solutions that drive results.',
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80',
       icon: '🌐',
+      gradient: 'from-teal-500 to-emerald-500',
       sections: [
         {
           title: 'Responsive Web Design',
@@ -129,7 +162,7 @@ const ServiceDetail = () => {
         ]
       },
       technologies: [
-        'HTML5', 'CSS3', 'JavaScript', 'React JS', 'Next JS', 'WordPress', 'Tailwind', 'TypeScript'
+        'HTML5', 'CSS3', 'JavaScript', 'React JS', 'Next JS', 'WordPress', 'Tailwind', 'TypeScript', 'Node JS', 'PHP', 'MongoDB', 'PostgreSQL'
       ]
     },
     'ecommerce': {
@@ -138,6 +171,7 @@ const ServiceDetail = () => {
       heroDescription: 'Transform your business with a custom e-commerce solution that converts visitors into customers. We build stores that are both beautiful and functional, with seamless checkout processes and powerful inventory management.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80',
       icon: '🛒',
+      gradient: 'from-orange-500 to-red-500',
       sections: [
         {
           title: 'E-commerce Platform Development',
@@ -173,7 +207,7 @@ const ServiceDetail = () => {
         ]
       },
       technologies: [
-        'Shopify', 'WooCommerce', 'React JS', 'Node JS', 'WordPress', 'MongoDB', 'PostgreSQL', 'AWS'
+        'Shopify', 'WooCommerce', 'Magento', 'React JS', 'Node JS', 'WordPress', 'MongoDB', 'PostgreSQL', 'AWS', 'Stripe', 'PayPal'
       ]
     },
     'shopify': {
@@ -182,6 +216,7 @@ const ServiceDetail = () => {
       heroDescription: 'We specialize in creating beautiful, high-converting Shopify stores. From theme customization to app development, we help you build an online store that stands out and drives sales.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80',
       icon: '🛍️',
+      gradient: 'from-indigo-500 to-purple-500',
       sections: [
         {
           title: 'Shopify Store Setup',
@@ -217,7 +252,7 @@ const ServiceDetail = () => {
         ]
       },
       technologies: [
-        'Shopify', 'Liquid', 'JavaScript', 'React JS', 'HTML5', 'CSS3', 'GraphQL'
+        'Shopify', 'Liquid', 'JavaScript', 'React JS', 'HTML5', 'CSS3', 'GraphQL', 'Node JS', 'Stripe', 'PayPal'
       ]
     },
     'wordpress': {
@@ -226,6 +261,7 @@ const ServiceDetail = () => {
       heroDescription: 'We create powerful WordPress websites that combine beautiful design with robust functionality. From custom themes to plugin development, we help you build a WordPress site that meets your exact needs.',
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80',
       icon: '📝',
+      gradient: 'from-blue-600 to-blue-800',
       sections: [
         {
           title: 'WordPress Theme Development',
@@ -261,7 +297,7 @@ const ServiceDetail = () => {
         ]
       },
       technologies: [
-        'WordPress', 'PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3', 'WooCommerce'
+        'WordPress', 'PHP', 'MySQL', 'JavaScript', 'HTML5', 'CSS3', 'WooCommerce', 'React JS', 'Node JS'
       ]
     },
     'graphic-designing': {
@@ -270,6 +306,7 @@ const ServiceDetail = () => {
       heroDescription: 'We create visually stunning designs that tell your story and connect with your audience. Every design is crafted to make a lasting impression and drive engagement.',
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
       icon: '🎨',
+      gradient: 'from-pink-500 to-rose-500',
       sections: [
         {
           title: 'Brand Identity Design',
@@ -305,7 +342,7 @@ const ServiceDetail = () => {
         ]
       },
       technologies: [
-        'Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign', 'Figma', 'Sketch', 'Canva'
+        'Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign', 'Figma', 'Sketch', 'Canva', 'Adobe XD'
       ]
     },
     'digital-marketing': {
@@ -314,6 +351,7 @@ const ServiceDetail = () => {
       heroDescription: 'We combine creativity with analytics to create marketing campaigns that not only look great but also drive measurable business growth. From social media to email marketing, we help you reach and engage your target audience.',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
       icon: '📣',
+      gradient: 'from-purple-500 to-indigo-500',
       sections: [
         {
           title: 'Social Media Marketing',
@@ -358,6 +396,7 @@ const ServiceDetail = () => {
       heroDescription: 'We help your website rank higher in search results, bringing more qualified visitors to your site without paid advertising. Our SEO strategies are proven to deliver sustainable, long-term results.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
       icon: '🔎',
+      gradient: 'from-green-500 to-teal-500',
       sections: [
         {
           title: 'Technical SEO',
@@ -402,6 +441,7 @@ const ServiceDetail = () => {
       heroDescription: 'Great design is invisible. We create interfaces that feel natural and effortless, guiding users seamlessly through their journey. Our designs are based on user research and testing, ensuring they meet real user needs.',
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
       icon: '🧠',
+      gradient: 'from-violet-500 to-purple-500',
       sections: [
         {
           title: 'User Research',
@@ -446,6 +486,7 @@ const ServiceDetail = () => {
       heroDescription: 'We transform raw footage into compelling narratives that engage, inform, and inspire your audience. From corporate videos to social media content, we create videos that make an impact.',
       image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&q=80',
       icon: '🎬',
+      gradient: 'from-red-500 to-pink-500',
       sections: [
         {
           title: 'Video Production',
@@ -533,7 +574,7 @@ const ServiceDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
       <motion.section
         className="relative bg-gradient-to-br from-slate-50 via-teal-50/30 to-white py-20 overflow-hidden pt-32"
@@ -547,8 +588,8 @@ const ServiceDetail = () => {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl" />
+        <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${service.gradient} opacity-20 rounded-full blur-3xl`} />
+        <div className={`absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br ${service.gradient} opacity-20 rounded-full blur-3xl`} />
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-16">
           <motion.div
@@ -556,9 +597,12 @@ const ServiceDetail = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6">
-              {service.title}
-            </h1>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-6xl" aria-hidden="true">{service.icon}</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900">
+                {service.title}
+              </h1>
+            </div>
             <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl leading-relaxed">
               {service.heroDescription}
             </p>
@@ -572,52 +616,66 @@ const ServiceDetail = () => {
         {service.sections && service.sections.map((section, index) => (
           <motion.section
             key={index}
-            className="mb-20"
+            className="mb-20 relative"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              {section.title}
-            </h2>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-4xl">
-              {section.description}
-            </p>
+            {/* Decorative Background */}
+            <div className={`absolute -left-20 top-0 w-40 h-40 bg-gradient-to-br ${service.gradient} opacity-10 rounded-full blur-2xl`} />
+            
+            <div className="relative bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                <span className={`w-2 h-12 bg-gradient-to-b ${service.gradient} rounded-full`}></span>
+                {section.title}
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed max-w-4xl">
+                {section.description}
+              </p>
+            </div>
           </motion.section>
         ))}
 
         {/* Cutting-Edge Technologies Section */}
         {service.cuttingEdge && (
           <motion.section
-            className="mb-20"
+            className="mb-20 relative"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              {service.cuttingEdge.title}
-            </h2>
-            <p className="text-lg text-slate-600 mb-6 leading-relaxed max-w-4xl">
-              {service.cuttingEdge.description}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {service.cuttingEdge.features.map((feature, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="p-6 rounded-xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-teal-600"></span>
-                    <h3 className="font-semibold text-slate-900">{feature}</h3>
-                  </div>
-                </motion.div>
-              ))}
+            <div className={`relative bg-gradient-to-br ${service.gradient} rounded-3xl p-8 md:p-12 text-white overflow-hidden`}>
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+              
+              <div className="relative z-10">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  {service.cuttingEdge.title}
+                </h2>
+                <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-4xl">
+                  {service.cuttingEdge.description}
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {service.cuttingEdge.features.map((feature, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="w-3 h-3 rounded-full bg-white"></span>
+                        <h3 className="font-semibold text-white">{feature}</h3>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.section>
         )}
@@ -625,41 +683,46 @@ const ServiceDetail = () => {
         {/* Maintenance Section */}
         {service.maintenance && (
           <motion.section
-            className="mb-20"
+            className="mb-20 relative"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              {service.maintenance.title}
-            </h2>
-            <p className="text-lg text-slate-600 mb-6 leading-relaxed max-w-4xl">
-              {service.maintenance.description}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {service.maintenance.features.map((feature, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="p-6 rounded-xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-teal-600"></span>
-                    <h3 className="font-semibold text-slate-900">{feature}</h3>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="relative bg-white rounded-3xl p-8 md:p-12 border-2 border-slate-200 shadow-xl">
+              {/* Decorative Corner */}
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-5 rounded-bl-full`} />
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                {service.maintenance.title}
+              </h2>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-4xl">
+                {service.maintenance.description}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {service.maintenance.features.map((feature, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="p-6 rounded-xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} group-hover:scale-125 transition-transform`}></span>
+                      <h3 className="font-semibold text-slate-900">{feature}</h3>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.section>
         )}
 
         {/* Technologies Section */}
         <motion.section
-          className="mb-20"
+          className="mb-20 relative"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -673,7 +736,11 @@ const ServiceDetail = () => {
               Diverse Technological Excellence - We Embrace Diversity in Technology to Deliver Holistic 360° Development Solutions.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          
+          {/* Decorative Background */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-5 rounded-3xl blur-3xl`} />
+          
+          <div className="relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {service.technologies.map((tech, index) => (
               <motion.div
                 key={index}
@@ -681,24 +748,34 @@ const ServiceDetail = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="group flex flex-col items-center justify-center p-6 rounded-xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all cursor-pointer"
+                className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-teal-400 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
               >
                 {techIcons[tech] ? (
-                  <img
-                    src={techIcons[tech]}
-                    alt={tech}
-                    className="w-12 h-12 mb-3 object-contain group-hover:scale-110 transition-transform"
-                    onError={(e) => {
-                      e.target.style.display = 'none'
-                      e.target.nextSibling.style.display = 'block'
-                    }}
-                  />
-                ) : null}
-                <span className={`text-sm font-medium text-slate-700 text-center ${techIcons[tech] ? '' : 'text-lg'}`} style={{ display: techIcons[tech] ? 'block' : 'none' }}>
-                  {tech}
-                </span>
+                  <>
+                    <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-50 to-white p-3 group-hover:scale-110 transition-transform duration-300">
+                      <img
+                        src={techIcons[tech]}
+                        alt={tech}
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.target.style.display = 'none'
+                          if (e.target.nextSibling) {
+                            e.target.nextSibling.style.display = 'block'
+                          }
+                        }}
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-slate-700 text-center group-hover:text-teal-600 transition-colors">
+                      {tech}
+                    </span>
+                  </>
+                ) : (
+                  <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-2xl font-bold text-slate-600">{tech.charAt(0)}</span>
+                  </div>
+                )}
                 {!techIcons[tech] && (
-                  <span className="text-sm font-medium text-slate-700 text-center">
+                  <span className="text-sm font-medium text-slate-700 text-center group-hover:text-teal-600 transition-colors">
                     {tech}
                   </span>
                 )}
@@ -718,6 +795,7 @@ const ServiceDetail = () => {
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-400/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
           
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
