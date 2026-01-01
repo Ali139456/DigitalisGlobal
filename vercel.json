@@ -56,7 +56,11 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!uploads|assets|.*\\.(webp|png|jpg|jpeg|gif|svg|ico|mp4|css|js|json|woff|woff2|ttf|eot|map)).*)",
+      "source": "/uploads/:path*",
+      "destination": "/uploads/:path*"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
