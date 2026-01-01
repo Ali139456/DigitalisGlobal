@@ -225,17 +225,17 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
+                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 {/* Gradient Top Border */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient} rounded-t-3xl`} />
                 
                 {/* Icon Badge */}
-                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-10">
+                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-100">
                   <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
-                <div className="p-8 pt-12">
+                <div className="p-8 pt-10">
                   <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
                     {pkg.name}
                   </h3>
@@ -318,17 +318,17 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
+                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 {/* Gradient Top Border */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient} rounded-t-3xl`} />
                 
                 {/* Icon Badge */}
-                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-10">
+                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-100">
                   <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
-                <div className="p-8 pt-12">
+                <div className="p-8 pt-10">
                   <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
                     {pkg.name}
                   </h3>
@@ -411,17 +411,17 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2"
+                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 {/* Gradient Top Border */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient}`} />
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient} rounded-t-3xl`} />
                 
                 {/* Icon Badge */}
-                <div className="absolute -top-6 right-6 w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-lg flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-10">
+                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-100">
                   <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
-                <div className="p-8 pt-12">
+                <div className="p-8 pt-10">
                   <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
                     {pkg.name}
                   </h3>
