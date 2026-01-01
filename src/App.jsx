@@ -5,7 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Hero from './components/Hero'
 import FeaturedServices from './components/FeaturedServices'
 import WhyChooseUs from './components/WhyChooseUs'
-import OurJourney from './components/OurJourney'
+import AboutUs from './components/AboutUs'
 import Testimonials from './components/Testimonials'
 import ClientLogos from './components/ClientLogos'
 import FAQ from './components/FAQ'
@@ -31,13 +31,13 @@ function App() {
             <FeaturedServices />
             <ClientLogos />
             <WhyChooseUs />
-            <OurJourney />
             <Testimonials />
             <FAQ />
             <Footer />
           </>
         } />
         <Route path="/service/:serviceId" element={<ServiceDetail />} />
+        <Route path="/about/about-us" element={<AboutUs />} />
         <Route path="/about/our-team" element={<OurTeam />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />

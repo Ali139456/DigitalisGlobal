@@ -242,6 +242,25 @@ const Navbar = () => {
                         </div>
                         <div className="mega-menu-grid">
                           <Link
+                            to="/about/about-us"
+                            className="mega-menu-item"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setMobileMenuOpen(false)
+                              setMobileAboutOpen(false)
+                              setAboutMenuOpen(false)
+                            }}
+                            onMouseDown={(e) => {
+                              e.preventDefault()
+                            }}
+                          >
+                            <span className="mega-menu-icon">📖</span>
+                            <div className="mega-menu-content">
+                              <h4>About Us</h4>
+                              <span className="mega-menu-arrow">→</span>
+                            </div>
+                          </Link>
+                          <Link
                             to="/about/our-team"
                             className="mega-menu-item"
                             onClick={(e) => {
@@ -285,6 +304,19 @@ const Navbar = () => {
                     {/* Mobile About Submenu - only show on mobile */}
                     {mobileAboutOpen && (
                       <ul className="mobile-services-menu">
+                        <li>
+                          <Link
+                            to="/about/about-us"
+                            className="mobile-service-link"
+                            onClick={() => {
+                              setMobileMenuOpen(false)
+                              setMobileAboutOpen(false)
+                            }}
+                          >
+                            <span className="mobile-service-icon">📖</span>
+                            <span>About Us</span>
+                          </Link>
+                        </li>
                         <li>
                           <Link
                             to="/about/our-team"
