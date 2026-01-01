@@ -153,7 +153,19 @@ const Testimonials = () => {
 
         {/* Testimonial Carousel - 3 Column Layout */}
         <div className="relative max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
+          {/* Slider Container */}
+          <div className="relative overflow-hidden">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center"
+              animate={{
+                x: 0,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30
+              }}
+            >
             {/* Left Testimonial - Small */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -293,32 +305,33 @@ const Testimonials = () => {
                 </div>
               </motion.div>
             </AnimatePresence>
+            </motion.div>
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Enhanced Slider Controls */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:text-teal-600 hover:border-teal-300 transition-all hover:scale-110 z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-slate-200 shadow-xl flex items-center justify-center text-slate-600 hover:text-white hover:bg-teal-600 hover:border-teal-600 transition-all hover:scale-110 active:scale-95 z-10 group"
             aria-label="Previous testimonial"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg className="w-6 h-6 group-hover:translate-x-[-2px] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:text-teal-600 hover:border-teal-300 transition-all hover:scale-110 z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white border-2 border-slate-200 shadow-xl flex items-center justify-center text-slate-600 hover:text-white hover:bg-teal-600 hover:border-teal-600 transition-all hover:scale-110 active:scale-95 z-10 group"
             aria-label="Next testimonial"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg className="w-6 h-6 group-hover:translate-x-[2px] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
 
-        {/* Dots Indicator */}
+        {/* Dots Indicator - Enhanced Slider Dots */}
         <motion.div
-          className="flex items-center justify-center gap-2 mt-8"
+          className="flex items-center justify-center gap-2 mt-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -329,13 +342,27 @@ const Testimonials = () => {
               key={index}
               variants={itemVariants}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
+              className={`relative rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-teal-600 w-8'
-                  : 'bg-slate-300 hover:bg-slate-400'
+                  ? 'bg-teal-600 w-10 h-3'
+                  : 'bg-slate-300 hover:bg-slate-400 w-3 h-3'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
-            />
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {index === currentIndex && (
+                <motion.div
+                  className="absolute inset-0 bg-teal-600 rounded-full"
+                  layoutId="activeDot"
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30
+                  }}
+                />
+              )}
+            </motion.button>
           ))}
         </motion.div>
       </div>
