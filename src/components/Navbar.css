@@ -644,6 +644,44 @@
     height: 40px !important;
     min-width: 40px !important;
     min-height: 40px !important;
+    z-index: 1000000 !important;
+    position: relative !important;
+  }
+
+  .mobile-menu-close {
+    position: fixed !important;
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 50% !important;
+    color: #000000 !important;
+    cursor: pointer !important;
+    z-index: 1000001 !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  .mobile-menu-close:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+    transform: scale(1.1) !important;
+  }
+
+  .mobile-menu-close:active {
+    transform: scale(0.95) !important;
+  }
+
+  .mobile-menu-close svg {
+    width: 20px !important;
+    height: 20px !important;
+    stroke: #000000 !important;
+    stroke-width: 2.5 !important;
   }
 
   .hamburger {
