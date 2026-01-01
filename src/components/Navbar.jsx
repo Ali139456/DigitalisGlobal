@@ -112,16 +112,20 @@ const Navbar = () => {
                     }
                   }
                 }}
-                onMouseLeave={() => {
-                  if (item.hasDropdown) {
-                    const timeout = setTimeout(() => {
-                      if (item.menuType === 'services') {
+                onMouseLeave={(e) => {
+                  // Only close if not moving to the mega menu
+                  if (item.hasDropdown && !e.relatedTarget?.closest('.mega-menu')) {
+                    if (item.menuType === 'services') {
+                      const timeout = setTimeout(() => {
                         setServicesMenuOpen(false)
-                      } else if (item.menuType === 'about') {
+                      }, 200)
+                      setMegaMenuTimeout(timeout)
+                    } else if (item.menuType === 'about') {
+                      const timeout = setTimeout(() => {
                         setAboutMenuOpen(false)
-                      }
-                    }, 200)
-                    setMegaMenuTimeout(timeout)
+                      }, 200)
+                      setMegaMenuTimeout(timeout)
+                    }
                   }
                 }}
                 onClick={(e) => {
@@ -221,11 +225,14 @@ const Navbar = () => {
                     {/* Desktop Mega Menu - hidden on mobile */}
                     <div 
                       className={`mega-menu ${aboutMenuOpen ? 'active' : ''} desktop-only`}
-                      onMouseEnter={() => {
+                      onMouseEnter={(e) => {
+                        e.stopPropagation()
                         if (megaMenuTimeout) {
                           clearTimeout(megaMenuTimeout)
                           setMegaMenuTimeout(null)
                         }
+                        // Ensure Services is closed when About menu is hovered
+                        setServicesMenuOpen(false)
                         setAboutMenuOpen(true)
                       }}
                       onMouseLeave={() => {
@@ -233,6 +240,9 @@ const Navbar = () => {
                           setAboutMenuOpen(false)
                         }, 200)
                         setMegaMenuTimeout(timeout)
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation()
                       }}
                     >
                       <div className="mega-menu-container">
@@ -246,12 +256,25 @@ const Navbar = () => {
                             className="mega-menu-item"
                             onClick={(e) => {
                               e.stopPropagation()
+                              e.preventDefault()
                               setMobileMenuOpen(false)
                               setMobileAboutOpen(false)
                               setAboutMenuOpen(false)
+                              setServicesMenuOpen(false)
+                              // Navigate after closing menus
+                              setTimeout(() => {
+                                window.location.href = '/about/about-us'
+                              }, 100)
                             }}
                             onMouseDown={(e) => {
+                              e.stopPropagation()
                               e.preventDefault()
+                            }}
+                            onMouseEnter={(e) => {
+                              e.stopPropagation()
+                              // Keep About menu open and close Services
+                              setServicesMenuOpen(false)
+                              setAboutMenuOpen(true)
                             }}
                           >
                             <span className="mega-menu-icon">📖</span>
@@ -265,12 +288,25 @@ const Navbar = () => {
                             className="mega-menu-item"
                             onClick={(e) => {
                               e.stopPropagation()
+                              e.preventDefault()
                               setMobileMenuOpen(false)
                               setMobileAboutOpen(false)
                               setAboutMenuOpen(false)
+                              setServicesMenuOpen(false)
+                              // Navigate after closing menus
+                              setTimeout(() => {
+                                window.location.href = '/about/our-team'
+                              }, 100)
                             }}
                             onMouseDown={(e) => {
+                              e.stopPropagation()
                               e.preventDefault()
+                            }}
+                            onMouseEnter={(e) => {
+                              e.stopPropagation()
+                              // Keep About menu open and close Services
+                              setServicesMenuOpen(false)
+                              setAboutMenuOpen(true)
                             }}
                           >
                             <span className="mega-menu-icon">👥</span>
