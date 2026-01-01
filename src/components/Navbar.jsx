@@ -106,21 +106,29 @@ const Navbar = () => {
               <li 
                 key={index} 
                 className={`navbar-item ${item.hasDropdown ? 'has-dropdown' : ''}`}
-                onMouseEnter={() => {
+                onMouseEnter={(e) => {
                   // Only trigger for items with dropdowns (Services or About)
+                  // Make sure we're actually hovering over this specific item
                   if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about')) {
-                    if (megaMenuTimeout) {
-                      clearTimeout(megaMenuTimeout)
-                      setMegaMenuTimeout(null)
-                    }
-                    if (item.menuType === 'services') {
-                      // Close About menu if Services is opening
-                      setAboutMenuOpen(false)
-                      setServicesMenuOpen(true)
-                    } else if (item.menuType === 'about') {
-                      // Close Services menu if About is opening
-                      setServicesMenuOpen(false)
-                      setAboutMenuOpen(true)
+                    // Check if the mouse is actually on this item, not a child
+                    const target = e.currentTarget
+                    const relatedTarget = e.relatedTarget
+                    
+                    // Only proceed if we're entering this specific item
+                    if (target && (!relatedTarget || !target.contains(relatedTarget))) {
+                      if (megaMenuTimeout) {
+                        clearTimeout(megaMenuTimeout)
+                        setMegaMenuTimeout(null)
+                      }
+                      if (item.menuType === 'services') {
+                        // Close About menu if Services is opening
+                        setAboutMenuOpen(false)
+                        setServicesMenuOpen(true)
+                      } else if (item.menuType === 'about') {
+                        // Close Services menu if About is opening
+                        setServicesMenuOpen(false)
+                        setAboutMenuOpen(true)
+                      }
                     }
                   }
                 }}
@@ -337,14 +345,16 @@ const Navbar = () => {
                     {aboutMenuOpen && (
                       <div 
                         className="mega-menu-bridge desktop-only" 
-                        onMouseEnter={() => {
+                        onMouseEnter={(e) => {
+                          e.stopPropagation()
                           if (megaMenuTimeout) {
                             clearTimeout(megaMenuTimeout)
                             setMegaMenuTimeout(null)
                           }
                           setAboutMenuOpen(true)
                         }} 
-                        onMouseLeave={() => {
+                        onMouseLeave={(e) => {
+                          e.stopPropagation()
                           const timeout = setTimeout(() => {
                             setAboutMenuOpen(false)
                           }, 200)
@@ -455,14 +465,16 @@ const Navbar = () => {
                     {servicesMenuOpen && (
                       <div 
                         className="mega-menu-bridge desktop-only" 
-                        onMouseEnter={() => {
+                        onMouseEnter={(e) => {
+                          e.stopPropagation()
                           if (megaMenuTimeout) {
                             clearTimeout(megaMenuTimeout)
                             setMegaMenuTimeout(null)
                           }
                           setServicesMenuOpen(true)
                         }} 
-                        onMouseLeave={() => {
+                        onMouseLeave={(e) => {
+                          e.stopPropagation()
                           const timeout = setTimeout(() => {
                             setServicesMenuOpen(false)
                           }, 200)
