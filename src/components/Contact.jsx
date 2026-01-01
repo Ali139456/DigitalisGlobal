@@ -40,7 +40,7 @@ const Contact = () => {
     {
       icon: '📞',
       title: 'Phone',
-      details: ['+61 466 312 363', '+358 41 7217377']
+      details: ['+61 466 312 363']
     },
   ]
 
