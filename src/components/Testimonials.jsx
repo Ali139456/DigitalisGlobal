@@ -176,14 +176,14 @@ const Testimonials = () => {
               }}
             >
             {/* Left Testimonial - Small */}
-            <AnimatePresence mode="wait" custom={direction}>
+            <AnimatePresence mode="sync" custom={direction}>
               <motion.div
                 key={getLeftIndex()}
                 custom={direction}
-                initial={{ opacity: 0, x: direction === 1 ? -100 : 100, scale: 0.9 }}
+                initial={{ opacity: 0, x: direction === 1 ? -150 : 150, scale: 0.85 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction === 1 ? -100 : 100, scale: 0.9 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                exit={{ opacity: 0, x: direction === 1 ? 150 : -150, scale: 0.85 }}
+                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 className="hidden md:block bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 md:col-span-3"
               >
                 <div className="flex items-center gap-1 mb-3">
@@ -222,14 +222,14 @@ const Testimonials = () => {
             </AnimatePresence>
 
             {/* Center Testimonial - Large */}
-            <AnimatePresence mode="wait" custom={direction}>
+            <AnimatePresence mode="sync" custom={direction}>
               <motion.div
                 key={getCenterIndex()}
                 custom={direction}
-                initial={{ opacity: 0, x: direction === 1 ? 300 : -300, scale: 0.9 }}
+                initial={{ opacity: 0, x: direction === 1 ? 400 : -400, scale: 0.85 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction === 1 ? -300 : 300, scale: 0.9 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                exit={{ opacity: 0, x: direction === 1 ? -400 : 400, scale: 0.85 }}
+                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-slate-200 md:col-span-6"
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
@@ -273,14 +273,14 @@ const Testimonials = () => {
             </AnimatePresence>
 
             {/* Right Testimonial - Small */}
-            <AnimatePresence mode="wait" custom={direction}>
+            <AnimatePresence mode="sync" custom={direction}>
               <motion.div
                 key={getRightIndex()}
                 custom={direction}
-                initial={{ opacity: 0, x: direction === 1 ? 100 : -100, scale: 0.9 }}
+                initial={{ opacity: 0, x: direction === 1 ? 150 : -150, scale: 0.85 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction === 1 ? 100 : -100, scale: 0.9 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                exit={{ opacity: 0, x: direction === 1 ? -150 : 150, scale: 0.85 }}
+                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 className="hidden md:block bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 md:col-span-3"
               >
                 <div className="flex items-center gap-1 mb-3">
