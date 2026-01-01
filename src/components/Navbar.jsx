@@ -59,13 +59,10 @@ const Navbar = () => {
     }
   }, [mobileMenuOpen])
 
-  const leftNavItems = [
+  const rightNavItems = [
     { name: 'About', href: '#about', hasDropdown: true, menuType: 'about' },
     { name: 'Services', href: '#services', hasDropdown: true, menuType: 'services' },
     { name: 'Portfolio', href: '/portfolio', hasDropdown: false },
-  ]
-
-  const rightNavItems = [
     { name: 'Pricing', href: '/pricing', hasDropdown: false },
     { name: 'Careers', href: '/careers', hasDropdown: false },
     { name: 'Contact', href: '/contact', hasDropdown: false },
@@ -89,8 +86,8 @@ const Navbar = () => {
             <span className="logo-text" style={{ display: 'none' }}>digitalis</span>
           </Link>
           
-          <ul className={`navbar-menu-left ${mobileMenuOpen ? 'active' : ''}`}>
-            {leftNavItems.map((item, index) => (
+          <ul className={`navbar-menu-right ${mobileMenuOpen ? 'active' : ''}`}>
+            {rightNavItems.map((item, index) => (
               <li 
                 key={index} 
                 className={`navbar-item ${item.hasDropdown ? 'has-dropdown' : ''}`}
@@ -483,47 +480,10 @@ const Navbar = () => {
                 )}
               </li>
             ))}
-            {/* Add right menu items to left menu on mobile */}
-            {mobileMenuOpen && rightNavItems.map((item, index) => (
-              <li 
-                key={`right-${index}`} 
-                className="navbar-item mobile-right-item"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Link 
-                  to={item.href} 
-                  className="navbar-link"
-                >
-                  {item.name}
-                  {item.hasDropdown && (
-                    <span className="dropdown-indicator">▼</span>
-                  )}
-                </Link>
-              </li>
-            ))}
           </ul>
         </div>
 
         <div className="navbar-right">
-          <ul className={`navbar-menu-right ${mobileMenuOpen ? 'active' : ''}`}>
-            {rightNavItems.map((item, index) => (
-              <li 
-                key={index} 
-                className="navbar-item"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <Link 
-                  to={item.href} 
-                  className="navbar-link"
-                >
-                  {item.name}
-                  {item.hasDropdown && (
-                    <span className="dropdown-indicator">▼</span>
-                  )}
-                </Link>
-              </li>
-            ))}
-          </ul>
 
           <div className="navbar-icons">
             <button className="icon-button" aria-label="Search">
