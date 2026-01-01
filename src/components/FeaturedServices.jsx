@@ -64,31 +64,14 @@ const services = [
   slug: generateSlug(service.title)
 }));
 
-// Height variants to achieve 2,3,2,3 pattern
-// Strategic heights to control column distribution
-const heightVariants = [
-  "min-h-[280px] lg:min-h-[280px]", // Card 0 - Col 1, card 1 (tall)
-  "min-h-[200px] lg:min-h-[200px]", // Card 1 - Col 2, card 1
-  "min-h-[320px] lg:min-h-[320px]", // Card 2 - Col 3, card 1 (tallest)
-  "min-h-[220px] lg:min-h-[220px]", // Card 3 - Col 4, card 1
-  "min-h-[300px] lg:min-h-[300px]", // Card 4 - Col 1, card 2 (very tall - completes col 1)
-  "min-h-[210px] lg:min-h-[210px]", // Card 5 - Col 2, card 2
-  "min-h-[310px] lg:min-h-[310px]", // Card 6 - Col 3, card 2 (very tall - completes col 3)
-  "min-h-[230px] lg:min-h-[230px]", // Card 7 - Col 4, card 2
-  "min-h-[240px] lg:min-h-[240px]", // Card 8 - Col 2, card 3 (completes col 2)
-  "min-h-[250px] lg:min-h-[250px]", // Card 9 - Col 4, card 3 (completes col 4)
-];
-
 function ServiceCard({ item, idx }) {
-  const hv = heightVariants[idx % heightVariants.length];
-
   return (
     <Link
       to={`/service/${item.slug}`}
       className={[
         "group relative block w-full overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm",
         "transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500",
-        hv,
+        "min-h-[320px] lg:min-h-[320px]",
       ].join(" ")}
     >
       {/* Background image */}
@@ -263,14 +246,14 @@ export default function FeaturedServices() {
             </motion.div>
           </motion.div>
 
-              {/* Right masonry grid - 3 columns with 2,3,3 pattern */}
+              {/* Right masonry grid - 3 columns with 2,3,3 pattern - Stepped/Offset layout */}
               <div className="lg:col-span-7">
                 <div
                   id="services"
-                  className="hidden lg:flex flex-col sm:flex-row gap-4"
+                  className="hidden lg:flex flex-col sm:flex-row gap-4 relative"
                 >
-                  {/* Column 1: 2 cards */}
-                  <div className="flex-1 flex flex-col gap-4">
+                  {/* Column 1: 2 cards - starts lower */}
+                  <div className="flex-1 flex flex-col gap-4 translate-y-16">
                     <motion.div variants={cardVariants}>
                       <ServiceCard item={services[0]} idx={0} />
                     </motion.div>
@@ -279,8 +262,8 @@ export default function FeaturedServices() {
                     </motion.div>
                   </div>
                   
-                  {/* Column 2: 3 cards */}
-                  <div className="flex-1 flex flex-col gap-4">
+                  {/* Column 2: 3 cards - starts slightly higher */}
+                  <div className="flex-1 flex flex-col gap-4 translate-y-8">
                     <motion.div variants={cardVariants}>
                       <ServiceCard item={services[1]} idx={1} />
                     </motion.div>
@@ -292,8 +275,8 @@ export default function FeaturedServices() {
                     </motion.div>
                   </div>
                   
-                  {/* Column 3: 3 cards */}
-                  <div className="flex-1 flex flex-col gap-4">
+                  {/* Column 3: 3 cards - starts even higher */}
+                  <div className="flex-1 flex flex-col gap-4 translate-y-0">
                     <motion.div variants={cardVariants}>
                       <ServiceCard item={services[2]} idx={2} />
                     </motion.div>
