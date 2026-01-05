@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import FeaturedServices from './components/FeaturedServices'
 import WhyChooseUs from './components/WhyChooseUs'
 import AboutUs from './components/AboutUs'
+import About from './components/About'
 import Testimonials from './components/Testimonials'
 import ClientLogos from './components/ClientLogos'
 import FAQ from './components/FAQ'
@@ -37,6 +38,7 @@ function App() {
           </>
         } />
         <Route path="/service/:serviceId" element={<ServiceDetail />} />
+        <Route path="/about" element={<About />} />
         <Route path="/about/about-us" element={<AboutUs />} />
         <Route path="/about/our-team" element={<OurTeam />} />
         <Route path="/careers" element={<Careers />} />

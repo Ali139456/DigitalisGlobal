@@ -37,10 +37,8 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false)
-  const [aboutMenuOpen, setAboutMenuOpen] = useState(false)
   const [portfolioMenuOpen, setPortfolioMenuOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
   const [mobilePortfolioOpen, setMobilePortfolioOpen] = useState(false)
   
   const isHomePage = location.pathname === '/'
@@ -74,17 +72,16 @@ const Navbar = () => {
         if (!e.target.closest('.navbar-item.has-dropdown') && 
             !e.target.closest('.mega-menu')) {
           setServicesMenuOpen(false)
-          setAboutMenuOpen(false)
           setPortfolioMenuOpen(false)
         }
       }
     }
 
-    if (servicesMenuOpen || aboutMenuOpen || portfolioMenuOpen) {
+    if (servicesMenuOpen || portfolioMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside)
       return () => document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [servicesMenuOpen, aboutMenuOpen, portfolioMenuOpen])
+  }, [servicesMenuOpen, portfolioMenuOpen])
 
   // Handle keyboard navigation for accessibility
   useEffect(() => {
@@ -92,7 +89,6 @@ const Navbar = () => {
       // Close mega menus on Escape key
       if (e.key === 'Escape') {
         setServicesMenuOpen(false)
-        setAboutMenuOpen(false)
         setPortfolioMenuOpen(false)
         setMobileMenuOpen(false)
       }
@@ -103,7 +99,7 @@ const Navbar = () => {
   }, [])
 
   const rightNavItems = [
-    { name: 'About', href: '#about', hasDropdown: true, menuType: 'about' },
+    { name: 'About Us', href: '/about', hasDropdown: false },
     { name: 'Services', href: '#services', hasDropdown: true, menuType: 'services' },
     { name: 'Portfolio', href: '/portfolio', hasDropdown: true, menuType: 'portfolio' },
     { name: 'Pricing', href: '/pricing', hasDropdown: false },
@@ -154,9 +150,6 @@ const Navbar = () => {
                     if (item.name === 'Services') {
                       e.preventDefault()
                       setMobileServicesOpen(!mobileServicesOpen)
-                    } else if (item.name === 'About') {
-                      e.preventDefault()
-                      setMobileAboutOpen(!mobileAboutOpen)
                     } else if (item.name === 'Portfolio') {
                       e.preventDefault()
                       setMobilePortfolioOpen(!mobilePortfolioOpen)
@@ -164,7 +157,7 @@ const Navbar = () => {
                       setMobileMenuOpen(false)
                     }
                   } else {
-                    if (item.name !== 'Services' && item.name !== 'About' && item.name !== 'Portfolio') {
+                    if (item.name !== 'Services' && item.name !== 'Portfolio') {
                       setMobileMenuOpen(false)
                     }
                   }
@@ -175,33 +168,26 @@ const Navbar = () => {
                     to={item.href}
                     className="navbar-link"
                     aria-haspopup={item.hasDropdown ? 'true' : undefined}
-                    aria-expanded={item.hasDropdown ? (item.menuType === 'services' ? servicesMenuOpen : item.menuType === 'about' ? aboutMenuOpen : item.menuType === 'portfolio' ? portfolioMenuOpen : false) : undefined}
+                    aria-expanded={item.hasDropdown ? (item.menuType === 'services' ? servicesMenuOpen : item.menuType === 'portfolio' ? portfolioMenuOpen : false) : undefined}
                     onClick={(e) => {
                       // On desktop, toggle mega menu on click for dropdown items
                       if (window.innerWidth > 768) {
-                        if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about' || item.menuType === 'portfolio')) {
+                        if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'portfolio')) {
                           e.preventDefault()
                           if (item.menuType === 'services') {
-                            setAboutMenuOpen(false)
                             setPortfolioMenuOpen(false)
                             setServicesMenuOpen(!servicesMenuOpen)
-                          } else if (item.menuType === 'about') {
-                            setServicesMenuOpen(false)
-                            setPortfolioMenuOpen(false)
-                            setAboutMenuOpen(!aboutMenuOpen)
                           } else if (item.menuType === 'portfolio') {
                             setServicesMenuOpen(false)
-                            setAboutMenuOpen(false)
                             setPortfolioMenuOpen(!portfolioMenuOpen)
                           }
                         } else {
                           setServicesMenuOpen(false)
-                          setAboutMenuOpen(false)
                           setPortfolioMenuOpen(false)
                         }
                       } else {
                         // Mobile behavior
-                        if (item.name === 'Services' || item.name === 'About' || item.name === 'Portfolio') {
+                        if (item.name === 'Services' || item.name === 'Portfolio') {
                           e.preventDefault()
                         } else {
                           setMobileMenuOpen(false)
@@ -214,16 +200,10 @@ const Navbar = () => {
                         e.preventDefault()
                         if (window.innerWidth > 768) {
                           if (item.menuType === 'services') {
-                            setAboutMenuOpen(false)
                             setPortfolioMenuOpen(false)
                             setServicesMenuOpen(!servicesMenuOpen)
-                          } else if (item.menuType === 'about') {
-                            setServicesMenuOpen(false)
-                            setPortfolioMenuOpen(false)
-                            setAboutMenuOpen(!aboutMenuOpen)
                           } else if (item.menuType === 'portfolio') {
                             setServicesMenuOpen(false)
-                            setAboutMenuOpen(false)
                             setPortfolioMenuOpen(!portfolioMenuOpen)
                           }
                         }
@@ -240,28 +220,21 @@ const Navbar = () => {
                     href={isHomePage ? item.href : `/${item.href}`}
                     className="navbar-link"
                     aria-haspopup={item.hasDropdown ? 'true' : undefined}
-                    aria-expanded={item.hasDropdown ? (item.menuType === 'services' ? servicesMenuOpen : item.menuType === 'about' ? aboutMenuOpen : item.menuType === 'portfolio' ? portfolioMenuOpen : false) : undefined}
+                    aria-expanded={item.hasDropdown ? (item.menuType === 'services' ? servicesMenuOpen : item.menuType === 'portfolio' ? portfolioMenuOpen : false) : undefined}
                     onClick={(e) => {
                       // On desktop, toggle mega menu on click for dropdown items
                       if (window.innerWidth > 768) {
                         if (item.hasDropdown && (item.menuType === 'services' || item.menuType === 'about' || item.menuType === 'portfolio')) {
                           e.preventDefault()
                           if (item.menuType === 'services') {
-                            setAboutMenuOpen(false)
                             setPortfolioMenuOpen(false)
                             setServicesMenuOpen(!servicesMenuOpen)
-                          } else if (item.menuType === 'about') {
-                            setServicesMenuOpen(false)
-                            setPortfolioMenuOpen(false)
-                            setAboutMenuOpen(!aboutMenuOpen)
                           } else if (item.menuType === 'portfolio') {
                             setServicesMenuOpen(false)
-                            setAboutMenuOpen(false)
                             setPortfolioMenuOpen(!portfolioMenuOpen)
                           }
                         } else {
                           setServicesMenuOpen(false)
-                          setAboutMenuOpen(false)
                           setPortfolioMenuOpen(false)
                           if (!isHomePage && item.href.startsWith('#')) {
                             e.preventDefault()
@@ -287,16 +260,10 @@ const Navbar = () => {
                         e.preventDefault()
                         if (window.innerWidth > 768) {
                           if (item.menuType === 'services') {
-                            setAboutMenuOpen(false)
                             setPortfolioMenuOpen(false)
                             setServicesMenuOpen(!servicesMenuOpen)
-                          } else if (item.menuType === 'about') {
-                            setServicesMenuOpen(false)
-                            setPortfolioMenuOpen(false)
-                            setAboutMenuOpen(!aboutMenuOpen)
                           } else if (item.menuType === 'portfolio') {
                             setServicesMenuOpen(false)
-                            setAboutMenuOpen(false)
                             setPortfolioMenuOpen(!portfolioMenuOpen)
                           }
                         }
@@ -310,98 +277,6 @@ const Navbar = () => {
                   </a>
                 )}
                 
-                {/* Mega Menu for About */}
-                {item.name === 'About' && (
-                  <>
-                    {/* Desktop Mega Menu - hidden on mobile */}
-                    <div 
-                      className={`mega-menu ${aboutMenuOpen ? 'active' : ''} desktop-only`}
-                      role="menu"
-                      aria-label="About menu"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                      }}
-                    >
-                      <div className="mega-menu-container">
-                        <div className="mega-menu-header">
-                          <h3>About Us</h3>
-                          <p>Learn more about Digitalis Global</p>
-                        </div>
-                        <div className="mega-menu-grid">
-                          <Link
-                            to="/about/about-us"
-                            className="mega-menu-item"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              setMobileMenuOpen(false)
-                              setMobileAboutOpen(false)
-                              setAboutMenuOpen(false)
-                              setServicesMenuOpen(false)
-                              setPortfolioMenuOpen(false)
-                            }}
-                          >
-                            <span className="mega-menu-icon">📖</span>
-                            <div className="mega-menu-content">
-                              <h4>About Us</h4>
-                              <span className="mega-menu-arrow">→</span>
-                            </div>
-                          </Link>
-                          <Link
-                            to="/about/our-team"
-                            className="mega-menu-item"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              setMobileMenuOpen(false)
-                              setMobileAboutOpen(false)
-                              setAboutMenuOpen(false)
-                              setServicesMenuOpen(false)
-                              setPortfolioMenuOpen(false)
-                            }}
-                          >
-                            <span className="mega-menu-icon">👥</span>
-                            <div className="mega-menu-content">
-                              <h4>Our Team</h4>
-                              <span className="mega-menu-arrow">→</span>
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Mobile About Submenu - only show on mobile */}
-                    {mobileAboutOpen && (
-                      <ul className="mobile-services-menu">
-                        <li>
-                          <Link
-                            to="/about/about-us"
-                            className="mobile-service-link"
-                            onClick={() => {
-                              setMobileMenuOpen(false)
-                              setMobileAboutOpen(false)
-                            }}
-                          >
-                            <span className="mobile-service-icon">📖</span>
-                            <span>About Us</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/about/our-team"
-                            className="mobile-service-link"
-                            onClick={() => {
-                              setMobileMenuOpen(false)
-                              setMobileAboutOpen(false)
-                            }}
-                          >
-                            <span className="mobile-service-icon">👥</span>
-                            <span>Our Team</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    )}
-                  </>
-                )}
-
                 {/* Mega Menu for Services */}
                 {item.name === 'Services' && (
                   <>
