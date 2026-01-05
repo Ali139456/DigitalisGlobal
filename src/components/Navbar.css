@@ -116,15 +116,15 @@
   font-weight: 400;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
   white-space: nowrap;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-/* Modern background glow effect on hover */
+/* Modern prominent background glow effect on hover */
 .navbar-link::before {
   content: '';
   position: absolute;
@@ -132,23 +132,29 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(14, 165, 233, 0.1);
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(2, 132, 199, 0.25));
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: 10px;
   opacity: 0;
-  transform: scale(0.8);
+  transform: scale(0.9);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
+  box-shadow: 0 0 0 rgba(14, 165, 233, 0);
 }
 
 .navbar-link:hover::before {
   opacity: 1;
   transform: scale(1);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3), 0 0 20px rgba(14, 165, 233, 0.2);
+  border-color: rgba(14, 165, 233, 0.5);
 }
 
 /* Keep background visible when dropdown is open */
 .navbar-item.has-dropdown .navbar-link[aria-expanded="true"]::before {
   opacity: 1;
   transform: scale(1);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3), 0 0 20px rgba(14, 165, 233, 0.2);
+  border-color: rgba(14, 165, 233, 0.5);
 }
 
 .dropdown-indicator {
@@ -167,8 +173,10 @@
 }
 
 .navbar-link:hover {
-  color: #0ea5e9;
+  color: #ffffff;
   transform: translateY(-2px);
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
 }
 
 .navbar-link:hover .dropdown-indicator,
