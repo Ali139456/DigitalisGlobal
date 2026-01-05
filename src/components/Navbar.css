@@ -114,36 +114,41 @@
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 400;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
   white-space: nowrap;
+  border-radius: 8px;
 }
 
-/* Modern animated underline on hover */
-.navbar-link::after {
+/* Modern background glow effect on hover */
+.navbar-link::before {
   content: '';
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #0ea5e9, #0284c7);
-  transition: width 0.3s ease, left 0.3s ease;
-  border-radius: 2px;
+  background: rgba(14, 165, 233, 0.1);
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
 }
 
-.navbar-link:hover::after {
-  width: 100%;
-  left: 0;
+.navbar-link:hover::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* Keep underline visible when dropdown is open */
-.navbar-item.has-dropdown .navbar-link[aria-expanded="true"]::after {
-  width: 100%;
+/* Keep background visible when dropdown is open */
+.navbar-item.has-dropdown .navbar-link[aria-expanded="true"]::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .dropdown-indicator {
@@ -162,8 +167,8 @@
 }
 
 .navbar-link:hover {
-  color: var(--text-secondary);
-  transform: translateY(-1px);
+  color: #0ea5e9;
+  transform: translateY(-2px);
 }
 
 .navbar-link:hover .dropdown-indicator,
