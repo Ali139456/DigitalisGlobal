@@ -205,17 +205,16 @@ const About = () => {
                 Global Reach
               </h2>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
-                Navigate complex markets with simplified vehicle data. With operations across four key international regions, Digitalis Global seeks collaboration with businesses sharing regional footprints. Let's connect.
+                With operations across multiple international regions, Digitalis Global delivers cutting-edge digital solutions to clients worldwide. From web development to digital marketing, we're committed to transforming businesses across the globe. Let's connect.
               </p>
 
               {/* Locations List */}
               <div className="space-y-4">
                 {[
-                  { country: 'United Kingdom', location: 'London', flag: '🇬🇧' },
-                  { country: 'Australia', location: 'Nationwide', flag: '🇦🇺' },
-                  { country: 'New Zealand', location: 'North and South Island', flag: '🇳🇿' },
-                  { country: 'Malaysia', location: 'Kuala Lumpur', flag: '🇲🇾' },
-                  { country: 'Philippines', location: 'Manila', flag: '🇵🇭' },
+                  { country: 'Australia', location: 'Sydney', flag: '🇦🇺' },
+                  { country: 'United Kingdom', location: 'UK', flag: '🇬🇧' },
+                  { country: 'Finland', location: 'Finland', flag: '🇫🇮' },
+                  { country: 'Germany', location: 'Germany', flag: '🇩🇪' },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -327,6 +326,19 @@ const About = () => {
                   />
 
                   {/* Glowing Location Pins */}
+                  {/* Australia - Sydney */}
+                  <g className="location-pin" filter="url(#glow)">
+                    <circle cx="800" cy="310" r="20" fill="#0ea5e9" opacity="0.2" />
+                    <circle cx="800" cy="310" r="15" fill="#0ea5e9" opacity="0.3" />
+                    <circle cx="800" cy="310" r="10" fill="#0ea5e9" opacity="0.5" />
+                    <circle cx="800" cy="310" r="7" fill="#0ea5e9" />
+                    <path
+                      d="M 800 310 L 792 330 L 800 322 L 808 330 Z"
+                      fill="#0284c7"
+                    />
+                    <circle cx="800" cy="310" r="4" fill="#ffffff" />
+                  </g>
+
                   {/* United Kingdom */}
                   <g className="location-pin" filter="url(#glow)">
                     <circle cx="520" cy="100" r="20" fill="#0ea5e9" opacity="0.2" />
@@ -340,56 +352,30 @@ const About = () => {
                     <circle cx="520" cy="100" r="4" fill="#ffffff" />
                   </g>
 
-                  {/* Australia */}
+                  {/* Finland */}
                   <g className="location-pin" filter="url(#glow)">
-                    <circle cx="800" cy="310" r="20" fill="#0ea5e9" opacity="0.2" />
-                    <circle cx="800" cy="310" r="15" fill="#0ea5e9" opacity="0.3" />
-                    <circle cx="800" cy="310" r="10" fill="#0ea5e9" opacity="0.5" />
-                    <circle cx="800" cy="310" r="7" fill="#0ea5e9" />
+                    <circle cx="550" cy="60" r="20" fill="#0ea5e9" opacity="0.2" />
+                    <circle cx="550" cy="60" r="15" fill="#0ea5e9" opacity="0.3" />
+                    <circle cx="550" cy="60" r="10" fill="#0ea5e9" opacity="0.5" />
+                    <circle cx="550" cy="60" r="7" fill="#0ea5e9" />
                     <path
-                      d="M 800 310 L 792 330 L 800 322 L 808 330 Z"
+                      d="M 550 60 L 542 80 L 550 72 L 558 80 Z"
                       fill="#0284c7"
                     />
-                    <circle cx="800" cy="310" r="4" fill="#ffffff" />
+                    <circle cx="550" cy="60" r="4" fill="#ffffff" />
                   </g>
 
-                  {/* New Zealand */}
+                  {/* Germany */}
                   <g className="location-pin" filter="url(#glow)">
-                    <circle cx="850" cy="330" r="20" fill="#0ea5e9" opacity="0.2" />
-                    <circle cx="850" cy="330" r="15" fill="#0ea5e9" opacity="0.3" />
-                    <circle cx="850" cy="330" r="10" fill="#0ea5e9" opacity="0.5" />
-                    <circle cx="850" cy="330" r="7" fill="#0ea5e9" />
+                    <circle cx="540" cy="110" r="20" fill="#0ea5e9" opacity="0.2" />
+                    <circle cx="540" cy="110" r="15" fill="#0ea5e9" opacity="0.3" />
+                    <circle cx="540" cy="110" r="10" fill="#0ea5e9" opacity="0.5" />
+                    <circle cx="540" cy="110" r="7" fill="#0ea5e9" />
                     <path
-                      d="M 850 330 L 842 350 L 850 342 L 858 350 Z"
+                      d="M 540 110 L 532 130 L 540 122 L 548 130 Z"
                       fill="#0284c7"
                     />
-                    <circle cx="850" cy="330" r="4" fill="#ffffff" />
-                  </g>
-
-                  {/* Malaysia */}
-                  <g className="location-pin" filter="url(#glow)">
-                    <circle cx="720" cy="220" r="20" fill="#0ea5e9" opacity="0.2" />
-                    <circle cx="720" cy="220" r="15" fill="#0ea5e9" opacity="0.3" />
-                    <circle cx="720" cy="220" r="10" fill="#0ea5e9" opacity="0.5" />
-                    <circle cx="720" cy="220" r="7" fill="#0ea5e9" />
-                    <path
-                      d="M 720 220 L 712 240 L 720 232 L 728 240 Z"
-                      fill="#0284c7"
-                    />
-                    <circle cx="720" cy="220" r="4" fill="#ffffff" />
-                  </g>
-
-                  {/* Philippines */}
-                  <g className="location-pin" filter="url(#glow)">
-                    <circle cx="780" cy="240" r="20" fill="#0ea5e9" opacity="0.2" />
-                    <circle cx="780" cy="240" r="15" fill="#0ea5e9" opacity="0.3" />
-                    <circle cx="780" cy="240" r="10" fill="#0ea5e9" opacity="0.5" />
-                    <circle cx="780" cy="240" r="7" fill="#0ea5e9" />
-                    <path
-                      d="M 780 240 L 772 260 L 780 252 L 788 260 Z"
-                      fill="#0284c7"
-                    />
-                    <circle cx="780" cy="240" r="4" fill="#ffffff" />
+                    <circle cx="540" cy="110" r="4" fill="#ffffff" />
                   </g>
                 </svg>
 
