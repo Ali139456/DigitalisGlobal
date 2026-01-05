@@ -250,144 +250,144 @@ const About = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
-                    {/* Background Dotted Grid Pattern (light gray) */}
+                    {/* Subtle Grid Pattern */}
                     <pattern
-                      id="bgDotPattern"
+                      id="gridPattern"
                       x="0"
                       y="0"
-                      width="15"
-                      height="15"
+                      width="40"
+                      height="40"
                       patternUnits="userSpaceOnUse"
                     >
-                      <circle cx="7.5" cy="7.5" r="0.8" fill="#cbd5e1" opacity="0.4" />
-                    </pattern>
-                    
-                    {/* Dense Blue Dot Pattern for Continents */}
-                    <pattern
-                      id="blueDotPattern"
-                      x="0"
-                      y="0"
-                      width="5"
-                      height="5"
-                      patternUnits="userSpaceOnUse"
-                    >
-                      <circle cx="2.5" cy="2.5" r="2" fill="#0ea5e9" />
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" strokeWidth="0.5" opacity="0.3" />
                     </pattern>
                     
                     {/* Glow Filter for Pins */}
                     <filter id="glow">
-                      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
                       <feMerge>
                         <feMergeNode in="coloredBlur"/>
                         <feMergeNode in="SourceGraphic"/>
                       </feMerge>
                     </filter>
+                    
+                    {/* Gradient for continents */}
+                    <linearGradient id="continentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#dbeafe" />
+                      <stop offset="100%" stopColor="#bfdbfe" />
+                    </linearGradient>
                   </defs>
                   
                   {/* Background */}
                   <rect width="1000" height="500" fill="#f8fafc" />
-                  <rect width="1000" height="500" fill="url(#bgDotPattern)" />
+                  <rect width="1000" height="500" fill="url(#gridPattern)" />
 
-                  {/* World Map Continents - Made of Blue Dots */}
+                  {/* World Map Continents - Clean Modern Design */}
                   {/* North America */}
-                  <g>
-                    <path
-                      d="M 150 100 L 300 80 L 350 120 L 320 180 L 200 200 L 120 160 Z"
-                      fill="url(#blueDotPattern)"
-                    />
-                  </g>
+                  <path
+                    d="M 120 80 L 180 70 L 220 90 L 280 85 L 320 110 L 340 150 L 320 190 L 280 210 L 200 220 L 140 200 L 100 160 L 80 120 Z"
+                    fill="url(#continentGradient)"
+                    stroke="#93c5fd"
+                    strokeWidth="1.5"
+                    opacity="0.8"
+                  />
                   
                   {/* South America */}
-                  <g>
-                    <path
-                      d="M 250 200 L 320 220 L 340 280 L 300 350 L 240 340 L 220 280 Z"
-                      fill="url(#blueDotPattern)"
-                    />
-                  </g>
+                  <path
+                    d="M 240 200 L 300 210 L 320 250 L 310 300 L 280 340 L 240 350 L 200 330 L 180 280 L 190 240 Z"
+                    fill="url(#continentGradient)"
+                    stroke="#93c5fd"
+                    strokeWidth="1.5"
+                    opacity="0.8"
+                  />
                   
                   {/* Europe */}
-                  <g>
-                    <path
-                      d="M 450 80 L 550 70 L 580 120 L 560 160 L 480 170 L 440 120 Z"
-                      fill="url(#blueDotPattern)"
-                    />
-                  </g>
+                  <path
+                    d="M 480 60 L 540 55 L 580 75 L 600 110 L 590 150 L 560 170 L 520 175 L 480 160 L 460 120 L 470 80 Z"
+                    fill="url(#continentGradient)"
+                    stroke="#93c5fd"
+                    strokeWidth="1.5"
+                    opacity="0.8"
+                  />
                   
                   {/* Africa */}
-                  <g>
-                    <path
-                      d="M 500 180 L 580 190 L 600 250 L 580 320 L 520 350 L 480 300 L 480 220 Z"
-                      fill="url(#blueDotPattern)"
-                    />
-                  </g>
+                  <path
+                    d="M 500 170 L 560 180 L 600 200 L 620 250 L 610 300 L 580 340 L 540 360 L 500 350 L 480 300 L 480 240 L 490 200 Z"
+                    fill="url(#continentGradient)"
+                    stroke="#93c5fd"
+                    strokeWidth="1.5"
+                    opacity="0.8"
+                  />
                   
                   {/* Asia */}
-                  <g>
-                    <path
-                      d="M 600 60 L 850 50 L 900 120 L 880 200 L 800 220 L 700 200 L 650 150 L 620 100 Z"
-                      fill="url(#blueDotPattern)"
-                    />
-                  </g>
+                  <path
+                    d="M 600 40 L 720 35 L 800 50 L 880 80 L 900 130 L 890 180 L 850 210 L 780 220 L 700 200 L 640 170 L 610 120 L 600 80 Z"
+                    fill="url(#continentGradient)"
+                    stroke="#93c5fd"
+                    strokeWidth="1.5"
+                    opacity="0.8"
+                  />
                   
                   {/* Australia */}
-                  <g>
-                    <path
-                      d="M 750 280 L 850 270 L 870 310 L 850 340 L 780 350 L 740 320 Z"
-                      fill="url(#blueDotPattern)"
-                    />
-                  </g>
+                  <path
+                    d="M 760 280 L 840 275 L 880 300 L 870 330 L 830 350 L 780 355 L 740 340 L 730 310 L 750 290 Z"
+                    fill="url(#continentGradient)"
+                    stroke="#93c5fd"
+                    strokeWidth="1.5"
+                    opacity="0.8"
+                  />
 
                   {/* Glowing Location Pins */}
                   {/* Australia - Sydney */}
                   <g className="location-pin" filter="url(#glow)">
-                    <circle cx="800" cy="310" r="20" fill="#0ea5e9" opacity="0.2" />
-                    <circle cx="800" cy="310" r="15" fill="#0ea5e9" opacity="0.3" />
-                    <circle cx="800" cy="310" r="10" fill="#0ea5e9" opacity="0.5" />
-                    <circle cx="800" cy="310" r="7" fill="#0ea5e9" />
+                    <circle cx="810" cy="315" r="25" fill="#0ea5e9" opacity="0.15" />
+                    <circle cx="810" cy="315" r="18" fill="#0ea5e9" opacity="0.25" />
+                    <circle cx="810" cy="315" r="12" fill="#0ea5e9" opacity="0.4" />
+                    <circle cx="810" cy="315" r="8" fill="#0ea5e9" />
                     <path
-                      d="M 800 310 L 792 330 L 800 322 L 808 330 Z"
+                      d="M 810 315 L 800 340 L 810 330 L 820 340 Z"
                       fill="#0284c7"
                     />
-                    <circle cx="800" cy="310" r="4" fill="#ffffff" />
+                    <circle cx="810" cy="315" r="5" fill="#ffffff" />
                   </g>
 
                   {/* United Kingdom */}
                   <g className="location-pin" filter="url(#glow)">
-                    <circle cx="520" cy="100" r="20" fill="#0ea5e9" opacity="0.2" />
-                    <circle cx="520" cy="100" r="15" fill="#0ea5e9" opacity="0.3" />
-                    <circle cx="520" cy="100" r="10" fill="#0ea5e9" opacity="0.5" />
-                    <circle cx="520" cy="100" r="7" fill="#0ea5e9" />
+                    <circle cx="510" cy="105" r="25" fill="#0ea5e9" opacity="0.15" />
+                    <circle cx="510" cy="105" r="18" fill="#0ea5e9" opacity="0.25" />
+                    <circle cx="510" cy="105" r="12" fill="#0ea5e9" opacity="0.4" />
+                    <circle cx="510" cy="105" r="8" fill="#0ea5e9" />
                     <path
-                      d="M 520 100 L 512 120 L 520 112 L 528 120 Z"
+                      d="M 510 105 L 500 130 L 510 120 L 520 130 Z"
                       fill="#0284c7"
                     />
-                    <circle cx="520" cy="100" r="4" fill="#ffffff" />
+                    <circle cx="510" cy="105" r="5" fill="#ffffff" />
                   </g>
 
                   {/* Finland */}
                   <g className="location-pin" filter="url(#glow)">
-                    <circle cx="550" cy="60" r="20" fill="#0ea5e9" opacity="0.2" />
-                    <circle cx="550" cy="60" r="15" fill="#0ea5e9" opacity="0.3" />
-                    <circle cx="550" cy="60" r="10" fill="#0ea5e9" opacity="0.5" />
-                    <circle cx="550" cy="60" r="7" fill="#0ea5e9" />
+                    <circle cx="560" cy="65" r="25" fill="#0ea5e9" opacity="0.15" />
+                    <circle cx="560" cy="65" r="18" fill="#0ea5e9" opacity="0.25" />
+                    <circle cx="560" cy="65" r="12" fill="#0ea5e9" opacity="0.4" />
+                    <circle cx="560" cy="65" r="8" fill="#0ea5e9" />
                     <path
-                      d="M 550 60 L 542 80 L 550 72 L 558 80 Z"
+                      d="M 560 65 L 550 90 L 560 80 L 570 90 Z"
                       fill="#0284c7"
                     />
-                    <circle cx="550" cy="60" r="4" fill="#ffffff" />
+                    <circle cx="560" cy="65" r="5" fill="#ffffff" />
                   </g>
 
                   {/* Germany */}
                   <g className="location-pin" filter="url(#glow)">
-                    <circle cx="540" cy="110" r="20" fill="#0ea5e9" opacity="0.2" />
-                    <circle cx="540" cy="110" r="15" fill="#0ea5e9" opacity="0.3" />
-                    <circle cx="540" cy="110" r="10" fill="#0ea5e9" opacity="0.5" />
-                    <circle cx="540" cy="110" r="7" fill="#0ea5e9" />
+                    <circle cx="540" cy="115" r="25" fill="#0ea5e9" opacity="0.15" />
+                    <circle cx="540" cy="115" r="18" fill="#0ea5e9" opacity="0.25" />
+                    <circle cx="540" cy="115" r="12" fill="#0ea5e9" opacity="0.4" />
+                    <circle cx="540" cy="115" r="8" fill="#0ea5e9" />
                     <path
-                      d="M 540 110 L 532 130 L 540 122 L 548 130 Z"
+                      d="M 540 115 L 530 140 L 540 130 L 550 140 Z"
                       fill="#0284c7"
                     />
-                    <circle cx="540" cy="110" r="4" fill="#ffffff" />
+                    <circle cx="540" cy="115" r="5" fill="#ffffff" />
                   </g>
                 </svg>
 
