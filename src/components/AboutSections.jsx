@@ -103,7 +103,7 @@ const AboutSections = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.08,
+        staggerChildren: prefersReducedMotion ? 0 : 0.1,
         delayChildren: prefersReducedMotion ? 0 : 0.1,
       },
     },
@@ -112,7 +112,7 @@ const AboutSections = () => {
   const milestoneVariants = {
     hidden: { 
       opacity: 0, 
-      y: prefersReducedMotion ? 0 : 30 
+      y: prefersReducedMotion ? 0 : 40 
     },
     visible: {
       opacity: 1,
@@ -237,7 +237,7 @@ const AboutSections = () => {
             </h2>
           </motion.div>
 
-          {/* Grid-based Milestone Layout */}
+          {/* Grid-based Milestone Layout with Scroll-Triggered Animations */}
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             variants={journeyContainerVariants}
