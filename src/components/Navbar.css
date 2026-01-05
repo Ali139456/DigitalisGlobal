@@ -121,6 +121,29 @@
   white-space: nowrap;
 }
 
+/* Modern animated underline on hover */
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  transition: width 0.3s ease, left 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Keep underline visible when dropdown is open */
+.navbar-item.has-dropdown .navbar-link[aria-expanded="true"]::after {
+  width: 100%;
+}
+
 .dropdown-indicator {
   font-size: 0.6rem;
   color: var(--text-primary);
@@ -138,6 +161,7 @@
 
 .navbar-link:hover {
   color: var(--text-secondary);
+  transform: translateY(-1px);
 }
 
 .navbar-link:hover .dropdown-indicator,
