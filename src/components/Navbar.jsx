@@ -97,7 +97,6 @@ const Navbar = () => {
     { name: 'Portfolio', href: '/portfolio', hasDropdown: false },
     { name: 'Pricing', href: '/pricing', hasDropdown: false },
     { name: 'Careers', href: '/careers', hasDropdown: false },
-    { name: 'Contact', href: '/contact', hasDropdown: false },
   ]
 
   return (
@@ -441,15 +440,9 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-right">
-
-          <div className="navbar-icons">
-            <button className="icon-button" aria-label="Search">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-            </button>
-          </div>
+          <Link to="/contact" className="navbar-contact-button">
+            Contact
+          </Link>
         </div>
 
         <button 
