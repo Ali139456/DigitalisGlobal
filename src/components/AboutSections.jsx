@@ -238,17 +238,18 @@ const AboutSections = () => {
           </motion.div>
 
           {/* Grid-based Milestone Layout with Scroll-Triggered Animations */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-            variants={journeyContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {milestones.map((milestone, index) => (
               <motion.div
                 key={index}
-                variants={milestoneVariants}
+                initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.6,
+                  delay: prefersReducedMotion ? 0 : index * 0.1,
+                  ease: "easeOut",
+                }}
                 className="group relative bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
                 whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.02 }}
               >
@@ -277,7 +278,7 @@ const AboutSections = () => {
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
     </>
