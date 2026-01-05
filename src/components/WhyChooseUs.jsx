@@ -73,9 +73,9 @@ const WhyChooseUs = () => {
   }
 
   return (
-    <section className="relative w-full bg-gradient-to-br from-slate-50 via-white to-teal-50/30 py-20 overflow-hidden">
+    <section className="relative w-full bg-gradient-to-br from-slate-50 via-white to-sky-50/30 py-20 overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
       
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
@@ -88,7 +88,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.p
-            className="text-xs font-bold tracking-[0.2em] text-teal-600 uppercase mb-4"
+            className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -98,7 +98,7 @@ const WhyChooseUs = () => {
           </motion.p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
             What makes our{' '}
-            <span className="text-teal-600">customers appreciate us?</span>
+            <span className="text-sky-500">customers appreciate us?</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Digitalis Global is your trusted partner for high-performance digital solutions 
@@ -121,10 +121,10 @@ const WhyChooseUs = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="text-center p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all hover:scale-105"
+              className="text-center p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all hover:scale-105"
             >
               <motion.div
-                className="text-4xl md:text-5xl font-bold text-teal-600 mb-2"
+                className="text-4xl md:text-5xl font-bold text-sky-500 mb-2"
                 initial={{ scale: 0, rotate: -180 }}
                 whileInView={{ scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
@@ -170,10 +170,10 @@ const WhyChooseUs = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative p-8 rounded-2xl bg-white border border-slate-200 hover:border-teal-300 hover:shadow-xl transition-all overflow-hidden"
+              className="group relative p-8 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all overflow-hidden"
             >
               {/* Hover Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-br from-sky-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               <div className="relative z-10">
                 <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
@@ -188,7 +188,7 @@ const WhyChooseUs = () => {
               </div>
 
               {/* Decorative Corner */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-teal-100/30 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 right-0 w-20 h-20 bg-sky-100/30 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           ))}
         </motion.div>
@@ -208,7 +208,7 @@ const WhyChooseUs = () => {
           </p>
           <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-teal-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-teal-600/25 transition-all hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center rounded-full bg-sky-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all hover:bg-blue-600 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

@@ -71,7 +71,7 @@ const Contact = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-slate-50 via-teal-50/30 to-white py-20 overflow-hidden pt-32"
+        className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -82,9 +82,9 @@ const Contact = () => {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-teal-100/20 to-blue-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-sky-100/20 to-blue-100/20 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-16">
           <motion.div
@@ -95,14 +95,14 @@ const Contact = () => {
           >
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-slate-600 hover:text-teal-600 mb-8 transition-colors"
+              className="inline-flex items-center gap-2 text-slate-600 hover:text-sky-500 mb-8 transition-colors"
             >
               <span>←</span>
               <span>Back to Home</span>
             </Link>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-4 sm:mb-6 px-4">
-              Get In <span className="text-teal-600">Touch</span>
+              Get In <span className="text-sky-500">Touch</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
               Have a project in mind? Let's discuss how we can help bring your vision to life.
@@ -137,7 +137,7 @@ const Contact = () => {
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 hover:border-teal-300 hover:shadow-md transition-all"
+                    className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all"
                   >
                     <div className="flex items-start gap-3 sm:gap-4">
                       <div className="text-2xl sm:text-3xl flex-shrink-0">{info.icon}</div>
@@ -181,7 +181,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all bg-white"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all bg-white"
                         placeholder="Your name"
                       />
                     </div>
@@ -195,7 +195,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all bg-white"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all bg-white"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -210,7 +210,7 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all bg-white"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all bg-white"
                         placeholder="+1 234 567 8900"
                       />
                     </div>
@@ -224,7 +224,7 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all bg-white"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all bg-white"
                         placeholder="Project inquiry"
                       />
                     </div>
@@ -239,13 +239,13 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none bg-white"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 outline-none transition-all resize-none bg-white"
                       placeholder="Tell us about your project..."
                     />
                   </div>
                   <motion.button
                     type="submit"
-                    className="w-full px-8 py-4 rounded-full bg-teal-600 text-white font-semibold shadow-lg shadow-teal-600/25 transition-all hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30"
+                    className="w-full px-8 py-4 rounded-full bg-sky-500 text-white font-semibold shadow-lg shadow-sky-500/25 transition-all hover:bg-blue-600 hover:shadow-xl hover:shadow-sky-500/30"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

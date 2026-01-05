@@ -66,7 +66,7 @@ const FAQ = () => {
   return (
     <section className="relative w-full bg-gradient-to-br from-slate-50 to-white py-20 overflow-hidden">
       {/* Decorative Background */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/30 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/30 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
 
       <div className="relative max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
@@ -79,7 +79,7 @@ const FAQ = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.p
-            className="text-xs font-bold tracking-[0.2em] text-teal-600 uppercase mb-4"
+            className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -89,7 +89,7 @@ const FAQ = () => {
           </motion.p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
             Frequently asked{' '}
-            <span className="text-teal-600">questions</span>
+            <span className="text-sky-500">questions</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Explore our FAQs for seamless answers to common queries, whether you're delving 
@@ -113,7 +113,7 @@ const FAQ = () => {
               className="group"
             >
               <motion.button
-                className="w-full text-left p-6 rounded-2xl bg-white border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all flex items-center justify-between gap-4"
+                className="w-full text-left p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all flex items-center justify-between gap-4"
                 onClick={() => toggleFAQ(index)}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
@@ -122,7 +122,7 @@ const FAQ = () => {
                   {index + 1}. {faq.question}
                 </h3>
                 <motion.div
-                  className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 transition-colors group-hover:bg-teal-200"
+                  className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-500 transition-colors group-hover:bg-sky-200"
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -153,7 +153,7 @@ const FAQ = () => {
                   >
                     <div className="p-6 pt-0">
                       <motion.div
-                        className="p-6 rounded-xl bg-teal-50/50 border border-teal-100"
+                        className="p-6 rounded-xl bg-sky-50/50 border border-sky-100"
                         initial={{ y: -10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -10, opacity: 0 }}
@@ -184,7 +184,7 @@ const FAQ = () => {
           </p>
           <motion.a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-teal-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-teal-600/25 transition-all hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center rounded-full bg-sky-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all hover:bg-blue-600 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

@@ -70,7 +70,7 @@ function ServiceCard({ item, idx }) {
       to={`/service/${item.slug}`}
       className={[
         "group relative block w-full overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm",
-        "transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500",
+        "transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
         "min-h-[260px] lg:min-h-[260px]",
       ].join(" ")}
     >
@@ -84,12 +84,12 @@ function ServiceCard({ item, idx }) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
 
       {/* decorative blur blob */}
-      <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-teal-200/40 blur-3xl transition-opacity duration-300 group-hover:opacity-70" />
+      <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-sky-200/40 blur-3xl transition-opacity duration-300 group-hover:opacity-70" />
 
       {/* content */}
       <div className="relative flex h-full flex-col p-6">
         <div className="flex items-start justify-between gap-3">
-          <div className="inline-flex items-center gap-2 rounded-full bg-teal-600/20 backdrop-blur-sm px-3 py-1 text-xs font-medium text-white">
+          <div className="inline-flex items-center gap-2 rounded-full bg-sky-500/20 backdrop-blur-sm px-3 py-1 text-xs font-medium text-white">
             <span aria-hidden="true">{item.icon}</span>
           </div>
 
@@ -108,7 +108,7 @@ function ServiceCard({ item, idx }) {
       </div>
 
       {/* Learn more - appears at bottom on hover with background */}
-      <div className="absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-teal-600/95 backdrop-blur-sm px-6 py-4 rounded-b-3xl">
+      <div className="absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-sky-500/95 backdrop-blur-sm px-6 py-4 rounded-b-3xl">
         <span className="inline-flex items-center gap-2 text-sm font-semibold text-white">
           Learn more
           <span className="transition-transform duration-200 group-hover:translate-x-1">
@@ -180,9 +180,9 @@ export default function FeaturedServices() {
       </div>
       
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-teal-100/15 to-blue-100/15 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-sky-100/15 to-blue-100/15 rounded-full blur-3xl" />
       
       <div className="relative mx-auto w-full px-6 py-20 sm:px-8 lg:px-16 xl:px-20">
             <motion.div
@@ -198,7 +198,7 @@ export default function FeaturedServices() {
                 variants={leftContentVariants}
               >
             <motion.p
-              className="text-xs font-bold tracking-[0.2em] text-teal-600 uppercase mb-6"
+              className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-6"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -215,8 +215,8 @@ export default function FeaturedServices() {
                   transition={{ delay: 0.3, duration: 0.6 }}
                 >
                   Services that help you go from{" "}
-                  <span className="text-teal-600">concept</span> to{" "}
-                  <span className="text-teal-600">completion</span>
+                  <span className="text-sky-500">concept</span> to{" "}
+                  <span className="text-sky-500">completion</span>
                 </motion.h2>
 
                 <motion.p
@@ -240,7 +240,7 @@ export default function FeaturedServices() {
                 >
               <motion.a
                 href="#services"
-                className="inline-flex items-center justify-center rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-600/25 transition-all hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all hover:bg-blue-600 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -249,7 +249,7 @@ export default function FeaturedServices() {
 
               <motion.a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full border-2 border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center rounded-full border-2 border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -316,7 +316,7 @@ export default function FeaturedServices() {
       </div>
 
       {/* Decorative glows */}
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-48 bg-gradient-to-l from-teal-100/40 to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-48 bg-gradient-to-l from-sky-100/40 to-transparent" />
       <div className="pointer-events-none absolute left-0 bottom-0 h-full w-32 bg-gradient-to-r from-blue-100/30 to-transparent" />
     </section>
   );

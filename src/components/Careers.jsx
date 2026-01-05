@@ -36,7 +36,7 @@ const Careers = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-slate-50 via-teal-50/30 to-white py-20 overflow-hidden pt-32"
+        className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -47,9 +47,9 @@ const Careers = () => {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-teal-100/20 to-blue-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-sky-100/20 to-blue-100/20 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-16">
           <motion.div
@@ -59,7 +59,7 @@ const Careers = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-4 sm:mb-6 px-4">
-              Join Our <span className="text-teal-600">Team</span>
+              Join Our <span className="text-sky-500">Team</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
               Be part of a dynamic team that's shaping the future of digital solutions. 
@@ -79,9 +79,9 @@ const Careers = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="text-center p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all"
+                className="text-center p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all"
               >
-                <div className="text-4xl sm:text-5xl font-bold text-teal-600 mb-2">
+                <div className="text-4xl sm:text-5xl font-bold text-sky-500 mb-2">
                   {stat.value}{stat.suffix}
                 </div>
                 <p className="text-base sm:text-lg text-slate-600 font-medium">
@@ -133,23 +133,23 @@ const Careers = () => {
               </p>
               <ul className="space-y-2 text-slate-600">
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>Full Stack Developers</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>UI/UX Designers</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>Digital Marketing Specialists</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>Graphic Designers</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>SEO Experts</span>
                 </li>
               </ul>
@@ -166,23 +166,23 @@ const Careers = () => {
               </p>
               <ul className="space-y-2 text-slate-600">
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>24/7 availability</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>Quick response times</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>Multiple communication channels</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>Dedicated support team</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-teal-600">✓</span>
+                  <span className="text-sky-500">✓</span>
                   <span>Proactive monitoring</span>
                 </li>
               </ul>
@@ -191,7 +191,7 @@ const Careers = () => {
 
           {/* Why Join Us */}
           <motion.div
-            className="p-12 rounded-2xl bg-gradient-to-br from-teal-50 to-white border border-teal-100"
+            className="p-12 rounded-2xl bg-gradient-to-br from-sky-50 to-white border border-sky-100"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -239,7 +239,7 @@ const Careers = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <motion.a
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-teal-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-teal-600/25 transition-all hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center rounded-full bg-sky-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all hover:bg-blue-600 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

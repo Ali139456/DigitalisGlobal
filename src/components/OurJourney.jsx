@@ -83,7 +83,7 @@ const OurJourney = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.p
-            className="text-xs font-bold tracking-[0.2em] text-teal-600 uppercase mb-4"
+            className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -93,7 +93,7 @@ const OurJourney = () => {
           </motion.p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
             Our journey{' '}
-            <span className="text-teal-600">so far</span>
+            <span className="text-sky-500">so far</span>
           </h2>
         </motion.div>
 
@@ -101,7 +101,7 @@ const OurJourney = () => {
         <div ref={ref} className="relative">
           {/* Vertical Line */}
           <motion.div
-            className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-200 via-teal-400 to-teal-200 transform md:-translate-x-1/2"
+            className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-200 via-sky-400 to-sky-200 transform md:-translate-x-1/2"
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
             transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -124,12 +124,12 @@ const OurJourney = () => {
                   className="relative flex items-start"
                 >
                   {/* Year Badge - Always centered on timeline at top */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 -top-8 w-16 h-16 rounded-full bg-teal-600 items-center justify-center text-white font-bold text-lg shadow-lg z-20 border-4 border-white">
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 -top-8 w-16 h-16 rounded-full bg-sky-500 items-center justify-center text-white font-bold text-lg shadow-lg z-20 border-4 border-white">
                     <span className="leading-none">{milestone.year}</span>
                   </div>
                   
                   {/* Mobile Year Badge */}
-                  <div className="flex-shrink-0 w-12 h-12 md:hidden rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm shadow-lg z-10 mr-4">
+                  <div className="flex-shrink-0 w-12 h-12 md:hidden rounded-full bg-sky-500 flex items-center justify-center text-white font-bold text-sm shadow-lg z-10 mr-4">
                     <span className="leading-none">{milestone.year}</span>
                   </div>
 
@@ -138,11 +138,11 @@ const OurJourney = () => {
                     isLeft ? 'md:pr-10' : 'md:pl-10 md:ml-auto'
                   }`}>
                     <motion.div
-                      className="group relative p-4 sm:p-6 md:p-8 rounded-2xl bg-white border border-slate-200 hover:border-teal-400 hover:shadow-xl transition-all duration-300"
+                      className="group relative p-4 sm:p-6 md:p-8 rounded-2xl bg-white border border-slate-200 hover:border-sky-400 hover:shadow-xl transition-all duration-300"
                       whileHover={{ y: -4 }}
                     >
                       {/* Icon */}
-                      <div className={`absolute -top-5 w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-2xl transform group-hover:scale-110 transition-transform duration-300 shadow-md ${
+                      <div className={`absolute -top-5 w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-2xl transform group-hover:scale-110 transition-transform duration-300 shadow-md ${
                         isLeft ? '-right-5' : '-left-5'
                       }`}>
                         {milestone.icon}

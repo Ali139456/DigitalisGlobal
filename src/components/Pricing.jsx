@@ -8,7 +8,7 @@ const Pricing = () => {
     {
       name: 'Startup Website Package',
       icon: '🚀',
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Up to 3 Page Website',
         'Up to 5 Stock Images (Industry Specific)',
@@ -23,7 +23,7 @@ const Pricing = () => {
     {
       name: 'Professional Website Package',
       icon: '💼',
-      gradient: 'from-teal-500 to-emerald-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Up to 10 Unique Pages Website',
         'CMS (Content Management System)/Admin Panel',
@@ -36,7 +36,7 @@ const Pricing = () => {
     {
       name: 'Elite Website Package',
       icon: '⭐',
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Up to 15 Custom Pages Website',
         'Mobile Responsive',
@@ -52,7 +52,7 @@ const Pricing = () => {
     {
       name: 'Basic E-Commerce Package',
       icon: '🛒',
-      gradient: 'from-orange-500 to-red-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         '5 -8 Product Upload for stores',
         'Responsive Website (Desktop, Tab, and Mobile Compatible)',
@@ -66,7 +66,7 @@ const Pricing = () => {
     {
       name: 'Premium E-Commerce Package',
       icon: '💎',
-      gradient: 'from-indigo-500 to-purple-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Everything in Basic Package+',
         'Upto 15 Products Store',
@@ -82,7 +82,7 @@ const Pricing = () => {
     {
       name: 'Advance E-Commerce Package',
       icon: '👑',
-      gradient: 'from-amber-500 to-yellow-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Everything in Basic/Premium Package+',
         'Upto 100 Product Store',
@@ -100,7 +100,7 @@ const Pricing = () => {
     {
       name: 'General Graphic Designing',
       icon: '🎨',
-      gradient: 'from-pink-500 to-rose-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         '2 Initial Design Concepts',
         '2 Rounds of Revisions',
@@ -110,7 +110,7 @@ const Pricing = () => {
     {
       name: 'Logo Designing',
       icon: '✨',
-      gradient: 'from-violet-500 to-purple-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Announced After Meeting 3 Initial Design Concepts',
         '2 Rounds of Revisions',
@@ -121,7 +121,7 @@ const Pricing = () => {
     {
       name: 'Illustration',
       icon: '🖌️',
-      gradient: 'from-cyan-500 to-blue-500',
+      gradient: 'from-sky-500 to-blue-600',
       features: [
         '1 Initial Design Concept',
         '3 Rounds of Revisions',
@@ -157,7 +157,7 @@ const Pricing = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-slate-50 via-teal-50/30 to-white py-20 overflow-hidden pt-32"
+        className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -168,9 +168,9 @@ const Pricing = () => {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-teal-100/20 to-blue-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-sky-100/20 to-blue-100/20 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-16">
           <motion.div
@@ -180,7 +180,7 @@ const Pricing = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-4 sm:mb-6 px-4">
-              Our <span className="text-teal-600">Pricing</span>
+              Our <span className="text-sky-500">Pricing</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
               Choose the perfect package for your business needs. All packages are customizable to fit your requirements.

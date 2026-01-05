@@ -73,7 +73,7 @@ const OurTeam = () => {
     <>
       <section className="relative w-full bg-gradient-to-br from-white to-slate-50 min-h-screen pt-24 pb-20">
         {/* Decorative Background Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/30 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/30 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
@@ -85,7 +85,7 @@ const OurTeam = () => {
             transition={{ duration: 0.6 }}
           >
             <motion.p
-              className="text-xs font-bold tracking-[0.2em] text-teal-600 uppercase mb-4"
+              className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -94,7 +94,7 @@ const OurTeam = () => {
             </motion.p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
               A team of amazing{' '}
-              <span className="text-teal-600">people</span>
+              <span className="text-sky-500">people</span>
             </h1>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Meet our team of dedicated professionals driving innovation and excellence at Digitalis Global.

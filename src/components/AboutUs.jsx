@@ -69,7 +69,7 @@ const AboutUs = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-slate-50 via-teal-50/30 to-white py-20 overflow-hidden pt-32"
+        className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -80,9 +80,9 @@ const AboutUs = () => {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }} />
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-teal-100/20 to-blue-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-sky-100/20 to-blue-100/20 rounded-full blur-3xl" />
         
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
@@ -92,7 +92,7 @@ const AboutUs = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.p
-              className="text-xs font-bold tracking-[0.2em] text-teal-600 uppercase mb-4"
+              className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -112,7 +112,7 @@ const AboutUs = () => {
       {/* Our Journey Section */}
       <section className="relative w-full bg-gradient-to-br from-slate-50 via-white to-slate-50 py-20 overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
         
         {/* Pattern Overlay */}
@@ -132,7 +132,7 @@ const AboutUs = () => {
             transition={{ duration: 0.6 }}
           >
             <motion.p
-              className="text-xs font-bold tracking-[0.2em] text-teal-600 uppercase mb-4"
+              className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -142,7 +142,7 @@ const AboutUs = () => {
             </motion.p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
               Our journey{' '}
-              <span className="text-teal-600">so far</span>
+              <span className="text-sky-500">so far</span>
             </h2>
           </motion.div>
 
@@ -167,18 +167,18 @@ const AboutUs = () => {
                     whileHover={{ y: -8, scale: 1.02 }}
                   >
                     {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-teal-50/0 to-blue-50/0 group-hover:from-teal-50/50 group-hover:to-blue-50/50 transition-all duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 to-blue-50/0 group-hover:from-sky-50/50 group-hover:to-blue-50/50 transition-all duration-300" />
                     
                     {/* Decorative corner accent */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-teal-100/30 to-transparent rounded-bl-full" />
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-sky-100/30 to-transparent rounded-bl-full" />
                     
                     {/* Year Badge */}
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-600 to-teal-700 text-white font-bold text-lg shadow-lg mb-6 relative z-10">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white font-bold text-lg shadow-lg mb-6 relative z-10">
                       <span>{milestone.year}</span>
                     </div>
 
                     {/* Icon */}
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-100 to-teal-50 flex items-center justify-center text-4xl mb-6 relative z-10 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-md">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-100 to-sky-50 flex items-center justify-center text-4xl mb-6 relative z-10 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-md">
                       {milestone.icon}
                     </div>
 
@@ -193,7 +193,7 @@ const AboutUs = () => {
                     </div>
 
                     {/* Bottom accent line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-600 via-blue-500 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                   </motion.div>
                 </motion.div>
               ))}

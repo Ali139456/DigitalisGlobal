@@ -83,7 +83,7 @@ const Footer = () => {
   return (
     <footer className="relative w-full bg-gradient-to-br from-white via-slate-50 to-white text-slate-900 overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/30 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/30 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
       
       {/* Pattern Overlay */}
@@ -120,7 +120,7 @@ const Footer = () => {
             <p className="text-slate-600 leading-relaxed mb-6 max-w-md">
               Digitalis Global is a leading platform for web development, graphic design, and marketing.
             </p>
-            <p className="text-teal-600 font-semibold mb-6">
+            <p className="text-sky-500 font-semibold mb-6">
               Design | Develop | Market
             </p>
             
@@ -132,7 +132,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-teal-600 flex items-center justify-center transition-all backdrop-blur-sm border border-slate-200 hover:border-teal-500 text-slate-600 hover:text-white"
+                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-sky-500 flex items-center justify-center transition-all backdrop-blur-sm border border-slate-200 hover:border-sky-500 text-slate-600 hover:text-white"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={social.name}
@@ -152,14 +152,14 @@ const Footer = () => {
                   {link.href.startsWith('/') ? (
                     <Link
                       to={link.href}
-                      className="text-slate-600 hover:text-teal-600 transition-colors text-sm"
+                      className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
                     >
                       {link.name}
                     </Link>
                   ) : (
                     <a
                       href={link.href}
-                      className="text-slate-600 hover:text-teal-600 transition-colors text-sm"
+                      className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
                     >
                       {link.name}
                     </a>
@@ -177,7 +177,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     to={service.href}
-                    className="text-slate-600 hover:text-teal-600 transition-colors text-sm"
+                    className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
                   >
                     {service.name}
                   </Link>
@@ -194,7 +194,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     to={item.href}
-                    className="text-slate-600 hover:text-teal-600 transition-colors text-sm"
+                    className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
                   >
                     {item.name}
                   </Link>
@@ -215,7 +215,7 @@ const Footer = () => {
           <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-3 sm:mb-4">Contact Info</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <div className="flex items-start gap-3">
-              <span className="text-teal-600 text-xl">📍</span>
+              <span className="text-sky-500 text-xl">📍</span>
               <div>
                 <p className="text-slate-600 text-sm">
                   Sydney, Australia, UK, Finland, Germany
@@ -223,22 +223,22 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-teal-600 text-xl">✉️</span>
+              <span className="text-sky-500 text-xl">✉️</span>
               <div>
                 <a
                   href="mailto:info@digitalisglobal.com"
-                  className="text-slate-600 hover:text-teal-600 transition-colors text-sm"
+                  className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
                 >
                   info@digitalisglobal.com
                 </a>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-teal-600 text-xl">📞</span>
+              <span className="text-sky-500 text-xl">📞</span>
               <div>
                 <a
                   href="tel:+61466312363"
-                  className="text-slate-600 hover:text-teal-600 transition-colors text-sm block"
+                  className="text-slate-600 hover:text-sky-500 transition-colors text-sm block"
                 >
                   +61 466 312 363
                 </a>
@@ -261,13 +261,13 @@ const Footer = () => {
           <div className="flex items-center gap-6">
             <a
               href="#privacy"
-              className="text-slate-500 hover:text-teal-600 transition-colors text-sm"
+              className="text-slate-500 hover:text-sky-500 transition-colors text-sm"
             >
               Privacy Policy
             </a>
             <a
               href="#terms"
-              className="text-slate-500 hover:text-teal-600 transition-colors text-sm"
+              className="text-slate-500 hover:text-sky-500 transition-colors text-sm"
             >
               Terms and Conditions
             </a>

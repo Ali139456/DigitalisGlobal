@@ -82,7 +82,7 @@ const ServiceDetail = () => {
       heroDescription: 'At Digitalis Global, we build high-performance, user-friendly websites that combine sleek design with cutting-edge technology. From responsive brochure sites to complex e-commerce platforms, our web development solutions are tailored to your unique goals. We stay ahead of tech trends and follow best coding practices to ensure your site delivers exceptional speed, functionality, and user experience.',
       image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80',
       icon: '🧩',
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'Web Development',
@@ -129,7 +129,7 @@ const ServiceDetail = () => {
       heroDescription: 'We create websites that not only look stunning but also perform exceptionally. Every site we build is optimized for speed, SEO, and user engagement. From simple landing pages to complex multi-page websites, we deliver solutions that drive results.',
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80',
       icon: '🌐',
-      gradient: 'from-teal-500 to-emerald-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'Responsive Web Design',
@@ -174,7 +174,7 @@ const ServiceDetail = () => {
       heroDescription: 'Transform your business with a custom e-commerce solution that converts visitors into customers. We build stores that are both beautiful and functional, with seamless checkout processes and powerful inventory management.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80',
       icon: '🛒',
-      gradient: 'from-orange-500 to-red-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'E-commerce Platform Development',
@@ -219,7 +219,7 @@ const ServiceDetail = () => {
       heroDescription: 'We specialize in creating beautiful, high-converting Shopify stores. From theme customization to app development, we help you build an online store that stands out and drives sales.',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80',
       icon: '🛍️',
-      gradient: 'from-indigo-500 to-purple-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'Shopify Store Setup',
@@ -264,7 +264,7 @@ const ServiceDetail = () => {
       heroDescription: 'We create powerful WordPress websites that combine beautiful design with robust functionality. From custom themes to plugin development, we help you build a WordPress site that meets your exact needs.',
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80',
       icon: '📝',
-      gradient: 'from-blue-600 to-blue-800',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'WordPress Theme Development',
@@ -309,7 +309,7 @@ const ServiceDetail = () => {
       heroDescription: 'We create visually stunning designs that tell your story and connect with your audience. Every design is crafted to make a lasting impression and drive engagement.',
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
       icon: '🎨',
-      gradient: 'from-pink-500 to-rose-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'Brand Identity Design',
@@ -354,7 +354,7 @@ const ServiceDetail = () => {
       heroDescription: 'We combine creativity with analytics to create marketing campaigns that not only look great but also drive measurable business growth. From social media to email marketing, we help you reach and engage your target audience.',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
       icon: '📣',
-      gradient: 'from-purple-500 to-indigo-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'Social Media Marketing',
@@ -399,7 +399,7 @@ const ServiceDetail = () => {
       heroDescription: 'We help your website rank higher in search results, bringing more qualified visitors to your site without paid advertising. Our SEO strategies are proven to deliver sustainable, long-term results.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
       icon: '🔎',
-      gradient: 'from-green-500 to-teal-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'Technical SEO',
@@ -444,7 +444,7 @@ const ServiceDetail = () => {
       heroDescription: 'Great design is invisible. We create interfaces that feel natural and effortless, guiding users seamlessly through their journey. Our designs are based on user research and testing, ensuring they meet real user needs.',
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
       icon: '🧠',
-      gradient: 'from-violet-500 to-purple-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'User Research',
@@ -489,7 +489,7 @@ const ServiceDetail = () => {
       heroDescription: 'We transform raw footage into compelling narratives that engage, inform, and inspire your audience. From corporate videos to social media content, we create videos that make an impact.',
       image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&q=80',
       icon: '🎬',
-      gradient: 'from-red-500 to-pink-500',
+      gradient: 'from-sky-500 to-blue-600',
       sections: [
         {
           title: 'Video Production',
@@ -544,7 +544,7 @@ const ServiceDetail = () => {
           <p className="text-slate-600 mb-8">The service you're looking for doesn't exist.</p>
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-teal-700 hover:shadow-xl"
+            className="inline-flex items-center justify-center rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-blue-600 hover:shadow-xl"
           >
             ← Back to Home
           </Link>
@@ -580,7 +580,7 @@ const ServiceDetail = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-slate-50 via-teal-50/30 to-white py-20 overflow-hidden pt-32"
+        className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -710,7 +710,7 @@ const ServiceDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="p-6 rounded-xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all group"
+                    className="p-6 rounded-xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all group"
                   >
                     <div className="flex items-center gap-3">
                       <span className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} group-hover:scale-125 transition-transform`}></span>
@@ -760,8 +760,8 @@ const ServiceDetail = () => {
                         loading="lazy"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center rounded-lg bg-gradient-to-br from-teal-100 to-teal-200">
-                        <span className="text-2xl font-bold text-teal-700">{techName.charAt(0)}</span>
+                      <div className="w-full h-full flex items-center justify-center rounded-lg bg-gradient-to-br from-sky-100 to-sky-200">
+                        <span className="text-2xl font-bold text-blue-600">{techName.charAt(0)}</span>
                       </div>
                     )}
                   </div>
@@ -775,10 +775,10 @@ const ServiceDetail = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-teal-400 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
+                  className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-white border-2 border-slate-200 hover:border-sky-400 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
                 >
                   <TechIcon techName={tech} />
-                  <span className="text-sm font-medium text-slate-700 text-center group-hover:text-teal-600 transition-colors">
+                  <span className="text-sm font-medium text-slate-700 text-center group-hover:text-sky-500 transition-colors">
                     {tech}
                   </span>
                 </motion.div>
@@ -789,15 +789,15 @@ const ServiceDetail = () => {
 
         {/* CTA Section */}
         <motion.section
-          className="relative rounded-3xl bg-gradient-to-br from-teal-600 to-teal-700 p-12 md:p-16 text-center overflow-hidden"
+          className="relative rounded-3xl bg-gradient-to-br from-sky-500 to-blue-600 p-12 md:p-16 text-center overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-400/20 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-400/20 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
           
           <div className="relative z-10">
@@ -813,7 +813,7 @@ const ServiceDetail = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/contact">
                 <motion.button
-                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-teal-600 shadow-lg transition-all hover:bg-slate-50 hover:shadow-xl hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-sky-500 shadow-lg transition-all hover:bg-slate-50 hover:shadow-xl hover:-translate-y-0.5"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

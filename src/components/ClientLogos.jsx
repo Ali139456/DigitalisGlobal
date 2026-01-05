@@ -44,7 +44,7 @@ const ClientLogos = () => {
     <section className="relative w-full bg-gradient-to-br from-slate-50 to-white py-16 sm:py-20 overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-teal-400 rounded-full blur-3xl" />
+        <div className="absolute top-10 left-10 w-72 h-72 bg-sky-400 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl" />
       </div>
 
@@ -52,7 +52,7 @@ const ClientLogos = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-            Trusted by <span className="text-teal-600">Leading Brands</span>
+            Trusted by <span className="text-sky-500">Leading Brands</span>
           </h2>
           <p className="text-slate-600 text-lg">We're proud to work with innovative companies worldwide</p>
         </div>

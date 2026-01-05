@@ -124,7 +124,7 @@ const Testimonials = () => {
   return (
     <section className="relative w-full bg-gradient-to-br from-white to-slate-50 py-20 overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/30 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/30 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
@@ -137,7 +137,7 @@ const Testimonials = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.p
-            className="text-xs font-bold tracking-[0.2em] text-teal-600 uppercase mb-4"
+            className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -147,7 +147,7 @@ const Testimonials = () => {
           </motion.p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
             People talk about{' '}
-            <span className="text-teal-600">us</span>
+            <span className="text-sky-500">us</span>
           </h2>
         </motion.div>
 
@@ -177,14 +177,14 @@ const Testimonials = () => {
                     <img
                       src={testimonials[getLeftIndex()].image}
                       alt={testimonials[getLeftIndex()].author}
-                      className="w-8 h-8 rounded-full object-cover border-2 border-teal-400"
+                      className="w-8 h-8 rounded-full object-cover border-2 border-sky-400"
                       onError={(e) => {
                         e.target.style.display = 'none'
                         e.target.nextSibling.style.display = 'flex'
                       }}
                     />
                   ) : null}
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-white font-bold text-sm ${testimonials[getLeftIndex()].image ? 'hidden' : ''}`}>
+                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br from-sky-400 to-sky-500 flex items-center justify-center text-white font-bold text-sm ${testimonials[getLeftIndex()].image ? 'hidden' : ''}`}>
                     {testimonials[getLeftIndex()].author.charAt(0)}
                   </div>
                   <div>
@@ -210,7 +210,7 @@ const Testimonials = () => {
                 className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-slate-200 md:col-span-6"
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="text-4xl text-teal-600/20">"</div>
+                  <div className="text-4xl text-sky-500/20">"</div>
                   <div className="flex items-center gap-1 flex-shrink-0">
                     {[...Array(testimonials[getCenterIndex()].rating)].map((_, i) => (
                       <span key={i} className="text-yellow-400 text-lg">★</span>
@@ -227,14 +227,14 @@ const Testimonials = () => {
                     <img
                       src={testimonials[getCenterIndex()].image}
                       alt={testimonials[getCenterIndex()].author}
-                      className="w-10 h-10 rounded-full object-cover border-2 border-teal-400 flex-shrink-0"
+                      className="w-10 h-10 rounded-full object-cover border-2 border-sky-400 flex-shrink-0"
                       onError={(e) => {
                         e.target.style.display = 'none'
                         e.target.nextSibling.style.display = 'flex'
                       }}
                     />
                   ) : null}
-                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-white font-bold text-base flex-shrink-0 ${testimonials[getCenterIndex()].image ? 'hidden' : ''}`}>
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br from-sky-400 to-sky-500 flex items-center justify-center text-white font-bold text-base flex-shrink-0 ${testimonials[getCenterIndex()].image ? 'hidden' : ''}`}>
                     {testimonials[getCenterIndex()].author.charAt(0)}
                   </div>
                   <div className="min-w-0">
@@ -272,14 +272,14 @@ const Testimonials = () => {
                     <img
                       src={testimonials[getRightIndex()].image}
                       alt={testimonials[getRightIndex()].author}
-                      className="w-8 h-8 rounded-full object-cover border-2 border-teal-400"
+                      className="w-8 h-8 rounded-full object-cover border-2 border-sky-400"
                       onError={(e) => {
                         e.target.style.display = 'none'
                         e.target.nextSibling.style.display = 'flex'
                       }}
                     />
                   ) : null}
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-white font-bold text-sm ${testimonials[getRightIndex()].image ? 'hidden' : ''}`}>
+                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br from-sky-400 to-sky-500 flex items-center justify-center text-white font-bold text-sm ${testimonials[getRightIndex()].image ? 'hidden' : ''}`}>
                     {testimonials[getRightIndex()].author.charAt(0)}
                   </div>
                   <div>
@@ -298,7 +298,7 @@ const Testimonials = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:text-teal-600 hover:border-teal-300 transition-all z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:text-sky-500 hover:border-sky-300 transition-all z-10"
             aria-label="Previous testimonial"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -307,7 +307,7 @@ const Testimonials = () => {
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:text-teal-600 hover:border-teal-300 transition-all z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:text-sky-500 hover:border-sky-300 transition-all z-10"
             aria-label="Next testimonial"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -324,7 +324,7 @@ const Testimonials = () => {
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-all ${
                 index === currentIndex
-                  ? 'bg-teal-600 w-8'
+                  ? 'bg-sky-500 w-8'
                   : 'bg-slate-300 hover:bg-slate-400'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
