@@ -250,16 +250,28 @@ const About = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
-                    {/* Dotted Grid Pattern */}
+                    {/* Background Dotted Grid Pattern (light gray) */}
                     <pattern
-                      id="dotPattern"
+                      id="bgDotPattern"
                       x="0"
                       y="0"
-                      width="30"
-                      height="30"
+                      width="20"
+                      height="20"
                       patternUnits="userSpaceOnUse"
                     >
-                      <circle cx="15" cy="15" r="1.5" fill="#cbd5e1" opacity="0.4" />
+                      <circle cx="10" cy="10" r="1" fill="#e2e8f0" opacity="0.3" />
+                    </pattern>
+                    
+                    {/* Blue Dotted Pattern for Continents */}
+                    <pattern
+                      id="continentDotPattern"
+                      x="0"
+                      y="0"
+                      width="8"
+                      height="8"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <circle cx="4" cy="4" r="2" fill="#0ea5e9" />
                     </pattern>
                     
                     {/* Glow Filter for Pins */}
@@ -272,58 +284,64 @@ const About = () => {
                     </filter>
                   </defs>
                   
-                  {/* Background with Dotted Pattern */}
-                  <rect width="1000" height="500" fill="#f8fafc" />
-                  <rect width="1000" height="500" fill="url(#dotPattern)" />
+                  {/* Background */}
+                  <rect width="1000" height="500" fill="#f1f5f9" />
+                  <rect width="1000" height="500" fill="url(#bgDotPattern)" />
 
-                  {/* Simplified World Map Continents */}
+                  {/* World Map Continents - Made of Dots */}
                   {/* North America */}
-                  <path
-                    d="M 150 100 L 300 80 L 350 120 L 320 180 L 200 200 L 120 160 Z"
-                    fill="#dbeafe"
-                    stroke="#93c5fd"
-                    strokeWidth="2"
-                  />
+                  <g>
+                    <path
+                      d="M 150 100 L 300 80 L 350 120 L 320 180 L 200 200 L 120 160 Z"
+                      fill="url(#continentDotPattern)"
+                      opacity="0.9"
+                    />
+                  </g>
                   
                   {/* South America */}
-                  <path
-                    d="M 250 200 L 320 220 L 340 280 L 300 350 L 240 340 L 220 280 Z"
-                    fill="#dbeafe"
-                    stroke="#93c5fd"
-                    strokeWidth="2"
-                  />
+                  <g>
+                    <path
+                      d="M 250 200 L 320 220 L 340 280 L 300 350 L 240 340 L 220 280 Z"
+                      fill="url(#continentDotPattern)"
+                      opacity="0.9"
+                    />
+                  </g>
                   
                   {/* Europe */}
-                  <path
-                    d="M 450 80 L 550 70 L 580 120 L 560 160 L 480 170 L 440 120 Z"
-                    fill="#dbeafe"
-                    stroke="#93c5fd"
-                    strokeWidth="2"
-                  />
+                  <g>
+                    <path
+                      d="M 450 80 L 550 70 L 580 120 L 560 160 L 480 170 L 440 120 Z"
+                      fill="url(#continentDotPattern)"
+                      opacity="0.9"
+                    />
+                  </g>
                   
                   {/* Africa */}
-                  <path
-                    d="M 500 180 L 580 190 L 600 250 L 580 320 L 520 350 L 480 300 L 480 220 Z"
-                    fill="#dbeafe"
-                    stroke="#93c5fd"
-                    strokeWidth="2"
-                  />
+                  <g>
+                    <path
+                      d="M 500 180 L 580 190 L 600 250 L 580 320 L 520 350 L 480 300 L 480 220 Z"
+                      fill="url(#continentDotPattern)"
+                      opacity="0.9"
+                    />
+                  </g>
                   
                   {/* Asia */}
-                  <path
-                    d="M 600 60 L 850 50 L 900 120 L 880 200 L 800 220 L 700 200 L 650 150 L 620 100 Z"
-                    fill="#dbeafe"
-                    stroke="#93c5fd"
-                    strokeWidth="2"
-                  />
+                  <g>
+                    <path
+                      d="M 600 60 L 850 50 L 900 120 L 880 200 L 800 220 L 700 200 L 650 150 L 620 100 Z"
+                      fill="url(#continentDotPattern)"
+                      opacity="0.9"
+                    />
+                  </g>
                   
                   {/* Australia */}
-                  <path
-                    d="M 750 280 L 850 270 L 870 310 L 850 340 L 780 350 L 740 320 Z"
-                    fill="#dbeafe"
-                    stroke="#93c5fd"
-                    strokeWidth="2"
-                  />
+                  <g>
+                    <path
+                      d="M 750 280 L 850 270 L 870 310 L 850 340 L 780 350 L 740 320 Z"
+                      fill="url(#continentDotPattern)"
+                      opacity="0.9"
+                    />
+                  </g>
 
                   {/* Glowing Location Pins */}
                   {/* Australia - Sydney */}
