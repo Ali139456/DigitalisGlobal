@@ -214,12 +214,13 @@
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 4;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 10px;
   transition: opacity 0.3s ease;
+  pointer-events: auto; /* Ensure scroll indicator is interactive */
 }
 
 .scroll-indicator:hover {
