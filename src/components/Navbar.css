@@ -7,6 +7,7 @@
   padding: 1.25rem 0;
   transition: all 0.3s ease;
   background: transparent;
+  pointer-events: auto; /* Ensure navbar is interactive */
 }
 
 .navbar:not(.is-home) {
@@ -56,6 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  pointer-events: auto; /* Ensure container is interactive */
 }
 
 .navbar-left {
