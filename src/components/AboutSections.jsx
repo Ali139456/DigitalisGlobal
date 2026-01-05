@@ -196,96 +196,213 @@ const AboutSections = () => {
         </div>
       </section>
 
-      {/* Our Journey Section */}
-      <section className="relative w-full bg-gradient-to-br from-slate-50 via-white to-slate-50 py-20 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
-
-        {/* Pattern Overlay */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      {/* Our Journey Section - Modern Design */}
+      <section className="relative w-full bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 py-32 md:py-40 overflow-hidden">
+        {/* Animated Gradient Mesh Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-r from-sky-500/30 to-blue-600/30 rounded-full blur-[120px]"
+            animate={{
+              x: shouldReduceMotion ? 0 : [0, 100, -50, 0],
+              y: shouldReduceMotion ? 0 : [0, -80, 60, 0],
+              scale: [1, 1.2, 0.9, 1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-blue-500/25 to-cyan-500/25 rounded-full blur-[100px]"
+            animate={{
+              x: shouldReduceMotion ? 0 : [0, -80, 70, 0],
+              y: shouldReduceMotion ? 0 : [0, 100, -60, 0],
+              scale: [1, 0.8, 1.3, 1],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut",
             }}
           />
         </div>
 
+        {/* Grid Pattern Overlay */}
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+          }}
+        />
+
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           {/* Header */}
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-20 md:mb-28"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
           >
-            <motion.p
-              className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ delay: shouldReduceMotion ? 0 : 0.15, duration: 0.4 }}
+            <motion.div
+              className="inline-block mb-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              Milestones
-            </motion.p>
+              <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-sky-500/20 to-blue-600/20 border border-sky-500/30 text-sky-400 text-xs font-bold tracking-[0.2em] uppercase backdrop-blur-sm">
+                Our Journey
+              </span>
+            </motion.div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
-              Our journey <span className="text-sky-500">so far</span>
-            </h2>
+            <motion.h2
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-sky-200 to-white"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: shouldReduceMotion ? 0 : 0.2 }}
+            >
+              Milestones That
+              <br />
+              <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Define Us
+              </span>
+            </motion.h2>
           </motion.div>
 
-          {/* Animated Milestones Grid */}
+          {/* Modern Timeline Grid */}
           <motion.div
             ref={journeyRef}
             className="relative"
             variants={gridVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.15 }}
           >
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {/* Connecting Line (Desktop Only) */}
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-sky-500/30 to-transparent transform -translate-y-1/2" />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative">
               {milestones.map((milestone, index) => (
-                <motion.div key={index} variants={cardVariants} className="relative group">
-                  {/* Card */}
+                <motion.div
+                  key={index}
+                  variants={cardVariants}
+                  className="relative group"
+                >
+                  {/* Connecting Dot (Desktop Only) */}
+                  <div className="hidden lg:block absolute top-1/2 left-1/2 w-4 h-4 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20 shadow-lg shadow-sky-500/50" />
+
+                  {/* Glassmorphism Card */}
                   <motion.div
-                    className="relative h-full p-6 md:p-8 rounded-3xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
-                    whileHover={shouldReduceMotion ? undefined : { y: -8, scale: 1.02 }}
-                    transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                    className="relative h-full p-8 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl overflow-hidden"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                    }}
+                    whileHover={shouldReduceMotion ? undefined : { 
+                      y: -12, 
+                      scale: 1.03,
+                      rotateY: 5,
+                    }}
+                    transition={{ 
+                      type: 'spring', 
+                      stiffness: 300, 
+                      damping: 20 
+                    }}
                   >
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 to-blue-50/0 group-hover:from-sky-50/50 group-hover:to-blue-50/50 transition-all duration-300" />
-
-                    {/* Decorative corner accent */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-sky-100/30 to-transparent rounded-bl-full" />
-
-                    {/* Year Badge */}
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white font-bold text-lg shadow-lg mb-6 relative z-10">
-                      <span>{milestone.year}</span>
+                    {/* Animated Gradient Border */}
+                    <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div 
+                        className="absolute inset-0 rounded-3xl"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.4), rgba(2, 132, 199, 0.4), rgba(14, 165, 233, 0.4))',
+                          backgroundSize: '200% 200%',
+                          animation: shouldReduceMotion ? 'none' : 'gradientShift 3s ease infinite',
+                        }}
+                      />
+                      <style>{`
+                        @keyframes gradientShift {
+                          0%, 100% { background-position: 0% 50%; }
+                          50% { background-position: 100% 50%; }
+                        }
+                      `}</style>
                     </div>
 
-                    {/* Icon */}
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-100 to-sky-50 flex items-center justify-center text-4xl mb-6 relative z-10 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-md">
-                      {milestone.icon}
-                    </div>
+                    {/* Glowing Background Effect */}
+                    <motion.div
+                      className="absolute -inset-1 bg-gradient-to-r from-sky-500/0 via-blue-500/0 to-cyan-500/0 rounded-3xl blur-xl group-hover:from-sky-500/20 group-hover:via-blue-500/20 group-hover:to-cyan-500/20 transition-all duration-500"
+                      animate={shouldReduceMotion ? {} : {
+                        opacity: [0.3, 0.6, 0.3],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
 
-                    {/* Content */}
+                    {/* Content Container */}
                     <div className="relative z-10">
-                      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 leading-tight">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                        {milestone.description}
-                      </p>
+                      {/* Year Badge - Modern Design */}
+                      <motion.div
+                        className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-sky-500 via-blue-600 to-cyan-500 text-white font-black text-xl mb-6 shadow-2xl shadow-sky-500/50 relative overflow-hidden"
+                        whileHover={shouldReduceMotion ? {} : { 
+                          scale: 1.1, 
+                          rotate: [0, -5, 5, 0] 
+                        }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
+                        <span className="relative z-10">{milestone.year}</span>
+                      </motion.div>
+
+                      {/* Icon with 3D Effect */}
+                      <motion.div
+                        className="w-20 h-20 rounded-2xl bg-gradient-to-br from-sky-400/20 to-blue-500/20 backdrop-blur-md flex items-center justify-center text-5xl mb-6 relative z-10 border border-white/20 shadow-lg"
+                        whileHover={shouldReduceMotion ? {} : { 
+                          scale: 1.2, 
+                          rotate: [0, 10, -10, 0],
+                          y: -5,
+                        }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-2xl" />
+                        <span className="relative z-10 filter drop-shadow-lg">
+                          {milestone.icon}
+                        </span>
+                      </motion.div>
+
+                      {/* Content */}
+                      <div className="space-y-4">
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight group-hover:text-sky-300 transition-colors duration-300">
+                          {milestone.title}
+                        </h3>
+                        <p className="text-base md:text-lg text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
+                          {milestone.description}
+                        </p>
+                      </div>
+
+                      {/* Bottom Glow Line */}
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-sky-400 to-transparent"
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: shouldReduceMotion ? 0 : index * 0.1 + 0.3, duration: 0.6 }}
+                        style={{ transformOrigin: 'left' }}
+                      />
                     </div>
 
-                    {/* Bottom accent line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    {/* Shine Effect on Hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                    </div>
                   </motion.div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
