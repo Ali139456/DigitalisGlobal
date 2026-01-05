@@ -285,19 +285,19 @@ const AboutSections = () => {
             {/* Connecting Line (Desktop Only) */}
             <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-sky-500/30 to-transparent transform -translate-y-1/2" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative auto-rows-fr">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={index}
                   variants={cardVariants}
-                  className="relative group"
+                  className="relative group h-full"
                 >
                   {/* Connecting Dot (Desktop Only) */}
                   <div className="hidden md:block absolute top-1/2 left-1/2 w-4 h-4 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20 shadow-lg shadow-sky-500/50" />
 
                   {/* Glassmorphism Card */}
                   <motion.div
-                    className="relative h-auto p-6 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl overflow-hidden"
+                    className="relative h-full p-6 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl overflow-hidden flex flex-col"
                     style={{
                       background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
                     }}
@@ -344,7 +344,7 @@ const AboutSections = () => {
                     />
 
                     {/* Content Container - Horizontal Layout */}
-                    <div className="relative z-10 flex items-start gap-4">
+                    <div className="relative z-10 flex items-start gap-4 flex-1">
                       {/* Left Side - Year Badge */}
                       <div className="flex-shrink-0">
                         {/* Year Badge - Modern Design */}
@@ -362,11 +362,11 @@ const AboutSections = () => {
                       </div>
 
                       {/* Right Side - Content */}
-                      <div className="flex-1 min-w-0">
+                      <div className="flex-1 min-w-0 flex flex-col">
                         <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight group-hover:text-sky-300 transition-colors duration-300">
                           {milestone.title}
                         </h3>
-                        <p className="text-sm md:text-base text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300 line-clamp-3">
+                        <p className="text-sm md:text-base text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300 flex-1">
                           {milestone.description}
                         </p>
                       </div>
