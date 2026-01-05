@@ -283,9 +283,9 @@ const AboutSections = () => {
             viewport={{ once: true, amount: 0.15 }}
           >
             {/* Connecting Line (Desktop Only) */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-sky-500/30 to-transparent transform -translate-y-1/2" />
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-sky-500/30 to-transparent transform -translate-y-1/2" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={index}
@@ -293,11 +293,11 @@ const AboutSections = () => {
                   className="relative group"
                 >
                   {/* Connecting Dot (Desktop Only) */}
-                  <div className="hidden lg:block absolute top-1/2 left-1/2 w-4 h-4 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20 shadow-lg shadow-sky-500/50" />
+                  <div className="hidden md:block absolute top-1/2 left-1/2 w-4 h-4 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 z-20 shadow-lg shadow-sky-500/50" />
 
                   {/* Glassmorphism Card */}
                   <motion.div
-                    className="relative h-full p-8 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl overflow-hidden"
+                    className="relative h-auto p-6 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl overflow-hidden"
                     style={{
                       background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
                     }}
@@ -343,43 +343,46 @@ const AboutSections = () => {
                       }}
                     />
 
-                    {/* Content Container */}
-                    <div className="relative z-10">
-                      {/* Year Badge - Modern Design */}
-                      <motion.div
-                        className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-sky-500 via-blue-600 to-cyan-500 text-white font-black text-xl mb-6 shadow-2xl shadow-sky-500/50 relative overflow-hidden"
-                        whileHover={shouldReduceMotion ? {} : { 
-                          scale: 1.1, 
-                          rotate: [0, -5, 5, 0] 
-                        }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-                        <span className="relative z-10">{milestone.year}</span>
-                      </motion.div>
+                    {/* Content Container - Horizontal Layout */}
+                    <div className="relative z-10 flex items-start gap-4">
+                      {/* Left Side - Year Badge and Icon */}
+                      <div className="flex-shrink-0 flex flex-col items-center gap-3">
+                        {/* Year Badge - Modern Design */}
+                        <motion.div
+                          className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-sky-500 via-blue-600 to-cyan-500 text-white font-black text-lg shadow-2xl shadow-sky-500/50 relative overflow-hidden"
+                          whileHover={shouldReduceMotion ? {} : { 
+                            scale: 1.1, 
+                            rotate: [0, -5, 5, 0] 
+                          }}
+                          transition={{ type: "spring", stiffness: 400 }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
+                          <span className="relative z-10">{milestone.year}</span>
+                        </motion.div>
 
-                      {/* Icon with 3D Effect */}
-                      <motion.div
-                        className="w-20 h-20 rounded-2xl bg-gradient-to-br from-sky-400/20 to-blue-500/20 backdrop-blur-md flex items-center justify-center text-5xl mb-6 relative z-10 border border-white/20 shadow-lg"
-                        whileHover={shouldReduceMotion ? {} : { 
-                          scale: 1.2, 
-                          rotate: [0, 10, -10, 0],
-                          y: -5,
-                        }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-2xl" />
-                        <span className="relative z-10 filter drop-shadow-lg">
-                          {milestone.icon}
-                        </span>
-                      </motion.div>
+                        {/* Icon with 3D Effect */}
+                        <motion.div
+                          className="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-400/20 to-blue-500/20 backdrop-blur-md flex items-center justify-center text-4xl relative z-10 border border-white/20 shadow-lg"
+                          whileHover={shouldReduceMotion ? {} : { 
+                            scale: 1.2, 
+                            rotate: [0, 10, -10, 0],
+                            y: -5,
+                          }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-xl" />
+                          <span className="relative z-10 filter drop-shadow-lg">
+                            {milestone.icon}
+                          </span>
+                        </motion.div>
+                      </div>
 
-                      {/* Content */}
-                      <div className="space-y-4">
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight group-hover:text-sky-300 transition-colors duration-300">
+                      {/* Right Side - Content */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight group-hover:text-sky-300 transition-colors duration-300">
                           {milestone.title}
                         </h3>
-                        <p className="text-base md:text-lg text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
+                        <p className="text-sm md:text-base text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300 line-clamp-3">
                           {milestone.description}
                         </p>
                       </div>
