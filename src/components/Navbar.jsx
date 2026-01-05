@@ -76,6 +76,21 @@ const Navbar = () => {
     }
   }, [servicesMenuOpen, aboutMenuOpen])
 
+  // Handle keyboard navigation for accessibility
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Close mega menus on Escape key
+      if (e.key === 'Escape') {
+        setServicesMenuOpen(false)
+        setAboutMenuOpen(false)
+        setMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   const rightNavItems = [
     { name: 'About', href: '#about', hasDropdown: true, menuType: 'about' },
     { name: 'Services', href: '#services', hasDropdown: true, menuType: 'services' },
@@ -146,6 +161,8 @@ const Navbar = () => {
                   <Link 
                     to={item.href}
                     className="navbar-link"
+                    aria-haspopup={item.hasDropdown ? 'true' : undefined}
+                    aria-expanded={item.hasDropdown ? (item.menuType === 'services' ? servicesMenuOpen : item.menuType === 'about' ? aboutMenuOpen : false) : undefined}
                     onClick={(e) => {
                       // On desktop, toggle mega menu on click for dropdown items
                       if (window.innerWidth > 768) {
@@ -171,16 +188,33 @@ const Navbar = () => {
                         }
                       }
                     }}
+                    onKeyDown={(e) => {
+                      // Keyboard accessibility: Enter or Space to toggle dropdown
+                      if (item.hasDropdown && (e.key === 'Enter' || e.key === ' ')) {
+                        e.preventDefault()
+                        if (window.innerWidth > 768) {
+                          if (item.menuType === 'services') {
+                            setAboutMenuOpen(false)
+                            setServicesMenuOpen(!servicesMenuOpen)
+                          } else if (item.menuType === 'about') {
+                            setServicesMenuOpen(false)
+                            setAboutMenuOpen(!aboutMenuOpen)
+                          }
+                        }
+                      }
+                    }}
                   >
                     {item.name}
                     {item.hasDropdown && (
-                      <span className="dropdown-indicator">▼</span>
+                      <span className="dropdown-indicator" aria-hidden="true">▼</span>
                     )}
                   </Link>
                 ) : (
                   <a 
                     href={isHomePage ? item.href : `/${item.href}`}
                     className="navbar-link"
+                    aria-haspopup={item.hasDropdown ? 'true' : undefined}
+                    aria-expanded={item.hasDropdown ? (item.menuType === 'services' ? servicesMenuOpen : item.menuType === 'about' ? aboutMenuOpen : false) : undefined}
                     onClick={(e) => {
                       // On desktop, toggle mega menu on click for dropdown items
                       if (window.innerWidth > 768) {
@@ -214,10 +248,25 @@ const Navbar = () => {
                         }
                       }
                     }}
+                    onKeyDown={(e) => {
+                      // Keyboard accessibility: Enter or Space to toggle dropdown
+                      if (item.hasDropdown && (e.key === 'Enter' || e.key === ' ')) {
+                        e.preventDefault()
+                        if (window.innerWidth > 768) {
+                          if (item.menuType === 'services') {
+                            setAboutMenuOpen(false)
+                            setServicesMenuOpen(!servicesMenuOpen)
+                          } else if (item.menuType === 'about') {
+                            setServicesMenuOpen(false)
+                            setAboutMenuOpen(!aboutMenuOpen)
+                          }
+                        }
+                      }
+                    }}
                   >
                     {item.name}
                     {item.hasDropdown && (
-                      <span className="dropdown-indicator">▼</span>
+                      <span className="dropdown-indicator" aria-hidden="true">▼</span>
                     )}
                   </a>
                 )}
@@ -228,6 +277,8 @@ const Navbar = () => {
                     {/* Desktop Mega Menu - hidden on mobile */}
                     <div 
                       className={`mega-menu ${aboutMenuOpen ? 'active' : ''} desktop-only`}
+                      role="menu"
+                      aria-label="About menu"
                       onClick={(e) => {
                         e.stopPropagation()
                       }}
@@ -316,6 +367,8 @@ const Navbar = () => {
                     {/* Desktop Mega Menu - hidden on mobile */}
                     <div 
                       className={`mega-menu ${servicesMenuOpen ? 'active' : ''} desktop-only`}
+                      role="menu"
+                      aria-label="Services menu"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <div className="mega-menu-container">

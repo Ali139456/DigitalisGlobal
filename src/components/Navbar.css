@@ -133,14 +133,30 @@
   opacity: 0.7;
   transition: all 0.3s ease;
   margin-left: 0.2rem;
+  display: inline-block;
+}
+
+/* Rotate dropdown indicator when menu is open */
+.navbar-item.has-dropdown .navbar-link[aria-expanded="true"] .dropdown-indicator {
+  transform: rotate(180deg);
+  opacity: 1;
 }
 
 .navbar-link:hover {
   color: var(--text-secondary);
 }
 
-.navbar-link:hover .dropdown-indicator {
+.navbar-link:hover .dropdown-indicator,
+.navbar-link:focus .dropdown-indicator {
   opacity: 1;
+}
+
+/* Keyboard focus styles for accessibility */
+.navbar-link:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 4px;
+  border-radius: 4px;
+  color: var(--text-secondary);
 }
 
 .navbar-right {
@@ -257,13 +273,7 @@
   background: transparent;
 }
 
-.navbar-item.has-dropdown:hover .mega-menu,
-.mega-menu:hover {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-  pointer-events: all;
-}
+/* Removed hover-based mega menu activation - now click-only for accessibility */
 
 /* Bridge to prevent gap between menu item and mega menu */
 .navbar-item.has-dropdown::after {
@@ -338,10 +348,13 @@
   left: 100%;
 }
 
-.mega-menu-item:hover {
+.mega-menu-item:hover,
+.mega-menu-item:focus-visible {
   background: #f1f5f9;
   border-color: rgba(14, 165, 233, 0.2);
   transform: translateX(3px);
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
 }
 
 .mega-menu-icon {
