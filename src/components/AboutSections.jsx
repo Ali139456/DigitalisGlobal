@@ -1,8 +1,10 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 const AboutSections = () => {
+  const prefersReducedMotion = useReducedMotion()
+
   const [missionRef, missionInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -36,88 +38,91 @@ const AboutSections = () => {
       year: '2021',
       title: 'Digitalis Global began with a vision',
       description: 'A group of ambitious friends coming together in early 2021 to found a company aimed at delivering solutions for an increasingly digital world. Digitalis set out to make its mark in key areas like web development, graphic design, and online marketing.',
-      side: 'left',
     },
     {
       year: '2022',
       title: 'Powered by dedication and drive',
       description: 'The Digitalis team wasted no time in offering their skills and services to clients near and far. As demand grew, so did the company, rapidly expanding from three enterprising founders to a 20+ team of experienced professionals.',
-      side: 'right',
     },
     {
       year: '2023',
       title: 'In just under three years',
       description: 'Digitalis Global has transformed from a bootstrap startup into an established industry player operating from a fully-equipped office hub. The company\'s exponential growth speaks clearly to both the immense market need for digital solutions.',
-      side: 'left',
     },
     {
       year: '2024',
       title: 'Today, Digitalis Global',
       description: 'Provides diverse solutions: custom software, graphics, e-commerce, and digital marketing for businesses spanning startups to Fortune 500. With a rich portfolio of 500+ clients, we excel in web and mobile development.',
-      side: 'right',
     },
   ]
 
+  // Animation variants with reduced motion support
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
+        staggerChildren: prefersReducedMotion ? 0 : 0.1,
+        delayChildren: prefersReducedMotion ? 0 : 0.2,
       },
     },
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { 
+      opacity: 0, 
+      y: prefersReducedMotion ? 0 : 20 
+    },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: prefersReducedMotion ? 0 : 0.5,
         ease: "easeOut",
       },
     },
   }
 
-  const timelineLineVariants = {
-    hidden: { scaleY: 0 },
-    visible: {
-      scaleY: 1,
-      transition: {
-        duration: 1.2,
-        ease: "easeInOut",
-      },
-    },
-  }
-
-  const milestoneVariants = (side) => ({
+  const sectionVariants = {
     hidden: { 
       opacity: 0, 
-      x: side === 'left' ? -50 : 50 
+      y: prefersReducedMotion ? 0 : 30 
     },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.6,
+        duration: prefersReducedMotion ? 0 : 0.6,
         ease: "easeOut",
       },
     },
-  })
+  }
+
+  const journeyContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: prefersReducedMotion ? 0 : 0.08,
+        delayChildren: prefersReducedMotion ? 0 : 0.1,
+      },
+    },
+  }
+
+  const milestoneVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: prefersReducedMotion ? 0 : 30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: prefersReducedMotion ? 0 : 0.6,
+        ease: "easeOut",
+      },
+    },
+  }
 
   return (
     <>
@@ -142,15 +147,17 @@ const AboutSections = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Column - Mission Content */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={missionInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
             >
               <motion.p
                 className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
                 initial={{ opacity: 0 }}
-                animate={missionInView ? { opacity: 1 } : {}}
-                transition={{ delay: 0.3 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: prefersReducedMotion ? 0 : 0.2 }}
               >
                 OUR MISSION
               </motion.p>
@@ -167,13 +174,15 @@ const AboutSections = () => {
               className="grid grid-cols-1 gap-6"
               variants={containerVariants}
               initial="hidden"
-              animate={missionInView ? "visible" : "hidden"}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
             >
               {missionFeatures.map((feature, index) => (
                 <motion.div
                   key={index}
                   variants={cardVariants}
-                  className="group relative bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
+                  className="group relative bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300"
+                  whileHover={prefersReducedMotion ? {} : { y: -8 }}
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -195,7 +204,7 @@ const AboutSections = () => {
         </div>
       </section>
 
-      {/* Our Journey Section - Scroll Stack */}
+      {/* Our Journey Section */}
       <section 
         ref={journeyRef}
         className="relative w-full bg-gradient-to-br from-slate-50 via-white to-slate-50 py-20 md:py-32 overflow-hidden"
@@ -204,19 +213,21 @@ const AboutSections = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
 
-        <div className="relative max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           {/* Header */}
           <motion.div
             className="text-center mb-16 md:mb-24"
-            initial={{ opacity: 0, y: 30 }}
-            animate={journeyInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
           >
             <motion.p
               className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
               initial={{ opacity: 0 }}
-              animate={journeyInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.2 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: prefersReducedMotion ? 0 : 0.2 }}
             >
               OUR JOURNEY
             </motion.p>
@@ -226,69 +237,47 @@ const AboutSections = () => {
             </h2>
           </motion.div>
 
-          {/* Scroll Stack Timeline */}
-          <div className="relative">
-            {/* Vertical Line */}
-            <motion.div
-              className="absolute left-8 md:left-12 top-0 bottom-0 w-1 bg-gradient-to-b from-sky-500 via-blue-500 to-sky-500 rounded-full"
-              variants={timelineLineVariants}
-              initial="hidden"
-              animate={journeyInView ? "visible" : "hidden"}
-              style={{ transformOrigin: 'top' }}
-            />
+          {/* Grid-based Milestone Layout */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            variants={journeyContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {milestones.map((milestone, index) => (
+              <motion.div
+                key={index}
+                variants={milestoneVariants}
+                className="group relative bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.02 }}
+              >
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 via-blue-50/0 to-sky-50/0 group-hover:from-sky-50/50 group-hover:via-blue-50/30 group-hover:to-sky-50/50 transition-all duration-300" />
+                
+                {/* Decorative corner accent */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-sky-100/30 to-transparent rounded-bl-full" />
+                
+                {/* Year Badge */}
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-bold mb-4 relative z-10 shadow-md">
+                  {milestone.year}
+                </div>
 
-            {/* Stacked Timeline Items */}
-            <div className="space-y-8 md:space-y-12">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={index}
-                  className="relative pl-20 md:pl-28"
-                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: index * 0.1,
-                    ease: "easeOut"
-                  }}
-                >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-6 md:left-10 top-6 w-4 h-4 md:w-5 md:h-5 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 border-4 border-white shadow-lg z-10" />
-                  
-                  {/* Year Badge */}
-                  <div className="absolute -left-2 md:left-0 top-0 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white text-xs md:text-sm font-bold shadow-xl z-20 transform rotate-[-8deg] hover:rotate-0 transition-transform duration-300">
-                    <span className="transform rotate-[8deg]">{milestone.year}</span>
-                  </div>
+                {/* Content */}
+                <div className="relative z-10">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-sky-600 transition-colors duration-300">
+                    {milestone.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                    {milestone.description}
+                  </p>
+                </div>
 
-                  {/* Content Card */}
-                  <motion.div
-                    className="relative bg-white rounded-3xl p-6 md:p-8 lg:p-10 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden"
-                    whileHover={{ y: -8, scale: 1.02 }}
-                  >
-                    {/* Gradient Background on Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 via-blue-50/0 to-sky-50/0 group-hover:from-sky-50/50 group-hover:via-blue-50/30 group-hover:to-sky-50/50 transition-all duration-500" />
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/20 to-transparent rounded-bl-full" />
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-100/20 to-transparent rounded-tr-full" />
-                    
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-sky-600 transition-colors duration-300">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                        {milestone.description}
-                      </p>
-                    </div>
-
-                    {/* Bottom Accent Line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
     </>
@@ -296,4 +285,3 @@ const AboutSections = () => {
 }
 
 export default AboutSections
-
