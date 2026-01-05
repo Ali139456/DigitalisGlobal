@@ -345,8 +345,8 @@ const AboutSections = () => {
 
                     {/* Content Container - Horizontal Layout */}
                     <div className="relative z-10 flex items-start gap-4">
-                      {/* Left Side - Year Badge and Icon */}
-                      <div className="flex-shrink-0 flex flex-col items-center gap-3">
+                      {/* Left Side - Year Badge */}
+                      <div className="flex-shrink-0">
                         {/* Year Badge - Modern Design */}
                         <motion.div
                           className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-sky-500 via-blue-600 to-cyan-500 text-white font-black text-lg shadow-2xl shadow-sky-500/50 relative overflow-hidden"
@@ -358,22 +358,6 @@ const AboutSections = () => {
                         >
                           <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
                           <span className="relative z-10">{milestone.year}</span>
-                        </motion.div>
-
-                        {/* Icon with 3D Effect */}
-                        <motion.div
-                          className="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-400/20 to-blue-500/20 backdrop-blur-md flex items-center justify-center text-4xl relative z-10 border border-white/20 shadow-lg"
-                          whileHover={shouldReduceMotion ? {} : { 
-                            scale: 1.2, 
-                            rotate: [0, 10, -10, 0],
-                            y: -5,
-                          }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-xl" />
-                          <span className="relative z-10 filter drop-shadow-lg">
-                            {milestone.icon}
-                          </span>
                         </motion.div>
                       </div>
 
