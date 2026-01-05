@@ -106,9 +106,9 @@ const Footer = () => {
             <Link to="/" className="inline-block mb-6">
               <div className="flex items-center gap-3">
                 <img 
-                  src="/Digitlais-Logo-White%20(1).png" 
+                  src="/dsd.png.png" 
                   alt="Digitalis Global Logo" 
-                  className="h-8 sm:h-10 w-auto"
+                  className="h-10 sm:h-12 w-auto"
                   onError={(e) => {
                     e.target.style.display = 'none';
                   }}
