@@ -104,19 +104,14 @@ const Footer = () => {
           {/* Brand Column */}
           <motion.div className="lg:col-span-2" variants={itemVariants}>
             <Link to="/" className="inline-block mb-6">
-              <div className="flex items-center gap-3">
-                <img 
-                  src="/dsd.png.png" 
-                  alt="Digitalis Global Logo" 
-                  className="h-10 sm:h-12 w-auto"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  Digitalis Global
-                </h2>
-              </div>
+              <img 
+                src="/dsd.png.png" 
+                alt="Digitalis Global Logo" 
+                className="h-10 sm:h-12 w-auto"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
             </Link>
             <p className="text-slate-600 leading-relaxed mb-6 max-w-md">
               Digitalis Global is a leading platform for web development, graphic design, and marketing.
