@@ -5,43 +5,6 @@ import Footer from './Footer'
 import AboutSections from './AboutSections'
 
 const About = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
-
-  const milestones = [
-    {
-      year: '2021',
-      title: 'Digitalis Global began with a vision',
-      description: 'A group of ambitious friends coming together in early 2021 to found a company aimed at delivering solutions for an increasingly digital world. Digitalis set out to make its mark in key areas like web development, graphic design, and online marketing.',
-      icon: '🌱',
-    },
-    {
-      year: '2021',
-      title: 'Powered by dedication and drive',
-      description: 'The Digitalis team wasted no time in offering their skills and services to clients near and far. As demand grew, so did the company, rapidly expanding from three enterprising founders to a 20+ team of experienced professionals. Major milestones were achieved in short order.',
-      icon: '🚀',
-    },
-    {
-      year: '2022',
-      title: 'While challenges have arisen',
-      description: 'Digitalis Global has confronted each obstacle as an opportunity to adapt, evolve and strengthen the foundations of the business. If the past is any indicator, the next chapter promises even greater things for this ambitious team. Digitalis Global excels in the dynamic digital era, reaching new heights with confidence.',
-      icon: '💪',
-    },
-    {
-      year: '2023',
-      title: 'In just under three years',
-      description: 'Digitalis Global has transformed from a bootstrap startup into an established industry player operating from a fully-equipped office hub. The company\'s exponential growth speaks clearly to both the immense market need for digital solutions and the skill, work ethic and vision.',
-      icon: '🏢',
-    },
-    {
-      year: '2023',
-      title: 'Today, Digitalis Global',
-      description: 'Provides diverse solutions: custom software, graphics, e-commerce, and digital marketing for businesses spanning startups to Fortune 500. With a rich portfolio of 500+ clients, we excel in web and mobile development, graphic design, and cutting-edge tech to solve complex business challenges innovatively.',
-      icon: '🌟',
-    },
-  ]
 
   const teamMembers = [
     {
@@ -86,28 +49,6 @@ const About = () => {
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  }
 
   const teamContainerVariants = {
     hidden: { opacity: 0 },
