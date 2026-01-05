@@ -195,7 +195,7 @@ const AboutSections = () => {
         </div>
       </section>
 
-      {/* Our Journey Section */}
+      {/* Our Journey Section - Scroll Stack */}
       <section 
         ref={journeyRef}
         className="relative w-full bg-gradient-to-br from-slate-50 via-white to-slate-50 py-20 md:py-32 overflow-hidden"
@@ -204,7 +204,7 @@ const AboutSections = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
 
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
+        <div className="relative max-w-5xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           {/* Header */}
           <motion.div
             className="text-center mb-16 md:mb-24"
@@ -226,64 +226,11 @@ const AboutSections = () => {
             </h2>
           </motion.div>
 
-          {/* Timeline - Desktop */}
-          <div className="hidden lg:block relative">
-            {/* Center Vertical Line */}
+          {/* Scroll Stack Timeline */}
+          <div className="relative">
+            {/* Vertical Line */}
             <motion.div
-              className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-500 via-blue-500 to-sky-500 transform -translate-x-1/2"
-              variants={timelineLineVariants}
-              initial="hidden"
-              animate={journeyInView ? "visible" : "hidden"}
-              style={{ transformOrigin: 'top' }}
-            />
-
-            {/* Timeline Items */}
-            <div className="relative">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={index}
-                  className={`relative flex items-center mb-16 ${
-                    milestone.side === 'left' ? 'justify-end pr-1/2' : 'justify-start pl-1/2'
-                  }`}
-                  variants={milestoneVariants(milestone.side)}
-                  initial="hidden"
-                  animate={journeyInView ? "visible" : "hidden"}
-                  transition={{ delay: index * 0.15 + 0.3 }}
-                >
-                  <div className={`w-5/12 ${milestone.side === 'left' ? 'text-right' : 'text-left'}`}>
-                    <motion.div
-                      className="relative bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                      whileHover={{ scale: 1.02, y: -4 }}
-                    >
-                      {/* Year Pill */}
-                      <div className={`inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-bold mb-4 ${milestone.side === 'left' ? 'ml-auto' : ''}`}>
-                        {milestone.year}
-                      </div>
-                      
-                      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-slate-600 leading-relaxed">
-                        {milestone.description}
-                      </p>
-
-                      {/* Decorative corner */}
-                      <div className={`absolute top-0 ${milestone.side === 'left' ? 'right-0' : 'left-0'} w-24 h-24 bg-gradient-to-br from-sky-100/30 to-transparent rounded-bl-full ${milestone.side === 'right' ? 'rounded-bl-none rounded-br-full' : ''}`} />
-                    </motion.div>
-                  </div>
-
-                  {/* Center Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-sky-500 border-4 border-white shadow-lg z-10" />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Timeline - Mobile */}
-          <div className="lg:hidden relative pl-8">
-            {/* Left Border Line */}
-            <motion.div
-              className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-500 via-blue-500 to-sky-500"
+              className="absolute left-8 md:left-12 top-0 bottom-0 w-1 bg-gradient-to-b from-sky-500 via-blue-500 to-sky-500 rounded-full"
               variants={timelineLineVariants}
               initial="hidden"
               animate={journeyInView ? "visible" : "hidden"}
@@ -291,31 +238,53 @@ const AboutSections = () => {
             />
 
             {/* Stacked Timeline Items */}
-            <div className="space-y-8">
+            <div className="space-y-8 md:space-y-12">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={index}
-                  className="relative"
-                  variants={milestoneVariants('left')}
-                  initial="hidden"
-                  animate={journeyInView ? "visible" : "hidden"}
-                  transition={{ delay: index * 0.1 + 0.3 }}
+                  className="relative pl-20 md:pl-28"
+                  initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.1,
+                    ease: "easeOut"
+                  }}
                 >
-                  {/* Dot */}
-                  <div className="absolute -left-11 top-2 w-4 h-4 rounded-full bg-sky-500 border-4 border-white shadow-lg z-10" />
-
-                  <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-lg">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white text-sm font-bold mb-4">
-                      {milestone.year}
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">
-                      {milestone.title}
-                    </h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      {milestone.description}
-                    </p>
+                  {/* Timeline Dot */}
+                  <div className="absolute left-6 md:left-10 top-6 w-4 h-4 md:w-5 md:h-5 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 border-4 border-white shadow-lg z-10" />
+                  
+                  {/* Year Badge */}
+                  <div className="absolute -left-2 md:left-0 top-0 w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center text-white text-xs md:text-sm font-bold shadow-xl z-20 transform rotate-[-8deg] hover:rotate-0 transition-transform duration-300">
+                    <span className="transform rotate-[8deg]">{milestone.year}</span>
                   </div>
+
+                  {/* Content Card */}
+                  <motion.div
+                    className="relative bg-white rounded-3xl p-6 md:p-8 lg:p-10 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden"
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    {/* Gradient Background on Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 via-blue-50/0 to-sky-50/0 group-hover:from-sky-50/50 group-hover:via-blue-50/30 group-hover:to-sky-50/50 transition-all duration-500" />
+                    
+                    {/* Decorative Elements */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100/20 to-transparent rounded-bl-full" />
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-100/20 to-transparent rounded-tr-full" />
+                    
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-sky-600 transition-colors duration-300">
+                        {milestone.title}
+                      </h3>
+                      <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+                        {milestone.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom Accent Line */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
