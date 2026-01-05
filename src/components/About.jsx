@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Footer from './Footer'
+import AboutSections from './AboutSections'
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -175,98 +176,8 @@ const About = () => {
         </div>
       </motion.section>
 
-      {/* Our Journey Section */}
-      <section className="relative w-full bg-gradient-to-br from-slate-50 via-white to-slate-50 py-20 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
-        
-        {/* Pattern Overlay */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
-          {/* Header */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.p
-              className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              Milestones
-            </motion.p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
-              Our journey{' '}
-              <span className="text-sky-500">so far</span>
-            </h2>
-          </motion.div>
-
-          {/* Modern Timeline Grid */}
-          <div ref={ref} className="relative">
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={containerVariants}
-            >
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="relative group"
-                >
-                  {/* Card with gradient background */}
-                  <motion.div
-                    className="relative h-full p-6 md:p-8 rounded-3xl bg-gradient-to-br from-white to-slate-50 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
-                    whileHover={{ y: -8, scale: 1.02 }}
-                  >
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-sky-50/0 to-blue-50/0 group-hover:from-sky-50/50 group-hover:to-blue-50/50 transition-all duration-300" />
-                    
-                    {/* Decorative corner accent */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-sky-100/30 to-transparent rounded-bl-full" />
-                    
-                    {/* Year Badge */}
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white font-bold text-lg shadow-lg mb-6 relative z-10">
-                      <span>{milestone.year}</span>
-                    </div>
-
-                    {/* Icon */}
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-100 to-sky-50 flex items-center justify-center text-4xl mb-6 relative z-10 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-md">
-                      {milestone.icon}
-                    </div>
-
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 leading-tight">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                        {milestone.description}
-                      </p>
-                    </div>
-
-                    {/* Bottom accent line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-blue-500 to-sky-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                  </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Our Mission and Journey Sections */}
+      <AboutSections />
 
       {/* Our Team Section */}
       <section className="relative w-full bg-gradient-to-br from-white to-slate-50 min-h-screen pt-20 pb-20">
