@@ -242,24 +242,17 @@ const AboutSections = () => {
             {milestones.map((milestone, index) => (
               <motion.div
                 key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                variants={{
-                  hidden: { 
-                    opacity: 0, 
-                    y: prefersReducedMotion ? 0 : 40 
-                  },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0,
-                    transition: {
-                      duration: prefersReducedMotion ? 0 : 0.6,
-                      delay: prefersReducedMotion ? 0 : index * 0.1,
-                      ease: "easeOut",
-                    }
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ 
+                  opacity: 1, 
+                  y: 0,
+                  transition: {
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    ease: "easeOut",
                   }
                 }}
+                viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
                 className="group relative bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
                 whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.02 }}
               >
