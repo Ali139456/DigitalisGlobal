@@ -216,9 +216,9 @@ const Navbar = () => {
                     )}
                   </Link>
                 ) : (
-                  <a 
+                <a 
                     href={isHomePage ? item.href : `/${item.href}`}
-                    className="navbar-link"
+                  className="navbar-link"
                     aria-haspopup={item.hasDropdown ? 'true' : undefined}
                     aria-expanded={item.hasDropdown ? (item.menuType === 'services' ? servicesMenuOpen : item.menuType === 'portfolio' ? portfolioMenuOpen : false) : undefined}
                     onClick={(e) => {
@@ -269,12 +269,12 @@ const Navbar = () => {
                         }
                       }
                     }}
-                  >
-                    {item.name}
-                    {item.hasDropdown && (
+                >
+                  {item.name}
+                  {item.hasDropdown && (
                       <span className="dropdown-indicator" aria-hidden="true">▼</span>
-                    )}
-                  </a>
+                  )}
+                </a>
                 )}
                 
                 {/* Mega Menu for Services */}
@@ -429,7 +429,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-        </div>
+          </div>
 
         <div className="navbar-right">
           <Link to="/contact" className="navbar-contact-button">

@@ -52,20 +52,20 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-video-container">
         {!videoError && (
-          <video
+        <video
             ref={videoRef}
             className={`hero-video ${videoLoaded ? 'loaded' : 'loading'}`}
-            autoPlay
-            loop
-            muted
-            playsInline
+          autoPlay
+          loop
+          muted
+          playsInline
             preload="metadata"
             onLoadedData={handleVideoLoaded}
             onCanPlay={handleVideoLoaded}
             onError={handleVideoError}
-          >
-            <source src="/7021935_Up_Looking_1920x1080.mp4" type="video/mp4" />
-          </video>
+        >
+          <source src="/7021935_Up_Looking_1920x1080.mp4" type="video/mp4" />
+        </video>
         )}
         {!videoLoaded && !videoError && (
           <div className="hero-video-placeholder">
@@ -111,7 +111,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Start Your Project
+              Start Your Project
               </motion.button>
             </Link>
             <Link to="/portfolio">
@@ -120,7 +120,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View Our Work
+              View Our Work
               </motion.button>
             </Link>
           </motion.div>
