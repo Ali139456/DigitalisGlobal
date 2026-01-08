@@ -30,7 +30,7 @@ const Contact = () => {
     {
       icon: '📍',
       title: 'Location',
-      details: ['Sydney, Australia', 'Finland', 'Germany']
+      details: ['Sydney, Australia', 'UK', 'Finland', 'Germany']
     },
     {
       icon: '✉️',
