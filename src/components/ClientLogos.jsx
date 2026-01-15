@@ -41,27 +41,48 @@ const ClientLogos = () => {
   const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos]
 
   return (
-    <section className="relative w-full bg-gradient-to-br from-slate-50 to-white py-16 sm:py-20 overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-5">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-sky-400 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl" />
+    <section className="relative w-full bg-gradient-to-br from-white via-slate-50/30 to-white py-16 sm:py-20 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
       </div>
+      
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-sky-100/15 to-blue-100/15 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
+      <div className="relative max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.p
+            className="text-xs font-bold tracking-[0.2em] text-sky-500 uppercase mb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            Our Clients
+          </motion.p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             Trusted by <span className="text-sky-500">Leading Brands</span>
           </h2>
           <p className="text-slate-600 text-lg">We're proud to work with innovative companies worldwide</p>
-        </div>
+        </motion.div>
 
         {/* Logo Carousel */}
         <div className="relative overflow-hidden">
           <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
             <motion.div
-              className="flex items-center justify-center gap-8 sm:gap-12 md:gap-16"
+              className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10"
               initial={{ x: 0 }}
               animate={{ x: '-33.333%' }}
               transition={{
@@ -74,21 +95,33 @@ const ClientLogos = () => {
               }}
             >
               {duplicatedLogos.map((client, index) => (
-                <div
+                <motion.div
                   key={`${client.name}-${index}`}
-                  className="flex items-center justify-center p-4 sm:p-6 transition-all duration-300 hover:scale-110 flex-shrink-0"
-                  style={{ width: '200px' }}
+                  className="group flex items-center justify-center p-6 sm:p-8 bg-white rounded-2xl border-2 border-slate-200 shadow-sm hover:shadow-lg hover:border-sky-300 transition-all duration-300 flex-shrink-0"
+                  style={{ width: '220px', minHeight: '140px' }}
+                  whileHover={{ scale: 1.05, y: -5 }}
                 >
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-sky-50 to-blue-50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
                   <img
                     src={client.logo}
                     alt={client.name}
-                    className="max-w-full h-auto max-h-20 sm:max-h-24 md:max-h-28 object-contain filter brightness-100 contrast-100 saturate-100"
-                    style={{ filter: 'none' }}
+                    className="max-w-full h-auto max-h-16 sm:max-h-20 md:max-h-24 object-contain relative z-10"
+                    style={{ 
+                      filter: 'none',
+                      WebkitFilter: 'none',
+                      opacity: 1,
+                      mixBlendMode: 'normal'
+                    }}
                     onError={(e) => {
                       e.target.style.display = 'none'
                     }}
                   />
-                </div>
+                  
+                  {/* Bottom accent line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
               ))}
             </motion.div>
           </div>

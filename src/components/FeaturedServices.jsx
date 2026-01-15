@@ -69,25 +69,47 @@ function ServiceCard({ item, idx }) {
     <Link
       to={`/service/${item.slug}`}
       className={[
-        "group relative block w-full overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm",
+        "group relative block w-full overflow-hidden rounded-3xl border border-black/5 shadow-sm",
         "transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500",
         "min-h-[260px] lg:min-h-[260px]",
+        "isolate will-change-transform",
       ].join(" ")}
+      style={{
+        WebkitTransform: 'translateZ(0)',
+        transform: 'translateZ(0)',
+        contain: 'layout style paint',
+        WebkitBorderRadius: '1.5rem',
+        borderRadius: '1.5rem',
+      }}
     >
       {/* Background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110"
-        style={{ backgroundImage: `url(${item.image})` }}
+        className="absolute inset-0 rounded-3xl bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110"
+        style={{ 
+          backgroundImage: `url(${item.image})`,
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)',
+          WebkitBorderRadius: '1.5rem',
+          borderRadius: '1.5rem',
+        }}
       />
       
       {/* Dark overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      <div 
+        className="absolute inset-0 rounded-3xl bg-gradient-to-b from-black/70 via-black/50 to-black/80 group-hover:bg-sky-500/90 transition-colors duration-300"
+        style={{
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)',
+          WebkitBorderRadius: '1.5rem',
+          borderRadius: '1.5rem',
+        }}
+      />
 
       {/* decorative blur blob */}
-      <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-sky-200/40 blur-3xl transition-opacity duration-300 group-hover:opacity-70" />
+      <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-sky-200/40 blur-3xl transition-opacity duration-300 group-hover:opacity-70 pointer-events-none" />
 
       {/* content */}
-      <div className="relative flex h-full flex-col p-6">
+      <div className="relative flex h-full flex-col p-6 group-hover:opacity-0 transition-opacity duration-300">
         <div className="flex items-start justify-between gap-3">
           <div className="inline-flex items-center gap-2 rounded-full bg-sky-500/20 backdrop-blur-sm px-3 py-1 text-xs font-medium text-white">
             <span aria-hidden="true">{item.icon}</span>
@@ -107,9 +129,18 @@ function ServiceCard({ item, idx }) {
         </p>
       </div>
 
-      {/* Learn more - appears at bottom on hover with background */}
-      <div className="absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-sky-500/95 backdrop-blur-sm px-6 py-4 rounded-b-3xl">
-        <span className="inline-flex items-center gap-2 text-sm font-semibold text-white">
+      {/* Learn more - appears in center on hover */}
+      <div 
+        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+        style={{ 
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)', 
+          willChange: 'opacity',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+        }}
+      >
+        <span className="inline-flex items-center gap-2 px-8 py-4 bg-white text-sky-500 font-semibold rounded-full border-2 border-white shadow-lg transition-all duration-200">
           Learn more
           <span className="transition-transform duration-200 group-hover:translate-x-1">
             →
@@ -256,6 +287,64 @@ export default function FeaturedServices() {
                 Let's Talk
               </motion.a>
             </motion.div>
+
+            {/* Development Related Icons */}
+            <motion.div
+              className="mt-12 lg:mt-16 flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
+              {/* Code Icon */}
+              <div className="flex items-center gap-2 text-slate-600">
+                <svg className="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                <span className="text-sm font-medium">Code</span>
+              </div>
+
+              {/* Browser Icon */}
+              <div className="flex items-center gap-2 text-slate-600">
+                <svg className="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <span className="text-sm font-medium">Web</span>
+              </div>
+
+              {/* Mobile Icon */}
+              <div className="flex items-center gap-2 text-slate-600">
+                <svg className="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <span className="text-sm font-medium">Mobile</span>
+              </div>
+
+              {/* Database Icon */}
+              <div className="flex items-center gap-2 text-slate-600">
+                <svg className="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                </svg>
+                <span className="text-sm font-medium">Database</span>
+              </div>
+
+              {/* Cloud Icon */}
+              <div className="flex items-center gap-2 text-slate-600">
+                <svg className="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+                <span className="text-sm font-medium">Cloud</span>
+              </div>
+
+              {/* Rocket Icon */}
+              <div className="flex items-center gap-2 text-slate-600">
+                <svg className="w-8 h-8 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span className="text-sm font-medium">Fast</span>
+              </div>
+            </motion.div>
+
           </motion.div>
 
               {/* Right masonry grid - 3 columns with 2,3,3 pattern - Stepped/Offset layout */}

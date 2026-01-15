@@ -93,7 +93,7 @@ const Footer = () => {
         }} />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-16">
+      <div className="relative max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 py-16">
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-8 sm:mb-12"
           initial="hidden"
