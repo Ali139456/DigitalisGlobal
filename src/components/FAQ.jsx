@@ -37,7 +37,12 @@ const FAQ = () => {
   ]
 
   const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index)
+    // Close current if clicking the same, otherwise open new one
+    if (openIndex === index) {
+      setOpenIndex(null)
+    } else {
+      setOpenIndex(index)
+    }
   }
 
   const containerVariants = {
@@ -78,6 +83,7 @@ const FAQ = () => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-sky-100/15 to-blue-100/15 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -108,7 +114,8 @@ const FAQ = () => {
         {/* FAQ Items */}
         <motion.div
           ref={ref}
-          className="space-y-4"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          style={{ alignItems: 'start', gridAutoRows: 'min-content' }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -119,18 +126,19 @@ const FAQ = () => {
               key={index}
               variants={itemVariants}
               className="group"
+              style={{ alignSelf: 'start' }}
             >
               <motion.button
-                className="w-full text-left p-6 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all flex items-center justify-between gap-4"
+                className="w-full text-left p-6 rounded-3xl bg-white border-2 border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all flex items-center justify-between gap-4 min-h-[100px]"
                 onClick={() => toggleFAQ(index)}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <h3 className="text-lg md:text-xl font-semibold text-slate-900 pr-8">
+                <h3 className="text-base md:text-lg font-semibold text-slate-900 pr-8 flex-1">
                   {index + 1}. {faq.question}
                 </h3>
                 <motion.div
-                  className="flex-shrink-0 w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-500 transition-colors group-hover:bg-sky-200"
+                  className="flex-shrink-0 w-10 h-10 rounded-full bg-sky-100 flex items-center justify-center text-sky-500 transition-colors group-hover:bg-sky-200"
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -143,35 +151,34 @@ const FAQ = () => {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={2.5}
                       d="M19 9l-7 7-7-7"
                     />
                   </svg>
                 </motion.div>
               </motion.button>
 
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {openIndex === index && (
                   <motion.div
+                    key={`answer-${index}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    className="overflow-hidden mt-4"
                   >
-                    <div className="p-6 pt-0">
-                      <motion.div
-                        className="p-6 rounded-xl bg-sky-50/50 border border-sky-100"
-                        initial={{ y: -10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -10, opacity: 0 }}
-                        transition={{ delay: 0.1 }}
-                      >
-                        <p className="text-slate-700 leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </motion.div>
-                    </div>
+                    <motion.div
+                      className="p-6 rounded-2xl bg-sky-50/50 border border-sky-100"
+                      initial={{ y: -10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <p className="text-slate-700 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -199,6 +206,7 @@ const FAQ = () => {
             Contact Us
           </motion.a>
         </motion.div>
+        </div>
       </div>
     </section>
   )
