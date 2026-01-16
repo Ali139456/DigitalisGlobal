@@ -602,7 +602,7 @@ const ServiceDetail = () => {
           >
             <div className="flex items-center gap-4 mb-6">
               <span className="text-6xl" aria-hidden="true">{service.icon}</span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900">
+              <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
                 {service.title}
               </h1>
             </div>
