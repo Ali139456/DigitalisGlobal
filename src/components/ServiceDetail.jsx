@@ -6,6 +6,74 @@ import Footer from './Footer'
 const ServiceDetail = () => {
   const { serviceId } = useParams()
   const navigate = useNavigate()
+  // State for country code
+  const [selectedCountry, setSelectedCountry] = useState('+971')
+
+  // Comprehensive Country Codes
+  const countryCodes = [
+    { name: "Afghanistan", code: "+93" }, { name: "Albania", code: "+355" }, { name: "Algeria", code: "+213" },
+    { name: "Andorra", code: "+376" }, { name: "Angola", code: "+244" }, { name: "Argentina", code: "+54" },
+    { name: "Armenia", code: "+374" }, { name: "Australia", code: "+61" }, { name: "Austria", code: "+43" },
+    { name: "Azerbaijan", code: "+994" }, { name: "Bahrain", code: "+973" }, { name: "Bangladesh", code: "+880" },
+    { name: "Belarus", code: "+375" }, { name: "Belgium", code: "+32" }, { name: "Belize", code: "+501" },
+    { name: "Benin", code: "+229" }, { name: "Bhutan", code: "+975" }, { name: "Bolivia", code: "+591" },
+    { name: "Bosnia & Herzegovina", code: "+387" }, { name: "Botswana", code: "+267" }, { name: "Brazil", code: "+55" },
+    { name: "Brunei", code: "+673" }, { name: "Bulgaria", code: "+359" }, { name: "Burkina Faso", code: "+226" },
+    { name: "Burundi", code: "+257" }, { name: "Cambodia", code: "+855" }, { name: "Cameroon", code: "+237" },
+    { name: "Canada", code: "+1" }, { name: "Central African Rep.", code: "+236" }, { name: "Chad", code: "+235" },
+    { name: "Chile", code: "+56" }, { name: "China", code: "+86" }, { name: "Colombia", code: "+57" },
+    { name: "Comoros", code: "+269" }, { name: "Congo", code: "+242" }, { name: "Costa Rica", code: "+506" },
+    { name: "Croatia", code: "+385" }, { name: "Cuba", code: "+53" }, { name: "Cyprus", code: "+357" },
+    { name: "Czech Republic", code: "+420" }, { name: "Denmark", code: "+45" }, { name: "Djibouti", code: "+253" },
+    { name: "Dominica", code: "+1-767" }, { name: "Dominican Republic", code: "+1-809" }, { name: "Ecuador", code: "+593" },
+    { name: "Egypt", code: "+20" }, { name: "El Salvador", code: "+503" }, { name: "Equatorial Guinea", code: "+240" },
+    { name: "Eritrea", code: "+291" }, { name: "Estonia", code: "+372" }, { name: "Ethiopia", code: "+251" },
+    { name: "Fiji", code: "+679" }, { name: "Finland", code: "+358" }, { name: "France", code: "+33" },
+    { name: "Gabon", code: "+241" }, { name: "Gambia", code: "+220" }, { name: "Georgia", code: "+995" },
+    { name: "Germany", code: "+49" }, { name: "Ghana", code: "+233" }, { name: "Greece", code: "+30" },
+    { name: "Grenada", code: "+1-473" }, { name: "Guatemala", code: "+502" }, { name: "Guinea", code: "+224" },
+    { name: "Guyana", code: "+592" }, { name: "Haiti", code: "+509" }, { name: "Honduras", code: "+504" },
+    { name: "Hong Kong", code: "+852" }, { name: "Hungary", code: "+36" }, { name: "Iceland", code: "+354" },
+    { name: "India", code: "+91" }, { name: "Indonesia", code: "+62" }, { name: "Iran", code: "+98" },
+    { name: "Iraq", code: "+964" }, { name: "Ireland", code: "+353" }, { name: "Israel", code: "+972" },
+    { name: "Italy", code: "+39" }, { name: "Ivory Coast", code: "+225" }, { name: "Jamaica", code: "+1-876" },
+    { name: "Japan", code: "+81" }, { name: "Jordan", code: "+962" }, { name: "Kazakhstan", code: "+7" },
+    { name: "Kenya", code: "+254" }, { name: "Kiribati", code: "+686" }, { name: "North Korea", code: "+850" },
+    { name: "South Korea", code: "+82" }, { name: "Kuwait", code: "+965" }, { name: "Kyrgyzstan", code: "+996" },
+    { name: "Laos", code: "+856" }, { name: "Latvia", code: "+371" }, { name: "Lebanon", code: "+961" },
+    { name: "Lesotho", code: "+266" }, { name: "Liberia", code: "+231" }, { name: "Libya", code: "+218" },
+    { name: "Liechtenstein", code: "+423" }, { name: "Lithuania", code: "+370" }, { name: "Luxembourg", code: "+352" },
+    { name: "Macau", code: "+853" }, { name: "Macedonia", code: "+389" }, { name: "Madagascar", code: "+261" },
+    { name: "Malawi", code: "+265" }, { name: "Malaysia", code: "+60" }, { name: "Maldives", code: "+960" },
+    { name: "Mali", code: "+223" }, { name: "Malta", code: "+356" }, { name: "Marshall Islands", code: "+692" },
+    { name: "Mauritania", code: "+222" }, { name: "Mauritius", code: "+230" }, { name: "Mexico", code: "+52" },
+    { name: "Micronesia", code: "+691" }, { name: "Moldova", code: "+373" }, { name: "Monaco", code: "+377" },
+    { name: "Mongolia", code: "+976" }, { name: "Montenegro", code: "+382" }, { name: "Morocco", code: "+212" },
+    { name: "Mozambique", code: "+258" }, { name: "Myanmar", code: "+95" }, { name: "Namibia", code: "+264" },
+    { name: "Nauru", code: "+674" }, { name: "Nepal", code: "+977" }, { name: "Netherlands", code: "+31" },
+    { name: "New Zealand", code: "+64" }, { name: "Nicaragua", code: "+505" }, { name: "Niger", code: "+227" },
+    { name: "Nigeria", code: "+234" }, { name: "Norway", code: "+47" }, { name: "Oman", code: "+968" },
+    { name: "Pakistan", code: "+92" }, { name: "Palau", code: "+680" }, { name: "Panama", code: "+507" },
+    { name: "Papua New Guinea", code: "+675" }, { name: "Paraguay", code: "+595" }, { name: "Peru", code: "+51" },
+    { name: "Philippines", code: "+63" }, { name: "Poland", code: "+48" }, { name: "Portugal", code: "+351" },
+    { name: "Qatar", code: "+974" }, { name: "Romania", code: "+40" }, { name: "Russia", code: "+7" },
+    { name: "Rwanda", code: "+250" }, { name: "Samoa", code: "+685" }, { name: "San Marino", code: "+378" },
+    { name: "Sao Tome & Principe", code: "+239" }, { name: "Saudi Arabia", code: "+966" }, { name: "Senegal", code: "+221" },
+    { name: "Serbia", code: "+381" }, { name: "Seychelles", code: "+248" }, { name: "Sierra Leone", code: "+232" },
+    { name: "Singapore", code: "+65" }, { name: "Slovakia", code: "+421" }, { name: "Slovenia", code: "+386" },
+    { name: "Solomon Islands", code: "+677" }, { name: "Somalia", code: "+252" }, { name: "South Africa", code: "+27" },
+    { name: "Spain", code: "+34" }, { name: "Sri Lanka", code: "+94" }, { name: "Sudan", code: "+249" },
+    { name: "Suriname", code: "+597" }, { name: "Swaziland", code: "+268" }, { name: "Sweden", code: "+46" },
+    { name: "Switzerland", code: "+41" }, { name: "Syria", code: "+963" }, { name: "Taiwan", code: "+886" },
+    { name: "Tajikistan", code: "+992" }, { name: "Tanzania", code: "+255" }, { name: "Thailand", code: "+66" },
+    { name: "Togo", code: "+228" }, { name: "Tonga", code: "+676" }, { name: "Trinidad & Tobago", code: "+1-868" },
+    { name: "Tunisia", code: "+216" }, { name: "Turkey", code: "+90" }, { name: "Turkmenistan", code: "+993" },
+    { name: "Tuvalu", code: "+688" }, { name: "Uganda", code: "+256" }, { name: "Ukraine", code: "+380" },
+    { name: "United Arab Emirates", code: "+971" }, { name: "United Kingdom", code: "+44" }, { name: "United States", code: "+1" },
+    { name: "Uruguay", code: "+598" }, { name: "Uzbekistan", code: "+998" }, { name: "Vanuatu", code: "+678" },
+    { name: "Vatican City", code: "+379" }, { name: "Venezuela", code: "+58" }, { name: "Vietnam", code: "+84" },
+    { name: "Yemen", code: "+967" }, { name: "Zambia", code: "+260" }, { name: "Zimbabwe", code: "+263" }
+  ];
 
   // Comprehensive Technology icons mapping
   const techIcons = {
@@ -83,10 +151,11 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80',
       icon: '🧩',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'Web Development',
-          description: 'At Digitalis Global, we build high-performance, user-friendly websites that combine sleek design with cutting-edge technology. From responsive brochure sites to complex e-commerce platforms, our web development solutions are tailored to your unique goals. We stay ahead of tech trends and follow best coding practices to ensure your site delivers exceptional speed, functionality, and user experience.'
+          description: 'We build high-performance, user-friendly websites combining sleek design with cutting-edge technology. From responsive sites to complex platforms, our solutions ensure exceptional speed and functionality.'
         },
         {
           title: 'Front-end Development',
@@ -130,6 +199,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80',
       icon: '🌐',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-400 bg-clip-text text-transparent',
       sections: [
         {
           title: 'Responsive Web Design',
@@ -175,6 +245,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80',
       icon: '🛒',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'E-commerce Platform Development',
@@ -220,6 +291,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80',
       icon: '🛍️',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'Shopify Store Setup',
@@ -265,6 +337,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80',
       icon: '📝',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'WordPress Theme Development',
@@ -310,6 +383,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
       icon: '🎨',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'Brand Identity Design',
@@ -355,6 +429,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
       icon: '📣',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'Social Media Marketing',
@@ -400,6 +475,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
       icon: '🔎',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'Technical SEO',
@@ -445,6 +521,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80',
       icon: '🧠',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'User Research',
@@ -490,6 +567,7 @@ const ServiceDetail = () => {
       image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&q=80',
       icon: '🎬',
       gradient: 'from-sky-500 to-blue-600',
+      titleStyle: 'font-black italic tracking-tighter bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 bg-clip-text text-transparent',
       sections: [
         {
           title: 'Video Production',
@@ -577,7 +655,7 @@ const ServiceDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 font-['Montserrat']">
       {/* Hero Section */}
       <motion.section
         className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
@@ -594,51 +672,139 @@ const ServiceDetail = () => {
         <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${service.gradient} opacity-20 rounded-full blur-3xl`} />
         <div className={`absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br ${service.gradient} opacity-20 rounded-full blur-3xl`} />
 
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-16">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-1 py-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
+            className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-6xl" aria-hidden="true">{service.icon}</span>
-              <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                {service.title}
-              </h1>
+            {/* Left Column: Title and Description */}
+            <div>
+              <div className="flex items-center gap-4 mb-6 ">
+                {service.icon && <span className="text-6xl" aria-hidden="true">{service.icon}</span>}
+                {/* Fixed Title clipping issue with pr-4 pb-1 */}
+                <h1 className={`text-2xl md:text-3xl font-bold tracking-tight whitespace-nowrap pr-4 pb-1 ${service.titleStyle || `bg-gradient-to-r ${service.gradient || 'from-sky-500 to-blue-600'} bg-clip-text text-transparent`}`}>
+                  {service.title || 'Service'}
+                </h1>
+              </div>
+              <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl leading-relaxed">
+                {service.heroDescription}
+              </p>
             </div>
-            <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl leading-relaxed">
-              {service.heroDescription}
-            </p>
+
+            {/* Right Column: Contact Form (Moved here) */}
+            <div className="relative w-full">
+              {/* Updated Form Container: Blue Glassmorphism + RESPONSIVE SIZING */}
+              <div className="relative w-full max-w-lg lg:max-w-full mx-auto rounded-3xl p-6 sm:p-8 md:p-10 border border-white/20 shadow-2xl overflow-hidden z-0 bg-[#589CD5] backdrop-blur-md">
+                {/* Background Layer: Subtle Glow */}
+                <div className={`absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br ${service.gradient} opacity-20 rounded-full blur-3xl`}></div>
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+
+                <div className="relative z-10">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">Have any questions?</h3>
+                  
+                  <form className="space-y-5">
+                    {/* Name Input */}
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Name*"
+                        className="w-full bg-white/20 border border-white/30 rounded-xl px-5 py-4 text-white placeholder-white/70 focus:outline-none focus:border-white transition-colors text-base"
+                      />
+                    </div>
+
+                    {/* Email Input */}
+                    <div>
+                      <input
+                        type="email"
+                        placeholder="Email*"
+                        className="w-full bg-white/20 border border-white/30 rounded-xl px-5 py-4 text-white placeholder-white/70 focus:outline-none focus:border-white transition-colors text-base"
+                      />
+                    </div>
+
+                    {/* Phone Input with Responsive Dropdown (Stacks on very small screens) */}
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <div className="relative w-full sm:w-1/3 min-w-[120px]">
+                        <select
+                          value={selectedCountry}
+                          onChange={(e) => setSelectedCountry(e.target.value)}
+                          className="w-full h-full appearance-none bg-white/20 border border-white/30 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-white transition-colors cursor-pointer text-base"
+                          style={{ backgroundImage: 'none' }} 
+                        >
+                          {countryCodes.map((country, idx) => (
+                            <option key={idx} value={country.code} className="bg-white text-slate-900">
+                              {country.code} ({country.name})
+                            </option>
+                          ))}
+                        </select>
+                         {/* Custom Arrow Icon for Dropdown */}
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white/70">
+                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                      </div>
+                      <input
+                        type="tel"
+                        placeholder="Phone No*"
+                        className="w-full sm:flex-1 bg-white/20 border border-white/30 rounded-xl px-5 py-4 text-white placeholder-white/70 focus:outline-none focus:border-white transition-colors text-base"
+                      />
+                    </div>
+
+                    {/* Project Description */}
+                    <div>
+                      <textarea
+                        rows="4"
+                        placeholder="Tell us about your project"
+                        className="w-full bg-white/20 border border-white/30 rounded-xl px-5 py-4 text-white placeholder-white/70 focus:outline-none focus:border-white transition-colors resize-none text-base"
+                      ></textarea>
+                    </div>
+
+                    {/* Submit Button - Updated Background #3A3A3C */}
+                    <button
+                      type="submit"
+                      className="w-full bg-[#3A3A3C] hover:bg-[#2c2c2e] text-white font-semibold py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-base"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-20">
+      {/* Main Content - Increased Max Width here */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-20">
         {/* Service Sections */}
-        {service.sections && service.sections.map((section, index) => (
-          <motion.section
-            key={index}
-            className="mb-20 relative"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-          >
-            {/* Decorative Background */}
-            <div className={`absolute -left-20 top-0 w-40 h-40 bg-gradient-to-br ${service.gradient} opacity-10 rounded-full blur-2xl`} />
-            
-            <div className="relative bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                <span className={`w-2 h-12 bg-gradient-to-b ${service.gradient} rounded-full`}></span>
-                {section.title}
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed max-w-4xl">
-                {section.description}
-              </p>
-            </div>
-          </motion.section>
-        ))}
+        {service.sections && (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-20">
+            {service.sections.map((section, index) => (
+              <motion.section
+                key={index}
+                className="relative"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                {/* Decorative Background */}
+                <div className={`absolute -left-10 top-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl`} />
+                
+                {/* UPDATED CARD: Background color #52C4C9, White Text */}
+                <div className="relative bg-[#52C4C9] rounded-3xl p-10 md:p-14 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 h-full min-h-[400px] flex flex-col justify-start pt-16">
+                  <h2 className="text-xl md:text-2xl font-bold text-white mb-3 flex items-center gap-3">
+                    <span className={`w-2 h-10 bg-white rounded-full`}></span>
+                    {section.title}
+                  </h2>
+                  <p className="text-base text-white/90 leading-relaxed">
+                    {section.description}
+                  </p>
+                </div>
+              </motion.section>
+            ))}
+          </div>
+        )}
 
         {/* Cutting-Edge Technologies Section */}
         {service.cuttingEdge && (
@@ -649,7 +815,8 @@ const ServiceDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className={`relative bg-gradient-to-br ${service.gradient} rounded-3xl p-8 md:p-12 text-white overflow-hidden`}>
+            {/* UPDATED CARD: Gradient Background #589CD5 to #52C4C9 */}
+            <div className={`relative bg-gradient-to-r from-[#589CD5] to-[#52C4C9] rounded-3xl p-8 md:p-12 text-white overflow-hidden`}>
               {/* Decorative Elements */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
@@ -683,7 +850,7 @@ const ServiceDetail = () => {
           </motion.section>
         )}
 
-        {/* Maintenance Section */}
+        {/* Maintenance Section - UPDATED Background #589CD5 */}
         {service.maintenance && (
           <motion.section
             className="mb-20 relative"
@@ -692,14 +859,15 @@ const ServiceDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative bg-white rounded-3xl p-8 md:p-12 border-2 border-slate-200 shadow-xl">
+            {/* UPDATED CONTAINER: #589CD5 Background, White Text, Glassy Inner Cards */}
+            <div className="relative bg-[#589CD5] rounded-3xl p-8 md:p-12 border border-white/20 shadow-xl">
               {/* Decorative Corner */}
-              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-5 rounded-bl-full`} />
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-bl-full`} />
               
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 {service.maintenance.title}
               </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-4xl">
+              <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-4xl">
                 {service.maintenance.description}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -710,11 +878,12 @@ const ServiceDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="p-6 rounded-xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all group"
+                    // Inner cards are now glassy white to match the blue theme
+                    className="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <span className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} group-hover:scale-125 transition-transform`}></span>
-                      <h3 className="font-semibold text-slate-900">{feature}</h3>
+                      <span className={`w-3 h-3 rounded-full bg-white group-hover:scale-125 transition-transform`}></span>
+                      <h3 className="font-semibold text-white">{feature}</h3>
                     </div>
                   </motion.div>
                 ))}
@@ -786,54 +955,58 @@ const ServiceDetail = () => {
             })}
           </div>
         </motion.section>
-
-        {/* CTA Section */}
-        <motion.section
-          className="relative rounded-3xl bg-gradient-to-br from-sky-500 to-blue-600 p-12 md:p-16 text-center overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-400/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-          
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Are you Ready?
-            </h2>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Ignite Your Brand's Success Now!
-            </h3>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Shaping digital excellence & unlocking your potential with Digitalis Global.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/contact">
-                <motion.button
-                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-sky-500 shadow-lg transition-all hover:bg-slate-50 hover:shadow-xl hover:-translate-y-0.5"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Get Started
-                </motion.button>
-              </Link>
-              <Link to="/contact">
-                <motion.button
-                  className="inline-flex items-center justify-center rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/20 hover:border-white/50 hover:-translate-y-0.5"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Contact Us
-                </motion.button>
-              </Link>
-            </div>
-          </div>
-        </motion.section>
       </div>
-      <Footer />
+
+      {/* CTA Section - Full Width - UPDATED Background #589CD5 */}
+      <motion.section
+        className="relative w-full bg-[#589CD5] py-20 text-center overflow-hidden"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Are you Ready?
+          </h2>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Ignite Your Brand's Success Now!
+          </h3>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Shaping digital excellence & unlocking your potential with Digitalis Global.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link to="/contact">
+              <motion.button
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#589CD5] shadow-lg transition-all hover:bg-slate-50 hover:shadow-xl hover:-translate-y-0.5"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started
+              </motion.button>
+            </Link>
+            <Link to="/contact">
+              <motion.button
+                className="inline-flex items-center justify-center rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/20 hover:border-white/50 hover:-translate-y-0.5"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Contact Us
+              </motion.button>
+            </Link>
+          </div>
+        </div>
+      </motion.section>
+      
+      {/* Footer Updated with background #3A3A3C and White Text */}
+      <div className="bg-[#3A3A3C] text-white">
+        <Footer />
+      </div>
     </div>
   )
 }

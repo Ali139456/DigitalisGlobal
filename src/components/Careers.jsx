@@ -33,7 +33,8 @@ const Careers = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    // CHANGE 1: Font-family Montserrat
+    <div className="min-h-screen bg-white font-['Montserrat']">
       {/* Hero Section */}
       <motion.section
         className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
@@ -67,7 +68,7 @@ const Careers = () => {
             </p>
           </motion.div>
 
-          {/* Stats */}
+          {/* SECTION 1: Stats - Two Cards - Background #589CD5 */}
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-2xl mx-auto"
             initial="hidden"
@@ -79,12 +80,13 @@ const Careers = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="text-center p-6 sm:p-8 rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-lg transition-all"
+                // Updated Background: #589CD5, Text White
+                className="text-center p-6 sm:p-8 rounded-2xl bg-[#589CD5] border border-white/20 hover:shadow-lg transition-all"
               >
-                <div className="text-4xl sm:text-5xl font-bold text-sky-500 mb-2">
+                <div className="text-4xl sm:text-5xl font-bold text-white mb-2">
                   {stat.value}{stat.suffix}
                 </div>
-                <p className="text-base sm:text-lg text-slate-600 font-medium">
+                <p className="text-base sm:text-lg text-white/90 font-medium">
                   {stat.label}
                 </p>
               </motion.div>
@@ -114,7 +116,7 @@ const Careers = () => {
             </p>
           </motion.div>
 
-          {/* Team Info */}
+          {/* SECTION 2: Team Info - Two Cards - Background #52C4C9 */}
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16"
             initial="hidden"
@@ -122,103 +124,114 @@ const Careers = () => {
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           >
-            <motion.div variants={itemVariants} className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4">
+            {/* Card 1 */}
+            <motion.div 
+              variants={itemVariants} 
+              // Updated Background: #52C4C9, Text White
+              className="p-6 sm:p-8 rounded-2xl bg-[#52C4C9] border border-white/20 shadow-lg"
+            >
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
                 Expert Team Members
               </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
+              <p className="text-sm sm:text-base text-white/90 leading-relaxed mb-4">
                 Our team consists of over 20 experienced professionals, each bringing unique 
                 skills and expertise to the table. From developers and designers to marketers 
                 and strategists, we have the talent to tackle any digital challenge.
               </p>
-              <ul className="space-y-2 text-slate-600">
+              <ul className="space-y-2 text-white/90">
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>Full Stack Developers</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>UI/UX Designers</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>Digital Marketing Specialists</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>Graphic Designers</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>SEO Experts</span>
                 </li>
               </ul>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="p-8 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-slate-200">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+            {/* Card 2 */}
+            <motion.div 
+              variants={itemVariants} 
+              // Updated Background: #52C4C9, Text White
+              className="p-8 rounded-2xl bg-[#52C4C9] border border-white/20 shadow-lg"
+            >
+              <h3 className="text-2xl font-bold text-white mb-4">
                 24/7 Online Support
               </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
+              <p className="text-white/90 leading-relaxed mb-4">
                 We understand that digital needs don't follow a 9-to-5 schedule. That's why 
                 our team is available around the clock to provide support and assistance whenever 
                 you need it. Whether it's a technical issue or a quick question, we're here to help.
               </p>
-              <ul className="space-y-2 text-slate-600">
+              <ul className="space-y-2 text-white/90">
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>24/7 availability</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>Quick response times</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>Multiple communication channels</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>Dedicated support team</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-sky-500">✓</span>
+                  <span className="text-white font-bold">✓</span>
                   <span>Proactive monitoring</span>
                 </li>
               </ul>
             </motion.div>
           </motion.div>
 
-          {/* Why Join Us */}
+          {/* SECTION 3: Why Join Us - Rectangular Card - Gradient Background */}
           <motion.div
-            className="p-12 rounded-2xl bg-gradient-to-br from-sky-50 to-white border border-sky-100"
+            // Updated Background: Gradient from #589CD5 to #52C4C9
+            className="p-12 rounded-2xl bg-gradient-to-r from-[#589CD5] to-[#52C4C9] border border-white/20 shadow-xl text-white"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <h3 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+            <h3 className="text-3xl font-bold text-white mb-6 text-center">
               Why Join Digitalis Global?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-4xl mb-4">🌍</div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2">Global Reach</h4>
-                <p className="text-slate-600">
+                <div className="text-4xl mb-4 bg-white/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto backdrop-blur-sm">🌍</div>
+                <h4 className="text-xl font-bold text-white mb-2">Global Reach</h4>
+                <p className="text-white/90">
                   Work with clients from Australia, UK, USA, and Finland
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-4xl mb-4">🚀</div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2">Growth Opportunities</h4>
-                <p className="text-slate-600">
+                <div className="text-4xl mb-4 bg-white/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto backdrop-blur-sm">🚀</div>
+                <h4 className="text-xl font-bold text-white mb-2">Growth Opportunities</h4>
+                <p className="text-white/90">
                   Rapidly expanding company with clear career paths
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-4xl mb-4">💡</div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2">Innovation</h4>
-                <p className="text-slate-600">
+                <div className="text-4xl mb-4 bg-white/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto backdrop-blur-sm">💡</div>
+                <h4 className="text-xl font-bold text-white mb-2">Innovation</h4>
+                <p className="text-white/90">
                   Work on cutting-edge projects with modern technologies
                 </p>
               </div>

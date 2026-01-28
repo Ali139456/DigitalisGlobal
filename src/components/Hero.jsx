@@ -15,8 +15,20 @@ const Hero = () => {
   const [videoError, setVideoError] = useState(false)
   const videoRef = useRef(null)
 
+  /* ✅ detect mobile */
+  const [isMobile, setIsMobile] = useState(false)
+
   useEffect(() => {
-    // Delay video loading slightly to prioritize page content
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       if (videoRef.current) {
         videoRef.current.load()
@@ -26,13 +38,11 @@ const Hero = () => {
     return () => clearTimeout(timer)
   }, [])
 
-  const handleVideoLoaded = () => {
-    setVideoLoaded(true)
-  }
+  const handleVideoLoaded = () => setVideoLoaded(true)
 
   const handleVideoError = () => {
     setVideoError(true)
-    setVideoLoaded(true) // Show content even if video fails
+    setVideoLoaded(true)
   }
 
   const handleScrollClick = () => {
@@ -52,30 +62,35 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-video-container">
         {!videoError && (
-        <video
+          <video
             ref={videoRef}
             className={`hero-video ${videoLoaded ? 'loaded' : 'loading'}`}
-          autoPlay
-          loop
-          muted
-          playsInline
+            autoPlay
+            loop
+            muted
+            playsInline
             preload="metadata"
             onLoadedData={handleVideoLoaded}
             onCanPlay={handleVideoLoaded}
             onError={handleVideoError}
-        >
-          <source src="/7021935_Up_Looking_1920x1080.mp4" type="video/mp4" />
-        </video>
+          >
+            <source src="/7021935_Up_Looking_1920x1080.mp4" type="video/mp4" />
+          </video>
         )}
+
         {!videoLoaded && !videoError && (
           <div className="hero-video-placeholder">
             <div className="video-loading-spinner"></div>
           </div>
         )}
+
         <div className="hero-overlay"></div>
       </div>
-      
-      <div className="hero-content">
+
+      <div
+        className="hero-content"
+        style={{ paddingTop: isMobile ? '90px' : '0px' }}
+      >
         <div className="hero-container">
           <motion.h1
             className="hero-title"
@@ -88,17 +103,17 @@ const Hero = () => {
             <br />
             That Transform Businesses
           </motion.h1>
-          
+
           <motion.p
             className="hero-description"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            We craft cutting-edge web applications, mobile solutions, and digital platforms 
+            We craft cutting-edge web applications, mobile solutions, and digital platforms
             that drive growth and elevate your brand in the digital landscape.
           </motion.p>
-          
+
           <motion.div
             className="hero-cta"
             initial={{ opacity: 0, y: 20 }}
@@ -107,24 +122,25 @@ const Hero = () => {
           >
             <Link to="/contact">
               <motion.button
-                className="btn btn-primary"
+                className="btn btn-primary bg-[#589CD5]"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-              Start Your Project
+                Start Your Project
               </motion.button>
             </Link>
+
             <Link to="/portfolio">
               <motion.button
                 className="btn btn-secondary"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-              View Our Work
+                View Our Work
               </motion.button>
             </Link>
           </motion.div>
-          
+
           <div ref={ref} className="hero-stats">
             {heroStats.map((stat, index) => (
               <motion.div
@@ -132,13 +148,23 @@ const Hero = () => {
                 className="stat-item"
                 initial={{ opacity: 0, y: 30, scale: 0.8 }}
                 animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ delay: index * 0.2 + 0.5, duration: 0.6, type: "spring", stiffness: 100 }}
+                transition={{
+                  delay: index * 0.2 + 0.5,
+                  duration: 0.6,
+                  type: 'spring',
+                  stiffness: 100,
+                }}
               >
-                <motion.div 
+                <motion.div
                   className="stat-number"
                   initial={{ scale: 0, rotate: -180 }}
                   animate={inView ? { scale: 1, rotate: 0 } : {}}
-                  transition={{ delay: index * 0.2 + 0.7, type: "spring", stiffness: 200, damping: 15 }}
+                  transition={{
+                    delay: index * 0.2 + 0.7,
+                    type: 'spring',
+                    stiffness: 200,
+                    damping: 15,
+                  }}
                 >
                   <span>
                     {inView ? (
@@ -160,7 +186,34 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
+
+      {/* ✅ NEW: Floating Contact Icon (mobile only, fixed, scroll-safe) */}
+      {isMobile && (
+        <Link
+          to="/contact"
+          aria-label="Contact us"
+          style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            width: '56px',
+            height: '56px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #00f5ff, #0077ff)',
+            color: '#fff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            textDecoration: 'none',
+            zIndex: 9999,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+          }}
+        >
+          ✉️
+        </Link>
+      )}
+
       <motion.button
         className="scroll-indicator"
         onClick={handleScrollClick}
@@ -174,7 +227,7 @@ const Hero = () => {
         <motion.div
           className="scroll-arrow"
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         />
       </motion.button>
     </section>
@@ -182,4 +235,3 @@ const Hero = () => {
 }
 
 export default Hero
-

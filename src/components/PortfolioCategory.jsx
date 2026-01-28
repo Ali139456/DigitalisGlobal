@@ -254,7 +254,7 @@ const PortfolioCategory = () => {
 
   if (!categoryData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-white py-20 pt-32">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-white py-20 pt-32 font-['Montserrat']">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -299,7 +299,8 @@ const PortfolioCategory = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    // CHANGE 1: Added Montserrat Font to the entire wrapper
+    <div className="min-h-screen bg-white font-['Montserrat']">
       {/* Hero Section */}
       <motion.section
         className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
@@ -370,7 +371,8 @@ const PortfolioCategory = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200 hover:border-sky-300 hover:shadow-xl transition-all"
+                // CHANGE 2: Background #589CD5, White Text
+                className="group relative overflow-hidden rounded-2xl bg-[#589CD5] border border-white/20 hover:shadow-xl transition-all"
               >
                 {/* Image */}
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
@@ -389,33 +391,34 @@ const PortfolioCategory = () => {
                   
                   {/* Status Badge */}
                   <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 rounded-full bg-sky-500/90 backdrop-blur-sm text-white text-xs font-semibold">
+                    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-semibold">
                       {project.status}
                     </span>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 group-hover:text-sky-500 transition-colors">
+                {/* Content - Text White */}
+                <div className="p-4 sm:p-6 text-white">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 text-white">
                     {project.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-slate-600 mb-4 leading-relaxed">
+                  {/* Description - White/90 opacity */}
+                  <p className="text-sm sm:text-base text-white/90 mb-4 leading-relaxed">
                     {project.description}
                   </p>
                   
-                  {/* Features */}
+                  {/* Features - Updated pill style for blue background */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.features.slice(0, 3).map((feature, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-medium"
+                        className="px-2 py-1 rounded-md bg-white/20 backdrop-blur-sm text-white text-xs font-medium"
                       >
                         {feature}
                       </span>
                     ))}
                     {project.features.length > 3 && (
-                      <span className="px-2 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-medium">
+                      <span className="px-2 py-1 rounded-md bg-white/20 backdrop-blur-sm text-white text-xs font-medium">
                         +{project.features.length - 3} more
                       </span>
                     )}
@@ -425,30 +428,30 @@ const PortfolioCategory = () => {
             ))}
           </motion.div>
 
-          {/* CTA Section */}
+          {/* CHANGE 3: CTA Card Background #52C4C9, White Text */}
           <motion.div
-            className="mt-12 sm:mt-20 text-center bg-gradient-to-br from-sky-50 to-blue-50 p-6 sm:p-12 rounded-2xl border border-slate-200 shadow-lg"
+            className="mt-12 sm:mt-20 text-center bg-[#52C4C9] p-6 sm:p-12 rounded-2xl shadow-lg text-white"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6 px-4">
-              Ready to Start Your <span className="text-sky-500">Project?</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 px-4">
+              Ready to Start Your <span className="text-white">Project?</span>
             </h2>
-            <p className="text-base sm:text-lg text-slate-700 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-base sm:text-lg text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
               Let's discuss how we can bring your vision to life with our expert team and proven track record.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 px-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-sky-500 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition-all hover:bg-blue-600 hover:shadow-xl hover:shadow-sky-500/30 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#52C4C9] shadow-lg transition-all hover:bg-slate-50 hover:shadow-xl hover:-translate-y-0.5"
               >
                 Get Started
               </Link>
               <Link
                 to="/portfolio"
-                className="inline-flex items-center justify-center rounded-full border-2 border-slate-300 bg-white px-8 py-4 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-400 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center rounded-full border-2 border-white/40 bg-white/10 backdrop-blur-sm px-8 py-4 text-sm font-semibold text-white shadow-sm transition-all hover:bg-white/20 hover:border-white hover:-translate-y-0.5"
               >
                 View All Categories
               </Link>
@@ -463,4 +466,3 @@ const PortfolioCategory = () => {
 }
 
 export default PortfolioCategory
-

@@ -102,6 +102,7 @@ const Navbar = () => {
     { name: 'About Us', href: '/about', hasDropdown: false },
     { name: 'Services', href: '#services', hasDropdown: true, menuType: 'services' },
     { name: 'Portfolio', href: '/portfolio', hasDropdown: true, menuType: 'portfolio' },
+    { name: 'Case Studies', href: '/case-studies', hasDropdown: false },
     { name: 'Pricing', href: '/pricing', hasDropdown: false },
     { name: 'Careers', href: '/careers', hasDropdown: false },
   ]
@@ -110,18 +111,20 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isHomePage ? 'is-home' : ''}`}>
       <div className="navbar-line"></div>
       <div className="navbar-container">
-        <div className="navbar-left">
+      <div className="navbar-left">
           <Link to="/" className="navbar-logo">
             <img 
               src="/Digitlais-Logo-White%20(1).png" 
               alt="Digitalis Global Logo" 
-              className="h-6 sm:h-8 w-auto logo-image"
+              // UPDATED: Increased height from h-6/h-8 to h-8/h-12
+              className="h-8 sm:h-12 w-auto logo-image"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'inline';
               }}
             />
-            <span className="logo-text" style={{ display: 'none' }}>digitalis</span>
+            {/* UPDATED: Added text size classes (text-xl sm:text-2xl font-bold) */}
+            <span className="logo-text text-xl sm:text-2xl font-bold" style={{ display: 'none' }}>digitalis</span>
           </Link>
         </div>
 
@@ -431,11 +434,11 @@ const Navbar = () => {
           </ul>
           </div>
 
-        <div className="navbar-right">
+        {/* <div className="navbar-right">
           <Link to="/contact" className="navbar-contact-button">
             Contact
           </Link>
-        </div>
+        </div> */}
 
         <button 
           className="navbar-toggle"

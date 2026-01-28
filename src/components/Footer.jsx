@@ -6,273 +6,144 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
-    links: [
-      { name: 'About', href: '/about/about-us' },
-      { name: 'Portfolio', href: '/portfolio' },
-      { name: 'Pricing', href: '/pricing' },
-      { name: 'Contact', href: '/contact' },
-    ],
     services: [
-      { name: 'Website Development', href: '/service/website-development' },
-      { name: 'Ecommerce', href: '/service/ecommerce' },
-      { name: 'Graphic Designing', href: '/service/graphic-designing' },
-      { name: 'SEO', href: '/service/seo' },
-      { name: 'UI/UX Design', href: '/service/ui-ux-design' },
+      { name: 'Full Stack Development', path: '/services/full-stack-development' },
+      { name: 'E-commerce Solutions', path: '/services/ecommerce' },
+      { name: 'UI/UX Design', path: '/services/ui-ux-design' },
+      { name: 'SEO Optimization', path: '/services/seo' },
+      { name: 'Digital Marketing', path: '/services/digital-marketing' },
     ],
-    portfolio: [
-      { name: 'WordPress', href: '/portfolio/wordpress' },
-      { name: 'Shopify', href: '/portfolio/shopify' },
-      { name: 'Graphic Designing', href: '/portfolio/graphic-designing' },
-      { name: 'Squarespace / Wix', href: '/portfolio/squarespace-wix' },
+    company: [
+      { name: 'About Us', path: '/about' },
+      { name: 'Our Work', path: '/portfolio' },
+      { name: 'Careers', path: '/careers' },
+      { name: 'Contact', path: '/contact' },
     ],
-  }
-
-  const socialLinks = [
-    { 
-      name: 'Facebook', 
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-        </svg>
-      ), 
-      href: 'https://facebook.com' 
-    },
-    { 
-      name: 'Instagram', 
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-      ), 
-      href: 'https://instagram.com' 
-    },
-    { 
-      name: 'LinkedIn', 
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      ), 
-      href: 'https://linkedin.com' 
-    },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
+    social: [
+      { name: 'LinkedIn', url: '#' },
+      { name: 'Twitter', url: '#' },
+      { name: 'Instagram', url: '#' },
+      { name: 'Behance', url: '#' },
+    ]
   }
 
   return (
-    <footer className="relative w-full bg-gradient-to-br from-white via-slate-50 to-white text-slate-900 overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
-      
-      {/* Pattern Overlay */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
+    <footer className="relative bg-slate-950 text-slate-300 overflow-hidden pt-20 pb-10">
+      {/* Decorative Background Glow */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px] pointer-events-none" />
 
-      <div className="relative max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 py-16">
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-8 sm:mb-12"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={containerVariants}
-        >
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+          
           {/* Brand Column */}
-          <motion.div className="lg:col-span-2" variants={itemVariants}>
+          <div className="lg:col-span-5">
             <Link to="/" className="inline-block mb-6">
-              <img 
-                src="/dsd.png.png" 
-                alt="Digitalis Global Logo" 
-                className="h-10 sm:h-12 w-auto"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                }}
-              />
+              <span className="text-3xl font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                DigitalisGlobal.
+              </span>
             </Link>
-            <p className="text-slate-600 leading-relaxed mb-6 max-w-md">
-              Digitalis Global is a leading platform for web development, graphic design, and marketing.
-            </p>
-            <p className="text-sky-500 font-semibold mb-6">
-              Design | Develop | Market
+            <p className="text-slate-400 leading-relaxed mb-8 max-w-md">
+              We build digital experiences that matter. From complex web applications to stunning brand identities, we help businesses grow in the digital age.
             </p>
             
-            {/* Social Links */}
-            <div className="flex items-center gap-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-sky-500 flex items-center justify-center transition-all backdrop-blur-sm border border-slate-200 hover:border-sky-500 text-slate-600 hover:text-white"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
+            {/* Newsletter Input */}
+            <div className="relative max-w-md">
+              <input 
+                type="email" 
+                placeholder="Subscribe to our newsletter" 
+                className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-6 pr-32 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-all"
+              />
+              <button className="absolute right-2 top-2 bottom-2 bg-white text-slate-900 px-6 rounded-full text-sm font-semibold hover:bg-slate-200 transition-colors">
+                Subscribe
+              </button>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Links Column */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-3 sm:mb-4">Links</h3>
-            <ul className="space-y-3">
-              {footerLinks.links.map((link, index) => (
-                <li key={index}>
-                  {link.href.startsWith('/') ? (
-                    <Link
-                      to={link.href}
-                      className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
+          {/* Links Columns */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            
+            {/* Services */}
+            <div>
+              <h3 className="text-white font-semibold mb-6">Services</h3>
+              <ul className="space-y-4">
+                {footerLinks.services.map((link, idx) => (
+                  <li key={idx}>
+                    <Link 
+                      to={link.path}
+                      className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
+                    >
+                      <span className="w-0 group-hover:w-2 h-[1px] bg-blue-500 transition-all duration-300"></span>
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h3 className="text-white font-semibold mb-6">Company</h3>
+              <ul className="space-y-4">
+                {footerLinks.company.map((link, idx) => (
+                  <li key={idx}>
+                    <Link 
+                      to={link.path}
+                      className="text-slate-400 hover:text-white transition-colors"
                     >
                       {link.name}
                     </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Social & Contact */}
+            <div>
+              <h3 className="text-white font-semibold mb-6">Connect</h3>
+              <ul className="space-y-4 mb-8">
+                {footerLinks.social.map((link, idx) => (
+                  <li key={idx}>
+                    <a 
+                      href={link.url}
+                      className="text-slate-400 hover:text-white transition-colors flex items-center gap-2"
                     >
                       {link.name}
+                      <svg className="w-3 h-3 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </a>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Services Column */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-3 sm:mb-4">Services</h3>
-            <ul className="space-y-3">
-              {footerLinks.services.map((service, index) => (
-                <li key={index}>
-                  <Link
-                    to={service.href}
-                    className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
-                  >
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Portfolio Column */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-3 sm:mb-4">Portfolio</h3>
-            <ul className="space-y-3">
-              {footerLinks.portfolio.map((item, index) => (
-                <li key={index}>
-                  <Link
-                    to={item.href}
-                    className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
-
-        {/* Contact Info */}
-        <motion.div
-          className="border-t border-slate-200 pt-8 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-3 sm:mb-4">Contact Info</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            <div className="flex items-start gap-3">
-              <span className="text-sky-500 text-xl">📍</span>
-              <div>
-                <p className="text-slate-600 text-sm">
-                  Sydney, Australia, UK, Finland, Germany
-                </p>
+                  </li>
+                ))}
+              </ul>
+              
+              <div className="text-slate-400 text-sm">
+                <p>hello@digitalisglobal.com</p>
+                <p>+971 50 123 4567</p>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-sky-500 text-xl">✉️</span>
-              <div>
-                <a
-                  href="mailto:info@digitalisglobal.com"
-                  className="text-slate-600 hover:text-sky-500 transition-colors text-sm"
-                >
-                  info@digitalisglobal.com
-                </a>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-sky-500 text-xl">📞</span>
-              <div>
-                <a
-                  href="tel:+61466312363"
-                  className="text-slate-600 hover:text-sky-500 transition-colors text-sm block"
-                >
-                  +61 466 312 363
-                </a>
-              </div>
-            </div>
+
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom Bar */}
-        <motion.div
-          className="border-t border-slate-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          <p className="text-slate-500 text-sm text-center md:text-left">
-            Copyright ©{currentYear} Digitalis Global. All Rights Reserved.
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-500 text-sm">
+            © {currentYear} Digitalis Global. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <a
-              href="#privacy"
-              className="text-slate-500 hover:text-sky-500 transition-colors text-sm"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#terms"
-              className="text-slate-500 hover:text-sky-500 transition-colors text-sm"
-            >
-              Terms and Conditions
-            </a>
+          <div className="flex gap-6 text-sm text-slate-500">
+            <Link to="/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
           </div>
-        </motion.div>
+        </div>
+        
+        {/* Massive Background Text Effect */}
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none opacity-[0.03]">
+           <h1 className="text-[12rem] md:text-[16rem] font-bold text-center leading-none text-white tracking-tighter select-none whitespace-nowrap">
+             DIGITALIS
+           </h1>
+        </div>
       </div>
     </footer>
   )
 }
 
 export default Footer
-

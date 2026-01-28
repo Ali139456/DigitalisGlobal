@@ -8,7 +8,6 @@ const Pricing = () => {
     {
       name: 'Startup Website Package',
       icon: '🚀',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Up to 3 Page Website',
         'Up to 5 Stock Images (Industry Specific)',
@@ -23,7 +22,6 @@ const Pricing = () => {
     {
       name: 'Professional Website Package',
       icon: '💼',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Up to 10 Unique Pages Website',
         'CMS (Content Management System)/Admin Panel',
@@ -36,7 +34,6 @@ const Pricing = () => {
     {
       name: 'Elite Website Package',
       icon: '⭐',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Up to 15 Custom Pages Website',
         'Mobile Responsive',
@@ -52,7 +49,6 @@ const Pricing = () => {
     {
       name: 'Basic E-Commerce Package',
       icon: '🛒',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         '5 -8 Product Upload for stores',
         'Responsive Website (Desktop, Tab, and Mobile Compatible)',
@@ -66,7 +62,6 @@ const Pricing = () => {
     {
       name: 'Premium E-Commerce Package',
       icon: '💎',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Everything in Basic Package+',
         'Upto 15 Products Store',
@@ -82,7 +77,6 @@ const Pricing = () => {
     {
       name: 'Advance E-Commerce Package',
       icon: '👑',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Everything in Basic/Premium Package+',
         'Upto 100 Product Store',
@@ -100,7 +94,6 @@ const Pricing = () => {
     {
       name: 'General Graphic Designing',
       icon: '🎨',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         '2 Initial Design Concepts',
         '2 Rounds of Revisions',
@@ -110,7 +103,6 @@ const Pricing = () => {
     {
       name: 'Logo Designing',
       icon: '✨',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         'Announced After Meeting 3 Initial Design Concepts',
         '2 Rounds of Revisions',
@@ -121,7 +113,6 @@ const Pricing = () => {
     {
       name: 'Illustration',
       icon: '🖌️',
-      gradient: 'from-sky-500 to-blue-600',
       features: [
         '1 Initial Design Concept',
         '3 Rounds of Revisions',
@@ -154,7 +145,7 @@ const Pricing = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 font-['Montserrat']">
       {/* Hero Section */}
       <motion.section
         className="relative bg-gradient-to-br from-slate-50 via-sky-50/30 to-white py-20 overflow-hidden pt-32"
@@ -162,7 +153,6 @@ const Pricing = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -189,12 +179,8 @@ const Pricing = () => {
         </div>
       </motion.section>
 
-      {/* Web Packages */}
+      {/* SECTION 1: Web Packages - Background #589CD5 */}
       <section className="relative py-20 bg-gradient-to-br from-white via-blue-50/30 to-white overflow-hidden">
-        {/* Decorative Background */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-100/20 rounded-full blur-3xl" />
-        
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
             className="text-center mb-16"
@@ -225,18 +211,17 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                // Updated Background Color: #589CD5
+                className="group relative bg-[#589CD5] rounded-3xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
-                {/* Gradient Top Border */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient} rounded-t-3xl`} />
-                
                 {/* Icon Badge */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-100">
+                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-50">
                   <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
                 <div className="p-8 pt-10">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
+                  {/* Title White */}
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-6 pr-8">
                     {pkg.name}
                   </h3>
                   <ul className="space-y-4 mb-8">
@@ -249,45 +234,39 @@ const Pricing = () => {
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.05 }}
                       >
-                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-md">
-                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {/* Checkmark: White Circle, Blue Icon */}
+                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-md">
+                          <svg className="w-3.5 h-3.5 text-[#589CD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </span>
-                        <span className="text-slate-700 text-sm md:text-base leading-relaxed">{feature}</span>
+                        {/* Feature Text White/90 */}
+                        <span className="text-white/90 text-sm md:text-base leading-relaxed">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
-                  <Link
-                    to="/contact"
-                    className="block w-full"
-                  >
+                  <Link to="/contact" className="block w-full">
+                    {/* Button: White Background, Blue Text */}
                     <motion.button
-                      className={`w-full px-6 py-4 rounded-xl font-semibold bg-gradient-to-r ${pkg.gradient} text-white hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn`}
+                      className="w-full px-6 py-4 rounded-xl font-semibold bg-white text-[#589CD5] hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <span className="relative z-10 block group-hover/btn:hidden">Get A Quote</span>
                       <span className="relative z-10 hidden group-hover/btn:block">Contact Us</span>
-                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     </motion.button>
                   </Link>
                 </div>
-
-                {/* Decorative Corner */}
-                <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl ${pkg.gradient} opacity-5 rounded-tl-full`} />
+                {/* Light Overlay decorative */}
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-white opacity-5 rounded-tl-full" />
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* E-Commerce Packages */}
+      {/* SECTION 2: E-Commerce Packages - Background #52C4C9 */}
       <section className="relative py-20 bg-gradient-to-br from-slate-50 via-orange-50/20 to-white overflow-hidden">
-        {/* Decorative Background */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-orange-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-100/20 rounded-full blur-3xl" />
-        
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
             className="text-center mb-16"
@@ -318,18 +297,17 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                // Updated Background Color: #52C4C9
+                className="group relative bg-[#52C4C9] rounded-3xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
-                {/* Gradient Top Border */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient} rounded-t-3xl`} />
-                
                 {/* Icon Badge */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-100">
+                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-50">
                   <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
                 <div className="p-8 pt-10">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
+                  {/* Title White */}
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-6 pr-8">
                     {pkg.name}
                   </h3>
                   <ul className="space-y-4 mb-8">
@@ -342,45 +320,39 @@ const Pricing = () => {
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.05 }}
                       >
-                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-md">
-                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                         {/* Checkmark: White Circle, Teal Icon */}
+                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-md">
+                          <svg className="w-3.5 h-3.5 text-[#52C4C9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </span>
-                        <span className="text-slate-700 text-sm md:text-base leading-relaxed">{feature}</span>
+                        {/* Feature Text White/90 */}
+                        <span className="text-white/90 text-sm md:text-base leading-relaxed">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
-                  <Link
-                    to="/contact"
-                    className="block w-full"
-                  >
+                  <Link to="/contact" className="block w-full">
+                     {/* Button: White Background, Teal Text */}
                     <motion.button
-                      className={`w-full px-6 py-4 rounded-xl font-semibold bg-gradient-to-r ${pkg.gradient} text-white hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn`}
+                      className="w-full px-6 py-4 rounded-xl font-semibold bg-white text-[#52C4C9] hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <span className="relative z-10 block group-hover/btn:hidden">Get A Quote</span>
                       <span className="relative z-10 hidden group-hover/btn:block">Contact Us</span>
-                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     </motion.button>
                   </Link>
                 </div>
-
-                {/* Decorative Corner */}
-                <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl ${pkg.gradient} opacity-5 rounded-tl-full`} />
+                 {/* Light Overlay decorative */}
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-white opacity-5 rounded-tl-full" />
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Graphic Designing Packages */}
+      {/* SECTION 3: Graphic Designing Packages - Gradient Background */}
       <section className="relative py-20 bg-gradient-to-br from-white via-pink-50/30 to-white overflow-hidden">
-        {/* Decorative Background */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-pink-100/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl" />
-        
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
           <motion.div
             className="text-center mb-16"
@@ -411,18 +383,17 @@ const Pricing = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative bg-white rounded-3xl border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                // Updated Background Color: Gradient of the two colors
+                className="group relative bg-gradient-to-br from-[#589CD5] to-[#52C4C9] rounded-3xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
-                {/* Gradient Top Border */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${pkg.gradient} rounded-t-3xl`} />
-                
                 {/* Icon Badge */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-gradient-to-br from-white to-slate-50 shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-100">
+                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center transform rotate-6 group-hover:rotate-12 transition-transform duration-300 z-20 border-2 border-slate-50">
                   <span className="text-3xl leading-none select-none" style={{ fontSize: '2rem', lineHeight: '1' }}>{pkg.icon}</span>
                 </div>
 
                 <div className="p-8 pt-10">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 pr-8">
+                  {/* Title White */}
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-6 pr-8">
                     {pkg.name}
                   </h3>
                   <ul className="space-y-4 mb-8">
@@ -435,33 +406,31 @@ const Pricing = () => {
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.05 }}
                       >
-                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-md">
-                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                         {/* Checkmark: White Circle, Blue Icon */}
+                        <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-md">
+                          <svg className="w-3.5 h-3.5 text-[#589CD5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
                         </span>
-                        <span className="text-slate-700 text-sm md:text-base leading-relaxed">{feature}</span>
+                        {/* Feature Text White/90 */}
+                        <span className="text-white/90 text-sm md:text-base leading-relaxed">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
-                  <Link
-                    to="/contact"
-                    className="block w-full"
-                  >
+                  <Link to="/contact" className="block w-full">
+                     {/* Button: White Background, Blue Text */}
                     <motion.button
-                      className={`w-full px-6 py-4 rounded-xl font-semibold bg-gradient-to-r ${pkg.gradient} text-white hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn`}
+                      className="w-full px-6 py-4 rounded-xl font-semibold bg-white text-[#589CD5] hover:shadow-lg transition-all duration-300 relative overflow-hidden group/btn"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <span className="relative z-10 block group-hover/btn:hidden">Get A Quote</span>
                       <span className="relative z-10 hidden group-hover/btn:block">Contact Us</span>
-                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                     </motion.button>
                   </Link>
                 </div>
-
-                {/* Decorative Corner */}
-                <div className={`absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl ${pkg.gradient} opacity-5 rounded-tl-full`} />
+                 {/* Light Overlay decorative */}
+                 <div className="absolute bottom-0 right-0 w-32 h-32 bg-white opacity-5 rounded-tl-full" />
               </motion.div>
             ))}
           </motion.div>
